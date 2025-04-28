@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Proof" targetNamespace="http://tempuri.org/Proof.xsd" xmlns:mstns="http://tempuri.org/Proof.xsd" xmlns="http://tempuri.org/Proof.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="MyConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="MyConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.MyConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DependentsTableAdapter" GeneratorDataComponentClassName="DependentsTableAdapter" Name="Dependents" UserDataComponentName="DependentsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MyConnectionString (Web.config)" DbObjectName="SELECT a.Company, a.EmployeeId, a.EmployeeName, a.IDNo, a.DeptId, a.SalaryYM, hid.DependentsName, a.Dependent_IDNo, (SELECT CodeName FROM CodeDesc WHERE CodeID='PY#Depende' AND CodeCode=hid.Dependent_title) Dependent_title, a.Dependent_HI_Fee FROM ( SELECT pm.Company , pm.EmployeeId, pm.EmployeeName, pm.IDNo, pm.DeptId, phh2.SalaryYM, phh2.Dependent_IDNo, phh2.Dependent_HI_Fee FROM Personnel_Master pm LEFT JOIN ( SELECT phh.Company,phh.EmployeeId,phh.SalaryYM SalaryYM,phh.Dependent1_IDNo Dependent_IDNo,phh.Dependent1_HI_Fee Dependent_HI_Fee FROM Payroll_History_Heading phh UNION SELECT phh.Company,phh.EmployeeId,phh.SalaryYM SalaryYM,phh.Dependent2_IDNo Dependent_IDNo,phh.Dependent2_HI_Fee Dependent_HI_Fee FROM Payroll_History_Heading phh UNION SELECT phh.Company,phh.EmployeeId,phh.SalaryYM SalaryYM,phh.Dependent3_IDNo Dependent_IDNo,phh.Dependent3_HI_Fee Dependent_HI_Fee FROM Payroll_History_Heading phh ) phh2 ON phh2.Company=pm.Company AND phh2.EmployeeId=pm.EmployeeId GROUP BY pm.Company, pm.EmployeeId, pm.EmployeeName, pm.IDNo, pm.DeptId, phh2.SalaryYM, phh2.Dependent_IDNo, phh2.Dependent_HI_Fee ) a LEFT JOIN ( SELECT Personnel_Master.Company, Personnel_Master.EmployeeId, Personnel_Master.IDNo, Personnel_Master.DeptId, HealthInsurance_Heading.EffectiveDate, HealthInsurance_Detail.DependentsName, HealthInsurance_Detail.IDNo AS DependentsIDNo, HealthInsurance_Detail.BirthDate, HealthInsurance_Detail.Dependent_title, HealthInsurance_Detail.EffectiveDate AS DependentsEffectiveDate FROM Personnel_Master,HealthInsurance_Heading LEFT JOIN HealthInsurance_Detail ON HealthInsurance_Heading.Company = HealthInsurance_Detail.Company AND HealthInsurance_Heading.EmployeeId = HealthInsurance_Detail.EmployeeId WHERE Personnel_Master.Company = HealthInsurance_Heading.Company AND Personnel_Master.EmployeeId = HealthInsurance_Heading.EmployeeId ) hid ON a.Company=hid.Company AND hid.EmployeeId=a.EmployeeId AND hid.DependentsIDNo=a.Dependent_IDNo GROUP BY a.Company, a.EmployeeId, a.EmployeeName, a.IDNo, a.DeptId, a.SalaryYM, hid.DependentsName, a.Dependent_IDNo, Dependent_title, a.Dependent_HI_Fee" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select Company
+,EmployeeId
+,EmployeeName
+,IDNo
+,DeptId
+,substring(convert(varchar,SalaryYM),1,4) sy
+,DependentsName
+,Dependent_IDNo
+,Dependent_title
+,SUM(Dependent_HI_Fee) Dependent_HI_Fee 
+from
+(
+select a.Company,
+a.EmployeeId,
+a.EmployeeName,
+a.IDNo,
+a.DeptId,
+a.SalaryYM,
+hid.DependentsName,
+a.Dependent_IDNo,
+(select CodeName from CodeDesc Where CodeID='PY#Depende' And CodeCode=hid.Dependent_title) Dependent_title,
+a.Dependent_HI_Fee
+from 
+(
+select pm.Company ,
+pm.EmployeeId,
+pm.EmployeeName,
+pm.IDNo,
+pm.DeptId,
+phh2.SalaryYM,
+phh2.Dependent_IDNo,
+phh2.Dependent_HI_Fee
+from Personnel_Master pm 
+left join 
+(
+select phh.Company,phh.EmployeeId,phh.SalaryYM SalaryYM,phh.Dependent1_IDNo Dependent_IDNo,phh.Dependent1_HI_Fee Dependent_HI_Fee from Payroll_History_Heading phh 
+union 
+Select phh.Company,phh.EmployeeId,phh.SalaryYM SalaryYM,phh.Dependent2_IDNo Dependent_IDNo,phh.Dependent2_HI_Fee Dependent_HI_Fee from Payroll_History_Heading phh
+union
+select phh.Company,phh.EmployeeId,phh.SalaryYM SalaryYM,phh.Dependent3_IDNo Dependent_IDNo,phh.Dependent3_HI_Fee Dependent_HI_Fee from Payroll_History_Heading phh 
+) phh2 on phh2.Company=pm.Company and phh2.EmployeeId=pm.EmployeeId 
+group by pm.Company,
+pm.EmployeeId,
+pm.EmployeeName,
+pm.IDNo,
+pm.DeptId,
+phh2.SalaryYM,
+phh2.Dependent_IDNo,
+phh2.Dependent_HI_Fee
+) a 
+left join
+(
+select Personnel_Master.Company,
+Personnel_Master.EmployeeId,
+Personnel_Master.IDNo,
+Personnel_Master.DeptId,
+HealthInsurance_Heading.EffectiveDate,
+HealthInsurance_Detail.DependentsName,
+HealthInsurance_Detail.IDNo as DependentsIDNo,
+HealthInsurance_Detail.BirthDate,
+HealthInsurance_Detail.Dependent_title,
+HealthInsurance_Detail.EffectiveDate as DependentsEffectiveDate 
+from Personnel_Master,HealthInsurance_Heading left join HealthInsurance_Detail 
+on HealthInsurance_Heading.Company = HealthInsurance_Detail.Company AND HealthInsurance_Heading.EmployeeId = HealthInsurance_Detail.EmployeeId 
+Where Personnel_Master.Company = HealthInsurance_Heading.Company And Personnel_Master.EmployeeId = HealthInsurance_Heading.EmployeeId
+) hid
+on a.Company=hid.Company and hid.EmployeeId=a.EmployeeId and hid.DependentsIDNo=a.Dependent_IDNo 
+group by a.Company,
+a.EmployeeId,
+a.EmployeeName,
+a.IDNo,
+a.DeptId,
+a.SalaryYM,
+hid.DependentsName,
+a.Dependent_IDNo,
+Dependent_title,
+a.Dependent_HI_Fee
+)t
+group by Company
+,EmployeeId
+,EmployeeName
+,IDNo
+,DeptId
+,substring(convert(varchar,SalaryYM),1,4)
+,DependentsName
+,Dependent_IDNo
+,Dependent_title</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Company" DataSetColumn="Company" />
+              <Mapping SourceColumn="EmployeeId" DataSetColumn="EmployeeId" />
+              <Mapping SourceColumn="EmployeeName" DataSetColumn="EmployeeName" />
+              <Mapping SourceColumn="DeptId" DataSetColumn="DeptId" />
+              <Mapping SourceColumn="IDNo" DataSetColumn="IDNo" />
+              <Mapping SourceColumn="sy" DataSetColumn="sy" />
+              <Mapping SourceColumn="DependentsName" DataSetColumn="DependentsName" />
+              <Mapping SourceColumn="Dependent_IDNo" DataSetColumn="Dependent_IDNo" />
+              <Mapping SourceColumn="Dependent_HI_Fee" DataSetColumn="Dependent_HI_Fee" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="personnelTableAdapter" GeneratorDataComponentClassName="personnelTableAdapter" Name="personnel" UserDataComponentName="personnelTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MyConnectionString (Web.config)" DbObjectName="SELECT c.Company, c.CompanyName, c.Boss, pm.EmployeeId, pm.EmployeeName, pm.IDNo, pm.DeptId FROM Company AS c LEFT OUTER JOIN Personnel_Master AS pm ON c.Company = pm.Company" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT          cpm.Company, cpm.CompanyName, cpm.Boss, cpm.EmployeeId, cpm.EmployeeName, cpm.IDNo, cpm.DeptId, 
+                            SUBSTRING(CONVERT(varchar, phh.SalaryYM), 1, 4) AS sy, 0 AS LI_FeeAll, 0 AS HI_FeeAll, 0 AS HI2
+FROM              (SELECT          c.Company, c.CompanyName, c.Boss, pm.EmployeeId, pm.EmployeeName, pm.IDNo, pm.DeptId
+                            FROM               Company AS c LEFT OUTER JOIN
+                                                        Personnel_Master AS pm ON c.Company = pm.Company) AS cpm LEFT OUTER JOIN
+                            Payroll_History_Heading AS phh ON cpm.Company = phh.Company AND cpm.EmployeeId = phh.EmployeeId
+GROUP BY   cpm.Company, cpm.CompanyName, cpm.Boss, cpm.EmployeeId, cpm.EmployeeName, cpm.IDNo, cpm.DeptId, 
+                            SUBSTRING(CONVERT(varchar, phh.SalaryYM), 1, 4)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Company" DataSetColumn="Company" />
+              <Mapping SourceColumn="CompanyName" DataSetColumn="CompanyName" />
+              <Mapping SourceColumn="Boss" DataSetColumn="Boss" />
+              <Mapping SourceColumn="EmployeeId" DataSetColumn="EmployeeId" />
+              <Mapping SourceColumn="EmployeeName" DataSetColumn="EmployeeName" />
+              <Mapping SourceColumn="IDNo" DataSetColumn="IDNo" />
+              <Mapping SourceColumn="DeptId" DataSetColumn="DeptId" />
+              <Mapping SourceColumn="sy" DataSetColumn="sy" />
+              <Mapping SourceColumn="LI_FeeAll" DataSetColumn="LI_FeeAll" />
+              <Mapping SourceColumn="HI_FeeAll" DataSetColumn="HI_FeeAll" />
+              <Mapping SourceColumn="HI2" DataSetColumn="HI2" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Proof" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="Proof" msprop:Generator_UserDSName="Proof">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Dependents" msprop:Generator_TableClassName="DependentsDataTable" msprop:Generator_TableVarName="tableDependents" msprop:Generator_TablePropName="Dependents" msprop:Generator_RowDeletingName="DependentsRowDeleting" msprop:Generator_UserTableName="Dependents" msprop:Generator_RowChangingName="DependentsRowChanging" msprop:Generator_RowEvHandlerName="DependentsRowChangeEventHandler" msprop:Generator_RowDeletedName="DependentsRowDeleted" msprop:Generator_RowEvArgName="DependentsRowChangeEvent" msprop:Generator_RowChangedName="DependentsRowChanged" msprop:Generator_RowClassName="DependentsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Company" msprop:Generator_ColumnVarNameInTable="columnCompany" msprop:Generator_ColumnPropNameInRow="Company" msprop:Generator_ColumnPropNameInTable="CompanyColumn" msprop:Generator_UserColumnName="Company" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeId" msprop:Generator_ColumnVarNameInTable="columnEmployeeId" msprop:Generator_ColumnPropNameInRow="EmployeeId" msprop:Generator_ColumnPropNameInTable="EmployeeIdColumn" msprop:Generator_UserColumnName="EmployeeId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeName" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_UserColumnName="EmployeeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DeptId" msprop:Generator_ColumnVarNameInTable="columnDeptId" msprop:Generator_ColumnPropNameInRow="DeptId" msprop:Generator_ColumnPropNameInTable="DeptIdColumn" msprop:Generator_UserColumnName="DeptId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IDNo" msprop:Generator_ColumnVarNameInTable="columnIDNo" msprop:Generator_ColumnPropNameInRow="IDNo" msprop:Generator_ColumnPropNameInTable="IDNoColumn" msprop:Generator_UserColumnName="IDNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sy" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsy" msprop:Generator_ColumnPropNameInRow="sy" msprop:Generator_ColumnPropNameInTable="syColumn" msprop:Generator_UserColumnName="sy" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DependentsName" msprop:Generator_ColumnVarNameInTable="columnDependentsName" msprop:Generator_ColumnPropNameInRow="DependentsName" msprop:Generator_ColumnPropNameInTable="DependentsNameColumn" msprop:Generator_UserColumnName="DependentsName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Dependent_IDNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDependent_IDNo" msprop:Generator_ColumnPropNameInRow="Dependent_IDNo" msprop:Generator_ColumnPropNameInTable="Dependent_IDNoColumn" msprop:Generator_UserColumnName="Dependent_IDNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Dependent_title" msprop:Generator_ColumnVarNameInTable="columnDependent_title" msprop:Generator_ColumnPropNameInRow="Dependent_title" msprop:Generator_ColumnPropNameInTable="Dependent_titleColumn" msprop:Generator_UserColumnName="Dependent_title" type="xs:string" minOccurs="0" />
+              <xs:element name="Dependent_HI_Fee" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDependent_HI_Fee" msprop:Generator_ColumnPropNameInRow="Dependent_HI_Fee" msprop:Generator_ColumnPropNameInTable="Dependent_HI_FeeColumn" msprop:Generator_UserColumnName="Dependent_HI_Fee" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="personnel" msprop:Generator_TableClassName="personnelDataTable" msprop:Generator_TableVarName="tablepersonnel" msprop:Generator_TablePropName="personnel" msprop:Generator_RowDeletingName="personnelRowDeleting" msprop:Generator_UserTableName="personnel" msprop:Generator_RowChangingName="personnelRowChanging" msprop:Generator_RowEvHandlerName="personnelRowChangeEventHandler" msprop:Generator_RowDeletedName="personnelRowDeleted" msprop:Generator_RowEvArgName="personnelRowChangeEvent" msprop:Generator_RowChangedName="personnelRowChanged" msprop:Generator_RowClassName="personnelRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Company" msprop:Generator_ColumnVarNameInTable="columnCompany" msprop:Generator_ColumnPropNameInRow="Company" msprop:Generator_ColumnPropNameInTable="CompanyColumn" msprop:Generator_UserColumnName="Company" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompanyName" msprop:Generator_ColumnVarNameInTable="columnCompanyName" msprop:Generator_ColumnPropNameInRow="CompanyName" msprop:Generator_ColumnPropNameInTable="CompanyNameColumn" msprop:Generator_UserColumnName="CompanyName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Boss" msprop:Generator_ColumnVarNameInTable="columnBoss" msprop:Generator_ColumnPropNameInRow="Boss" msprop:Generator_ColumnPropNameInTable="BossColumn" msprop:Generator_UserColumnName="Boss" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeId" msprop:Generator_ColumnVarNameInTable="columnEmployeeId" msprop:Generator_ColumnPropNameInRow="EmployeeId" msprop:Generator_ColumnPropNameInTable="EmployeeIdColumn" msprop:Generator_UserColumnName="EmployeeId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeName" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_UserColumnName="EmployeeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IDNo" msprop:Generator_ColumnVarNameInTable="columnIDNo" msprop:Generator_ColumnPropNameInRow="IDNo" msprop:Generator_ColumnPropNameInTable="IDNoColumn" msprop:Generator_UserColumnName="IDNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DeptId" msprop:Generator_ColumnVarNameInTable="columnDeptId" msprop:Generator_ColumnPropNameInRow="DeptId" msprop:Generator_ColumnPropNameInTable="DeptIdColumn" msprop:Generator_UserColumnName="DeptId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sy" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsy" msprop:Generator_ColumnPropNameInRow="sy" msprop:Generator_ColumnPropNameInTable="syColumn" msprop:Generator_UserColumnName="sy" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LI_FeeAll" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLI_FeeAll" msprop:Generator_ColumnPropNameInRow="LI_FeeAll" msprop:Generator_ColumnPropNameInTable="LI_FeeAllColumn" msprop:Generator_UserColumnName="LI_FeeAll" type="xs:int" minOccurs="0" />
+              <xs:element name="HI_FeeAll" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHI_FeeAll" msprop:Generator_ColumnPropNameInRow="HI_FeeAll" msprop:Generator_ColumnPropNameInTable="HI_FeeAllColumn" msprop:Generator_UserColumnName="HI_FeeAll" type="xs:int" minOccurs="0" />
+              <xs:element name="HI2" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHI2" msprop:Generator_ColumnPropNameInRow="HI2" msprop:Generator_ColumnPropNameInTable="HI2Column" msprop:Generator_UserColumnName="HI2" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

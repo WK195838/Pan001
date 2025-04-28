@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="OvertimeStatistics" targetNamespace="http://tempuri.org/OvertimeStatistics.xsd" xmlns:mstns="http://tempuri.org/OvertimeStatistics.xsd" xmlns="http://tempuri.org/OvertimeStatistics.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="MyConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="MyConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.MyConnectionString.ConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="OvertimeTrxTableAdapter" Name="OvertimeTrx">
+            <MainSource>
+              <DbSource ConnectionRef="MyConnectionString (Web.config)" DbObjectName="SELECT C.Company, C.CompanyName, D.DepCode, D.DepName, PM.EmployeeId, PM.EmployeeName, substring(CONVERT(varchar,OTT.OverTime_Date,112),1,6) OTD, SUM(OTT.OverTime1) A, SUM(OTT.OverTime2) B, SUM(OTT.Holiday) C, SUM(OTT.NationalHoliday) D FROM Company C INNER JOIN Department D ON C.Company = D.Company INNER JOIN Personnel_Master PM ON D.Company = PM.Company AND D.DepCode = PM.DeptId INNER JOIN OverTime_Trx OTT ON PM.Company = OTT.Company AND PM.EmployeeId = OTT.EmployeeId GROUP BY C.Company, C.CompanyName, D.DepCode, D.DepName, PM.EmployeeId, PM.EmployeeName, substring(CONVERT(varchar,OTT.OverTime_Date,112),1,6)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT  P.*,A+B+C+D Tt from
+(
+SELECT         
+C.Company,
+C.CompanyName,
+D.DepCode, 
+D.DepName,
+PM.EmployeeId,
+PM.EmployeeName,
+substring(convert(varchar,OTT.OverTime_Date,112),1,6) OTD,
+Sum(OTT.OverTime1) A,
+Sum(OTT.OverTime2) B,
+Sum(OTT.Holiday) C,
+Sum(OTT.NationalHoliday) D
+
+FROM            
+Company C INNER JOIN
+Department D ON C.Company = D.Company INNER JOIN
+Personnel_Master PM ON D.Company = PM.Company AND
+D.DepCode = PM.DeptId INNER JOIN
+OverTime_Trx OTT ON PM.Company = OTT.Company AND 
+PM.EmployeeId = OTT.EmployeeId
+
+GROUP BY
+C.Company,
+C.CompanyName,
+D.DepCode, 
+D.DepName,
+PM.EmployeeId,
+PM.EmployeeName,
+substring(convert(varchar,OTT.OverTime_Date,112),1,6)
+) P</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Company" DataSetColumn="Company" />
+              <Mapping SourceColumn="CompanyName" DataSetColumn="CompanyName" />
+              <Mapping SourceColumn="DepCode" DataSetColumn="DepCode" />
+              <Mapping SourceColumn="EmployeeId" DataSetColumn="EmployeeId" />
+              <Mapping SourceColumn="EmployeeName" DataSetColumn="EmployeeName" />
+              <Mapping SourceColumn="DepName" DataSetColumn="DepName" />
+              <Mapping SourceColumn="A" DataSetColumn="A" />
+              <Mapping SourceColumn="B" DataSetColumn="B" />
+              <Mapping SourceColumn="C" DataSetColumn="C" />
+              <Mapping SourceColumn="D" DataSetColumn="D" />
+              <Mapping SourceColumn="Tt" DataSetColumn="Tt" />
+              <Mapping SourceColumn="OTD" DataSetColumn="OTD" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="LeaveTrxTableAdapter" Name="LeaveTrx">
+            <MainSource>
+              <DbSource ConnectionRef="MyConnectionString (Web.config)" DbObjectName="SELECT DepCode,DepName,EmployeeId,EmployeeName, BT ,CAST(SUM(CASE Leave_Id WHEN 'A' THEN CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END ELSE 0 END) AS FLOAT) +ROUND(SUM(CASE Leave_Id WHEN 'A' THEN CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours END ELSE 0 END)/8,2) D1 ,CAST(SUM(CASE Leave_Id WHEN 'B' THEN CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END ELSE 0 END) AS FLOAT) +ROUND(SUM(CASE Leave_Id WHEN 'B' THEN CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours END ELSE 0 END)/8,2) D2 ,CAST(SUM(CASE Leave_Id WHEN 'E' THEN CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END ELSE 0 END) AS FLOAT) +ROUND(SUM(CASE Leave_Id WHEN 'E' THEN CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours END ELSE 0 END)/8,2) D3 ,CAST(SUM(CASE Leave_Id WHEN 'G' THEN CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END ELSE 0 END) AS FLOAT) +ROUND(SUM(CASE Leave_Id WHEN 'G' THEN CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours END ELSE 0 END)/8,2) D4 ,CAST(SUM(CASE Leave_Id WHEN 'I' THEN CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END ELSE 0 END) AS FLOAT) +ROUND(SUM(CASE Leave_Id WHEN 'I' THEN CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours END ELSE 0 END)/8,2) D5 ,CAST(SUM(CASE Leave_Id WHEN 'K' THEN CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END ELSE 0 END) AS FLOAT) +ROUND(SUM(CASE Leave_Id WHEN 'K' THEN CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours END ELSE 0 END)/8,2) D6 ,CAST(SUM(CASE Leave_Id WHEN 'M' THEN CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END ELSE 0 END) AS FLOAT) +ROUND(SUM(CASE Leave_Id WHEN 'M' THEN CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours END ELSE 0 END)/8,2) D7 ,CAST(SUM(CASE Leave_Id WHEN 'N' THEN CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END ELSE 0 END) AS FLOAT) +ROUND(SUM(CASE Leave_Id WHEN 'N' THEN CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours END ELSE 0 END)/8,2) D8 ,CAST(SUM(CASE Leave_Id WHEN 'P' THEN CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END ELSE 0 END) AS FLOAT) +ROUND(SUM(CASE Leave_Id WHEN 'P' THEN CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours END ELSE 0 END)/8,2) D9 ,CAST(SUM(CASE Leave_Id WHEN 'Q' THEN CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END ELSE 0 END) AS FLOAT) +ROUND(SUM(CASE Leave_Id WHEN 'Q' THEN CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours END ELSE 0 END)/8,2) D10 ,CAST(SUM(CASE Leave_Id WHEN 'S' THEN CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END ELSE 0 END) AS FLOAT) +ROUND(SUM(CASE Leave_Id WHEN 'S' THEN CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours END ELSE 0 END)/8,2) D11 ,CAST(SUM(CASE Leave_Id WHEN 'T' THEN CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END ELSE 0 END) AS FLOAT) +ROUND(SUM(CASE Leave_Id WHEN 'T' THEN CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours END ELSE 0 END)/8,2) D12 ,CAST(SUM(CASE Leave_Id WHEN 'U' THEN CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END ELSE 0 END) AS FLOAT) +ROUND(SUM(CASE Leave_Id WHEN 'U' THEN CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours END ELSE 0 END)/8,2) D13 ,CAST(SUM(CASE Leave_Id WHEN 'V' THEN CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END ELSE 0 END) AS FLOAT) +ROUND(SUM(CASE Leave_Id WHEN 'V' THEN CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours END ELSE 0 END)/8,2) D14 ,CAST(SUM(CASE Leave_Id WHEN 'W' THEN CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END ELSE 0 END) AS FLOAT) +ROUND(SUM(CASE Leave_Id WHEN 'W' THEN CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours END ELSE 0 END)/8,2) D15 ,CAST(SUM(CASE Leave_Id WHEN 'X' THEN CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END ELSE 0 END) AS FLOAT) +ROUND(SUM(CASE Leave_Id WHEN 'X' THEN CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours END ELSE 0 END)/8,2) D16 ,CAST(SUM(CASE Leave_Id WHEN 'Y' THEN CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END ELSE 0 END) AS FLOAT) +ROUND(SUM(CASE Leave_Id WHEN 'Y' THEN CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours END ELSE 0 END)/8,2) D17 ,CAST(SUM(CASE Leave_Id WHEN 'Z' THEN CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END ELSE 0 END) AS FLOAT) +ROUND(SUM(CASE Leave_Id WHEN 'Z' THEN CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours END ELSE 0 END)/8,2) D18 FROM ( SELECT DEP.DepCode,DEP.DepName,PM.EmployeeId, PM.EmployeeName, LTB.Leave_Id, LTB.Leave_Desc, substring(CONVERT(varchar,LT.BeginDateTime,112),1,6) BT, SUM(LT.days) TDays ,SUM(LT.hours) Thours FROM Company c INNER JOIN Personnel_Master PM ON c.Company = PM.Company INNER JOIN Department DEP ON PM.DeptId = DEP.DepCode AND PM.Company = DEP.Company INNER JOIN Leave_Trx LT ON PM.Company = LT.Company AND PM.EmployeeId = LT.EmployeeId INNER JOIN LeaveType_Basic LTB ON LT.Company = LTB.Company AND LT.LeaveType_Id = LTB.Leave_Id GROUP BY DEP.DepCode,DEP.DepName, PM.EmployeeId, PM.EmployeeName, substring(CONVERT(varchar,LT.BeginDateTime,112),1,6), LTB.Leave_Id, LTB.Leave_Desc ) T GROUP BY DepCode,DepName,EmployeeId,EmployeeName,BT" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>
+
+select TT.*,D1+D2+D3+D4+D5+D6+D7+D8+D9+D10+D11+D12+D13+D14+D15+D16+D17+D18 TD
+from
+(
+Select DepCode,DepName,EmployeeId,EmployeeName, BT
+,CAST(Sum(Case Leave_Id When 'A' then CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END else 0 end) as FLOAT)
++ROUND(Sum(Case Leave_Id When 'A' then CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours  END else 0 end)/8,2) D1
+,CAST(Sum(Case Leave_Id When 'B' then CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END else 0 end) as FLOAT)
++ROUND(Sum(Case Leave_Id When 'B' then CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours  END else 0 end)/8,2) D2
+,CAST(Sum(Case Leave_Id When 'E' then CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END else 0 end) as FLOAT)
++ROUND(Sum(Case Leave_Id When 'E' then CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours  END else 0 end)/8,2) D3
+,CAST(Sum(Case Leave_Id When 'G' then CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END else 0 end) as FLOAT)
++ROUND(Sum(Case Leave_Id When 'G' then CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours  END else 0 end)/8,2) D4
+,CAST(Sum(Case Leave_Id When 'I' then CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END else 0 end) as FLOAT)
++ROUND(Sum(Case Leave_Id When 'I' then CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours  END else 0 end)/8,2) D5
+,CAST(Sum(Case Leave_Id When 'K' then CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END else 0 end) as FLOAT)
++ROUND(Sum(Case Leave_Id When 'K' then CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours  END else 0 end)/8,2) D6
+,CAST(Sum(Case Leave_Id When 'M' then CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END else 0 end) as FLOAT)
++ROUND(Sum(Case Leave_Id When 'M' then CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours  END else 0 end)/8,2) D7
+,CAST(Sum(Case Leave_Id When 'N' then CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END else 0 end) as FLOAT)
++ROUND(Sum(Case Leave_Id When 'N' then CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours  END else 0 end)/8,2) D8
+,CAST(Sum(Case Leave_Id When 'P' then CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END else 0 end) as FLOAT)
++ROUND(Sum(Case Leave_Id When 'P' then CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours  END else 0 end)/8,2) D9
+,CAST(Sum(Case Leave_Id When 'Q' then CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END else 0 end) as FLOAT)
++ROUND(Sum(Case Leave_Id When 'Q' then CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours  END else 0 end)/8,2) D10
+,CAST(Sum(Case Leave_Id When 'S' then CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END else 0 end) as FLOAT)
++ROUND(Sum(Case Leave_Id When 'S' then CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours  END else 0 end)/8,2) D11
+,CAST(Sum(Case Leave_Id When 'T' then CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END else 0 end) as FLOAT)
++ROUND(Sum(Case Leave_Id When 'T' then CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours  END else 0 end)/8,2) D12
+,CAST(Sum(Case Leave_Id When 'U' then CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END else 0 end) as FLOAT)
++ROUND(Sum(Case Leave_Id When 'U' then CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours  END else 0 end)/8,2) D13
+,CAST(Sum(Case Leave_Id When 'V' then CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END else 0 end) as FLOAT)
++ROUND(Sum(Case Leave_Id When 'V' then CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours  END else 0 end)/8,2) D14
+,CAST(Sum(Case Leave_Id When 'W' then CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END else 0 end) as FLOAT)
++ROUND(Sum(Case Leave_Id When 'W' then CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours  END else 0 end)/8,2) D15
+,CAST(Sum(Case Leave_Id When 'X' then CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END else 0 end) as FLOAT)
++ROUND(Sum(Case Leave_Id When 'X' then CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours  END else 0 end)/8,2) D16
+,CAST(Sum(Case Leave_Id When 'Y' then CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END else 0 end) as FLOAT)
++ROUND(Sum(Case Leave_Id When 'Y' then CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours  END else 0 end)/8,2) D17
+,CAST(Sum(Case Leave_Id When 'Z' then CASE WHEN Thours &gt;= 8 THEN TDays+ROUND(Thours/8, 0) ELSE TDays END else 0 end) as FLOAT)
++ROUND(Sum(Case Leave_Id When 'Z' then CASE WHEN Thours &gt;= 8 THEN Thours%8 ELSE Thours  END else 0 end)/8,2) D18
+From
+(
+SELECT 
+DEP.DepCode,DEP.DepName,PM.EmployeeId, PM.EmployeeName, LTB.Leave_Id, LTB.Leave_Desc,
+substring(convert(varchar,LT.BeginDateTime,112),1,6) BT,
+Sum(LT.days) TDays ,Sum(LT.hours) Thours 
+
+FROM
+Company c INNER JOIN
+Personnel_Master PM ON c.Company = PM.Company INNER JOIN
+Department DEP ON PM.DeptId = DEP.DepCode AND PM.Company = DEP.Company INNER JOIN
+Leave_Trx LT ON PM.Company = LT.Company AND PM.EmployeeId = LT.EmployeeId INNER JOIN
+LeaveType_Basic LTB ON LT.Company = LTB.Company AND LT.LeaveType_Id = LTB.Leave_Id
+
+GROUP BY
+DEP.DepCode,DEP.DepName,
+PM.EmployeeId, PM.EmployeeName, 
+substring(convert(varchar,LT.BeginDateTime,112),1,6),
+LTB.Leave_Id, LTB.Leave_Desc
+) T
+
+GROUP BY
+DepCode,DepName,EmployeeId,EmployeeName,BT
+) TT
+</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="DepCode" DataSetColumn="DepCode" />
+              <Mapping SourceColumn="DepName" DataSetColumn="DepName" />
+              <Mapping SourceColumn="EmployeeId" DataSetColumn="EmployeeId" />
+              <Mapping SourceColumn="EmployeeName" DataSetColumn="EmployeeName" />
+              <Mapping SourceColumn="BT" DataSetColumn="BT" />
+              <Mapping SourceColumn="TD" DataSetColumn="TD" />
+              <Mapping SourceColumn="D1" DataSetColumn="D1" />
+              <Mapping SourceColumn="D2" DataSetColumn="D2" />
+              <Mapping SourceColumn="D3" DataSetColumn="D3" />
+              <Mapping SourceColumn="D4" DataSetColumn="D4" />
+              <Mapping SourceColumn="D5" DataSetColumn="D5" />
+              <Mapping SourceColumn="D6" DataSetColumn="D6" />
+              <Mapping SourceColumn="D7" DataSetColumn="D7" />
+              <Mapping SourceColumn="D8" DataSetColumn="D8" />
+              <Mapping SourceColumn="D9" DataSetColumn="D9" />
+              <Mapping SourceColumn="D10" DataSetColumn="D10" />
+              <Mapping SourceColumn="D11" DataSetColumn="D11" />
+              <Mapping SourceColumn="D12" DataSetColumn="D12" />
+              <Mapping SourceColumn="D13" DataSetColumn="D13" />
+              <Mapping SourceColumn="D14" DataSetColumn="D14" />
+              <Mapping SourceColumn="D15" DataSetColumn="D15" />
+              <Mapping SourceColumn="D16" DataSetColumn="D16" />
+              <Mapping SourceColumn="D17" DataSetColumn="D17" />
+              <Mapping SourceColumn="D18" DataSetColumn="D18" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="OvertimeStatistics" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="OvertimeTrx">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Company" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompanyName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="A" msdata:ReadOnly="true" type="xs:decimal" minOccurs="0" />
+              <xs:element name="B" msdata:ReadOnly="true" type="xs:decimal" minOccurs="0" />
+              <xs:element name="C" msdata:ReadOnly="true" type="xs:decimal" minOccurs="0" />
+              <xs:element name="D" msdata:ReadOnly="true" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Tt" msdata:ReadOnly="true" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OTD" msdata:ReadOnly="true" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="LeaveTrx">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DepCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BT" msdata:ReadOnly="true" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TD" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+              <xs:element name="D1" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+              <xs:element name="D2" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+              <xs:element name="D3" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+              <xs:element name="D4" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+              <xs:element name="D5" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+              <xs:element name="D6" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+              <xs:element name="D7" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+              <xs:element name="D8" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+              <xs:element name="D9" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+              <xs:element name="D10" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+              <xs:element name="D11" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+              <xs:element name="D12" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+              <xs:element name="D13" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+              <xs:element name="D14" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+              <xs:element name="D15" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+              <xs:element name="D16" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+              <xs:element name="D17" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+              <xs:element name="D18" msdata:ReadOnly="true" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

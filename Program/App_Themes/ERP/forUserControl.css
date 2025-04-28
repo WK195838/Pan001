@@ -1,0 +1,171 @@
+﻿/*==自動完成======================================================================================*/
+.AutoList, .AutoListHighlight, .AutoListItem
+{
+    /*background-color: #000000;
+    color:Red;*/ /*下拉表格的版面 clip: rect(auto, auto, auto,auto); */ /*list-style-type: disc;*/
+    
+    line-height: 20px;
+    background-color: White;
+    white-space: nowrap;    
+}
+
+.AutoList
+{
+    border: 1px ridge #333333;
+}
+
+.AutoListHighlight
+{
+    margin-left: 2px;
+    background-color: #CCCCCC;
+}
+
+.AutoListItem
+{
+    /*border-bottom:1px;    */
+    margin-left: 5px;
+}
+/*=====================================================================================*/
+/*===TREE MENU=========================================================================*/
+.menu h1
+{
+   /* border: thin groove #000000;*/
+    font-weight:normal;
+    font: #000000;
+    font-size:12pt;
+	margin:0;
+	/*width:500px;*/
+}
+.menu h2
+{
+    border-color: #000000;
+    border-style:none; 
+    margin:0;
+}
+.menu h3
+{
+    background: #FFCCFF;
+    border-color: #000000;
+    border-style: none;
+    color: #000000;
+}
+.menu h4
+{    
+    font-weight: bolder;
+    font-variant: small-caps;    
+}
+.menu h5
+{
+    font-style:normal;
+    background: #000000;    
+}
+
+.menu
+{
+    margin: 0px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #CCCCCC; /*background-color: #E8E8E8;*/
+    font-size: 12px;
+    background-color: #FFFFFF;
+}
+
+.menu a {
+ display: block;
+ color: #000;
+ text-decoration: none; 
+ padding: 5px;
+ font-size:12pt;
+ font-weight:normal;    
+}
+
+.menu td.mainnav {/*主選單*/
+                  /*
+ background-image: url(images/TreeLineImages/plus.gif);
+ background-repeat: no-repeat;                  
+ background-position: 5px 10px;*/
+ margin-left: 0px;
+ text-indent: 0px; 
+    border-top-width: 1px; 
+    border-top-style: solid; 
+    border-top-color: #CCCCCC;
+}
+.menu td.subnav1 {/*次選單*/
+ background-image: url(images/TreeLineImages/noexpand.gif);
+ background-repeat: no-repeat;                  
+ background-position: 9px 7px;                 
+ text-indent: 5px; 
+  font-size:12pt;
+}
+
+.menu td.subnav2 {/*次選單*/
+ background-image: url(images/TreeLineImages/noexpand.gif);
+ background-repeat: no-repeat;                  
+ background-position: 9px 7px;                 
+ text-indent: 15px; 
+  font-size:12pt;
+}
+
+/*滑鼠懸停效果*/
+.menu a:hover
+{
+    /*color: #000000;
+    background-color: #CCCCCC;*/
+}
+
+.menu td.mainnav .Selectmenu
+{
+    /*
+  background-image: url(images/TreeLineImages/minus.gif);
+  background-repeat: no-repeat;    
+  background-position: 5px 10px;*/
+}
+
+.menu td.subnav1 .Selectmenu
+{
+  background-image: url(images/TreeLineImages/expand.gif);
+  background-repeat: no-repeat;    
+  background-position: 5px 5px;
+   font-size:12pt;
+}
+
+.menu td.subnav1 a
+{
+   padding-left: 24px;
+}
+
+.menu td.subnav1 a:hover
+{
+  background-image: url(images/TreeLineImages/expand.gif);
+  background-repeat: no-repeat;    
+  background-position: 5px 5px;
+  font-size:12pt;
+}
+
+.menu td.subnav2 a
+{
+   padding-left: 24px;
+}
+
+.menu td.subnav2 a:hover
+{
+  background-image: url(images/TreeLineImages/expand.gif);
+  background-repeat: no-repeat;    
+  background-position: 5px 5px;
+  font-size:12pt;
+}
+
+.menu td.subnav3 a
+{
+   padding-left: 24px;
+}
+
+.menu td.subnav3 a:hover
+{
+  background-image: url(images/TreeLineImages/expand.gif);
+  background-repeat: no-repeat;    
+  background-position: 5px 5px;
+  font-size:12pt;
+}
+
+/*=====================================================================================*/

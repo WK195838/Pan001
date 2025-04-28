@@ -1,0 +1,101 @@
+﻿<%--
+預設面板範本。下列面板僅提供做為範例的用途。
+
+1. 具名控制面板。SkinId 應為唯一定義，因為在相同主題中，一個控制項型別不能具有重複的 SkinId。
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. 預設面板。SkinId 未定義。在相同主題中，每個控制項型別只能有一個預設控制面板。
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+
+3.公用圖片路徑使用[../images/]
+  個別主題圖片路徑使用[images/] 修改時請特別注意
+--%>
+<asp:HyperLink runat="server"  BorderColor="AliceBlue"  />
+<asp:HyperLink runat="server" SkinID="OpenFile" ImageUrl="../images/new2.gif" AlternateText="開啟附檔" />
+<asp:HyperLink runat="server" SkinID="TemplateExcel" ImageUrl="../images/ico_excel1.jpg" Target="_blank" AlternateText="下載範本檔" Text="下載範本檔案"/>
+<asp:Image runat="server" SkinID="Logo" ImageUrl="../images/ePayrolllogo.gif" />
+<asp:ImageButton Runat="server" ImageUrl="../images/LOGO.JPG" SkinID="Logo" AlternateText="泛太資訊" />
+<asp:ImageButton Runat="server" ImageUrl="images/LOGO.png" SkinID="btnLogo" AlternateText="歡迎使用泛太資訊ERP系統" Width="200px" Height="80px"  />
+<asp:ImageButton Runat="server" ImageUrl="images/authlogo.png" SkinID="AuthLogo" AlternateText="ERP系統" />
+<asp:Button runat="server" CssClass="button" />
+<asp:Button runat="server" CssClass="buttonLight" SkinID="btnLight" />
+<asp:ImageButton runat="server" SkinID="GoHome" ImageUrl="../images/home.gif" AlternateText="回首頁"/>
+<asp:ImageButton runat="server" SkinID="hdMenu" ImageUrl="../images/collapse.png" />
+<asp:ImageButton runat="server" SkinID="hdTitle" ImageUrl="../images/Down1.gif" />
+<asp:ImageButton runat="server" SkinID="Query1" ImageUrl="../images/query1.gif" AlternateText="查詢"/>
+<asp:ImageButton runat="server" SkinID="Calendar1" ImageUrl="../images/Calender1.gif" AlternateText="開啟小日曆"/>
+<asp:ImageButton runat="server" SkinID="OpenWin1" ImageUrl="../images/OpenWin1.gif" AlternateText="開啟選擇表"/>
+<asp:ImageButton runat="server" SkinID="NewAdd" ImageUrl="../images/new.png" AlternateText="新增"/>
+<asp:ImageButton runat="server" SkinID="OpenFile" ImageUrl="../images/new2.gif" AlternateText="開啟附檔"/>
+<asp:ImageButton runat="server" SkinID="SE1" ImageUrl="../images/saveexit1.gif" AlternateText="儲存後結束"/>
+<asp:ImageButton runat="server" SkinID="SG1" ImageUrl="../images/savegoon1.gif" AlternateText="儲存後繼續新增下一筆"/>
+<asp:ImageButton runat="server" SkinID="SG2" ImageUrl="../images/edit1.GIF" AlternateText="儲存後繼續增修此筆資料"/>
+<asp:ImageButton runat="server" SkinID="SU1" ImageUrl="../images/savegoon1.gif" AlternateText="更新"/>
+<asp:ImageButton runat="server" SkinID="SU2" ImageUrl="../images/saveexit1.gif" AlternateText="更新後結束"/>
+<asp:ImageButton runat="server" SkinID="CC1" ImageUrl="../images/cancel1.gif" AlternateText="取消"/>
+<asp:ImageButton runat="server" SkinID="CalendarLD" ImageUrl="images/arrow_left.png" AlternateText="上一日"/>
+<asp:ImageButton runat="server" SkinID="CalendarND" ImageUrl="images/arrow_right.png" AlternateText="下一日"/>
+<asp:ImageButton runat="server" SkinID="CalendarLW" ImageUrl="images/arrow_left.png" AlternateText="上一週"/>
+<asp:ImageButton runat="server" SkinID="CalendarNW" ImageUrl="images/arrow_right.png" AlternateText="下一週"/>
+<asp:ImageButton runat="server" SkinID="CalendarLM" ImageUrl="images/arrow_left.png" AlternateText="上一月"/>
+<asp:ImageButton runat="server" SkinID="CalendarNM" ImageUrl="images/arrow_right.png" AlternateText="下一月"/>
+<asp:ImageButton runat="server" SkinID="LM" ImageUrl="images/arrow_left.gif" Height="25px" Width="15px" AlternateText="上一月"/>
+<asp:ImageButton runat="server" SkinID="NM" ImageUrl="images/arrow_right.gif" Height="25px" Width="15px" AlternateText="下一月"/>
+<asp:ImageButton runat="server" SkinID="LY" ImageUrl="images/arrow_beg.gif" Height="25px" Width="15px" AlternateText="上一年"/>
+<asp:ImageButton runat="server" SkinID="NY" ImageUrl="images/arrow_end.gif" Height="25px" Width="15px" AlternateText="下一年"/>
+<asp:ImageButton runat="server" SkinID="GetTodayCal" ImageUrl="../images/calendar.gif" AlternateText="顯示當日月曆"/>
+<asp:ImageButton runat="server" SkinID="RetDateEnd" ImageUrl="../images/saveexit1.gif" AlternateText="回傳日期後結束"/>
+<asp:ImageButton runat="server" SkinID="Excel" ImageUrl="../images/ico_excel.jpg" Height="18px" Width="18px" AlternateText="匯出成Excel檔"/>
+<asp:ImageButton runat="server" SkinID="Excel1" ImageUrl="../images/ico_excel1.jpg" Height="18px" Width="18px" AlternateText="匯出成Excel檔"/>
+<asp:ImageButton runat="server" SkinID="Day" ImageUrl="../images/Day.png" AlternateText="日"/>
+<asp:ImageButton runat="server" SkinID="Week" ImageUrl="../images/Week.png" AlternateText="周"/>
+<asp:ImageButton runat="server" SkinID="Months" ImageUrl="../images/Months.png" AlternateText="月" />
+<asp:ImageButton runat="server" SkinID="FirstPage" ImageUrl="images/page_arrow_beg.gif" />
+<asp:ImageButton runat="server" SkinID="PrevPage" ImageUrl="images/page_arrow_left.gif" />
+<asp:ImageButton runat="server" SkinID="NextPage" ImageUrl="images/page_arrow_right.gif" />
+<asp:ImageButton runat="server" SkinID="LastPage" ImageUrl="images/page_arrow_beg.rtl.gif" />
+<asp:ImageButton runat="server" SkinID="GoPage" ImageUrl="images/go.jpg" />
+<asp:TreeView skinid="tVnode" runat="server" LineImagesFolder="App_Themes/images/TreeLineImages">
+    <SelectedNodeStyle CssClass="SelectNode" />
+    <NodeStyle CssClass="node" />    
+</asp:TreeView>
+
+<asp:TreeView skinid="WUCcnode" runat="server" LineImagesFolder="../App_Themes/images/TreeLineImages">
+    <SelectedNodeStyle CssClass="SelectNode" />
+    <RootNodeStyle CssClass="RootNode" />
+    <ParentNodeStyle CssClass="ParentNode" />
+    <LeafNodeStyle CssClass="LeafNode" />
+    <NodeStyle CssClass="AllNode" /> 
+</asp:TreeView>
+
+
+
+<asp:DetailsView runat="server">
+    <HeaderStyle HorizontalAlign="Left" Wrap="false" />
+    <RowStyle HorizontalAlign="Left" />
+    <EditRowStyle HorizontalAlign="Left" />
+</asp:DetailsView>
+
+<asp:GridView runat="server" GridLines="None" >    
+    <HeaderStyle CssClass="button_bar_cell" HorizontalAlign="Center" Wrap="false" />    
+    <RowStyle HorizontalAlign="Center" />
+    <FooterStyle HorizontalAlign="Center" />
+    <PagerStyle HorizontalAlign="Left" />
+</asp:GridView>
+
+<asp:Calendar runat="server" BackColor="White" BorderColor="#999999" CellPadding="4"
+ DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="180px" Width="230px" 
+ >
+    <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
+    <SelectorStyle BackColor="#CCCCCC" />
+    <WeekendDayStyle BackColor="#FFFFCC" />
+    <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
+    <OtherMonthDayStyle ForeColor="#808080" />
+    <NextPrevStyle VerticalAlign="Bottom" />
+    <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />                
+    <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
+</asp:Calendar>	

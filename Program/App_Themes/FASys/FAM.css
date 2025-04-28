@@ -1,0 +1,40 @@
+﻿#FAM_A
+{
+	width:970px;
+	text-align:center;
+	margin:0 auto;
+}
+#FAM_A li
+{
+	width:322px;
+	list-style-type:none;
+	height:30px;
+	line-height:30px;
+	text-align:left;
+	float:left;
+	margin-left:1px;
+	margin-bottom:1px;
+	background:#FEFEFE;
+	font-size:13px;
+	}
+#FAM_A li span.text
+{
+	vertical-align:top;
+}
+#FAM_A li.col1
+{
+	width:322px;
+}
+#FAM_A li.col2
+{
+	width:645px;
+	}
+#FAM_A li.col3
+{
+	width:968px;
+}
+#FAM_A li.col4
+{
+	width:483.5px;
+
+}

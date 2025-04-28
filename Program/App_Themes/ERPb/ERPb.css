@@ -1,0 +1,387 @@
+body
+{
+
+	margin: 0px;
+	padding: 0 px;
+	color: #333;
+	line-height: 20px;
+	background:#222 url(images/bgpic.JPG);
+}
+
+body,table
+{
+	font-size: 13px;
+	font-family: 新細明體;
+}
+
+a:link,a:visited,a:active
+{
+	color:#111;
+	text-decoration:none;
+}
+
+a:active{color:#000;}
+
+a:hover
+{
+	color:#999;
+	text-decoration:underline;
+}
+
+table,img
+{
+	border:0;
+}
+
+/*===============================================================================================================*/
+.MasterTop
+{
+    display:inline; 
+    background:#003A75 url(images/MasterTop.png);
+}
+
+.DTable
+{
+	display:table;
+	margin:0;
+	padding:0;
+	width:800px;
+}
+
+.CalendarTR
+{
+	border:1px solid #A0A0A0;
+	border-top:0;
+	border-left:0;
+}
+
+.DCell
+{
+	background:#FFF;
+	overflow:hidden;
+	width:105px;
+	height:100px;
+	padding:1px;
+
+}
+
+.WTable
+{
+	margin: 0 auto;
+}
+.WCell
+{
+	background:#FFF;
+}
+
+.ImB
+{
+	margin:0px;
+	padding:0px;
+}
+
+.PanelDay
+{
+	overflow-x:hidden; /*刪除水平捲軸*/
+}
+
+.BgTab1
+{
+	width:55px;
+	height:40px;
+	text-align:right;
+	line-height:40px;
+	background-image: url(images/Tab1.GIF);
+}
+
+.BgTab2
+{
+	background-image: url(images/Tab2.GIF);
+}
+
+.BgTab3
+{
+	background-image: url(images/Tab3.GIF);
+}
+
+.QueryStyle
+{	
+	line-height: 30px;
+}
+.point
+{
+	font-size: 10pt;
+	color: #003489;
+	line-height: 14px;
+	font-family: Arial;
+}
+
+/*===============================================================================================================*/
+.AllNode
+{
+	width:166px;
+	height:34px;
+	background: #EEE;
+	display:block;
+	padding:0;
+	margin:0;
+}
+.AllNode a:hover{color : #dd0000}
+.AllNode a:active{color: #FF0066;}
+.SelectNode{background:url(../images/SelectNode.png);}
+.AllNode,.SelectNode,.SelectNode a,.RootNode,.ParentNode,.RootNode a,ParentNode a
+{
+	font-family: 新細明體;
+	font-size: 12px;
+	letter-spacing:1px;
+	text-align:left;
+	color : #FFF;
+	line-height:34px;
+}
+.RootNode{background:url(../images/RootNode.png);}
+.ParentNode{background:url(../images/ParentNode.png);}
+.LeafNode{background:url(../images/LeafNode.png);}
+.LeafNode a{color: #000;}
+.ParentNode a{color: #EFEFEF;}
+
+
+/*===============================================================================================================*/
+.button
+{
+	font-size:13px;
+	text-align:center;
+	
+	letter-spacing:2px;
+	line-height:16px;
+	background:url(images/button.png);
+	border: 1px solid #000;
+	color:#FFF;
+}
+
+
+.buttonLight
+{
+	border-right: #6666cc 2px solid;
+	border-top: #cccccc 1px solid;
+	font-size: 11px;
+	border-left: #cccccc 1px solid;
+	color: #ffffff;
+	line-height: 6px;
+	padding-top: 4px;
+	border-bottom: #6666cc 2px solid;
+	font-family: "Arial" , "Helvetica" , "sans-serif";
+	letter-spacing: 1pt;
+	background-color: #9999cc;
+	text-align: center;
+}
+
+.ShowDataTable
+{
+	
+}
+
+.paginationRowEdgeL {
+	background-image:url(Images/paginationRowEdgeL.gif); 
+	background-repeat: no-repeat;
+	width: 20px;
+	height: 40px;
+	}
+
+.paginationRowEdgeL2 {
+	background-image:url(Images/paginationRowEdgeL2.gif); 
+	background-repeat: no-repeat;
+	width: 100px;
+	height: 40px;
+	}
+	
+.paginationRowEdgeR {
+	background-image:url(Images/paginationRowEdgeR.gif);
+	background-repeat: no-repeat;
+	width: 20px;
+	height: 40px;
+	}
+
+.paginationRowEdgeLl {
+	background-image:url(Images/paginationRowEdgeLl.gif); 
+	background-repeat: no-repeat;
+	height: 40px;
+	}
+	
+.paginationRowEdgeRl
+{
+	background-image: url(Images/paginationRowEdgeRl.gif);
+	background-repeat: no-repeat;
+	height: 40px;
+}	
+.button_bar_cell
+{
+	background-image: url(Images/paginationRowT.gif);
+	background-repeat: repeat;
+	vertical-align: middle;
+	text-align: center;
+	padding-left: 3px;
+	padding-top: 7px;	
+}
+	
+.dialog_body {
+	background-color: white;
+	color: #222;
+	border:1px #AAA dashed ;
+	padding: 4px;
+}
+
+.Header_Body
+{
+	background-image: url(Images/dialogHeaderT.gif);
+	text-align: left;
+	vertical-align:bottom;
+	padding-left: 20px;
+	height: 29px;
+	color: white; 
+	/*font-weight: bold; */
+	font-size: 13px;
+}
+	
+.Header_L
+{
+	background-image: url(Images/dialogHeaderEdgeL.gif);
+	background-repeat: repeat-y;
+	background-position: left top;
+	width: 30px;
+	height: 30px;
+}
+
+.Header_R {
+	background-image:url(Images/dialogHeaderEdgeR.gif);
+	background-repeat: repeat-y;
+	background-position: top right;
+	width: 30px;
+	height: 30px;
+	}
+	
+.pageBackground {
+	background-color: #ffeeb4;
+	width: 96%;
+	height: 100%;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-bottom: 20px;
+	padding-right: 20px;
+	}
+	
+.pageBorderTL {
+	background-image: url(Images/pageBorderTL.png);
+	background-repeat: no-repeat;
+	background-position: top left;
+	width: 14px;
+	height: 10px;
+	}
+.pageBorderT {
+	background-image: url(Images/pageBorderT.png);
+	background-repeat: repeat-x;
+	background-position: top center;
+	height: 10px;
+	}
+.pageBorderTR {
+	background-image: url(Images/pageBorderTR.png);
+	background-repeat: no-repeat;
+	background-position: top right;
+	width: 14px;
+	height: 10px;
+	}
+.pageBorderL {
+	background-image: url(Images/pageBorderL.png);
+	background-repeat: repeat-y;
+	background-position: center left;
+	width: 14px;
+	}
+.pageBorderC {
+	background-image: url(Images/pageBorderC.gif);
+	}
+.pageBorderR {
+	background-image: url(Images/pageBorderR.png);
+	background-repeat: repeat-y;
+	background-position: center right;
+	width: 14px;
+	}
+.pageBorderBL {
+	background-image: url(Images/pageBorderBL.png);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	width: 14px;
+	height: 16px;
+	}
+.pageBorderB {
+	background-image: url(Images/pageBorderB.png);
+	background-repeat: repeat-x;
+	background-position: bottom center;
+	height: 16px;
+	}
+.pageBorderBR {
+	background-image: url(Images/pageBorderBR.png);
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	width: 14px;
+	height: 16px;
+	}
+	
+
+a.button_link
+{
+	color: #f0f0f0;
+}
+
+a.button_link:hover
+{
+	color: white;
+	font-size:9pt;
+}
+
+.SpaceImg
+{
+	
+	src:url(Images/arrow_beg.gif);
+	
+}
+
+.TitleColor0
+{
+	background-color: #9ca7ba;
+}
+
+.TitleColor
+{
+	background-color: #ffcccc;
+}
+
+.Grid_GridLine
+{
+	border:#919191 1px solid;
+	font-size:10px;
+	line-height:13px;	
+}
+
+.watermarked
+{
+	background-color: #ffcccc;
+	color: #cc3300;
+}	
+
+.trCalender
+{
+	font-weight: bold;	
+}
+
+.Grid_GridLineDetailRed,.Grid_GridLineDetailBlack
+{
+	border: #919191 1px solid;
+	font-size: 10pt;
+	color: #ff0000;
+}
+
+.TitleFore
+{
+	font-size: 10pt;
+	color: #000000;
+	font-weight: bold;
+}

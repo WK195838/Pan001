@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PayRoll01" targetNamespace="http://tempuri.org/PayRoll01.xsd" xmlns:mstns="http://tempuri.org/PayRoll01.xsd" xmlns="http://tempuri.org/PayRoll01.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="MyConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="MyConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.MyConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="dtPWHTableAdapter" GeneratorDataComponentClassName="dtPWHTableAdapter" Name="dtPWH" UserDataComponentName="dtPWHTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MyConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT         PWH.Company, ISNULL(D.DepCode, PM.DeptId) AS DeptId, 
+                          ISNULL(D.DepName, PM.DeptId) AS DepName, C.CompanyName, 
+                          PWH.EmployeeId, PM.EmployeeName, PWH.SalaryYM, PWH.PeriodCode, 
+                          PWH.BaseSalary, PWH.Paydays, PWH.LeaveHours_deduction, PWH.TaxRate, 
+                          PWH.NT_P, PWH.WT_P_Salary, PWH.NT_M, PWH.LI_Fee, PWH.HI_Fee, 
+                          PWH.HI_Person, PWH.WT_P_Bonus, PWH.WT_M_Salary, PWH.WT_M_Bonus, 
+                          PWH.P1_borrowing, PWH.WT_Overtime, PWH.NT_Overtime, PWH.OnWatch, 
+                          PWH.WT_Overtime_Fee, PWH.NT_Overtime_Fee, PWH.OnWatch_Fee
+FROM             PayrollWorking_Heading AS PWH LEFT OUTER JOIN
+                          Personnel_Master AS PM ON PWH.Company = PM.Company AND 
+                          PWH.EmployeeId = PM.EmployeeId LEFT OUTER JOIN
+                          Company AS C ON PWH.Company = C.Company LEFT OUTER JOIN
+                          Department AS D ON PM.Company = D.Company AND PM.DeptId = D.DepCode</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Company" DataSetColumn="Company" />
+              <Mapping SourceColumn="DeptId" DataSetColumn="DeptId" />
+              <Mapping SourceColumn="DepName" DataSetColumn="DepName" />
+              <Mapping SourceColumn="CompanyName" DataSetColumn="CompanyName" />
+              <Mapping SourceColumn="EmployeeId" DataSetColumn="EmployeeId" />
+              <Mapping SourceColumn="EmployeeName" DataSetColumn="EmployeeName" />
+              <Mapping SourceColumn="SalaryYM" DataSetColumn="SalaryYM" />
+              <Mapping SourceColumn="PeriodCode" DataSetColumn="PeriodCode" />
+              <Mapping SourceColumn="BaseSalary" DataSetColumn="BaseSalary" />
+              <Mapping SourceColumn="Paydays" DataSetColumn="Paydays" />
+              <Mapping SourceColumn="LeaveHours_deduction" DataSetColumn="LeaveHours_deduction" />
+              <Mapping SourceColumn="TaxRate" DataSetColumn="TaxRate" />
+              <Mapping SourceColumn="NT_P" DataSetColumn="NT_P" />
+              <Mapping SourceColumn="WT_P_Salary" DataSetColumn="WT_P_Salary" />
+              <Mapping SourceColumn="NT_M" DataSetColumn="NT_M" />
+              <Mapping SourceColumn="LI_Fee" DataSetColumn="LI_Fee" />
+              <Mapping SourceColumn="HI_Fee" DataSetColumn="HI_Fee" />
+              <Mapping SourceColumn="HI_Person" DataSetColumn="HI_Person" />
+              <Mapping SourceColumn="WT_P_Bonus" DataSetColumn="WT_P_Bonus" />
+              <Mapping SourceColumn="WT_M_Salary" DataSetColumn="WT_M_Salary" />
+              <Mapping SourceColumn="WT_M_Bonus" DataSetColumn="WT_M_Bonus" />
+              <Mapping SourceColumn="P1_borrowing" DataSetColumn="P1_borrowing" />
+              <Mapping SourceColumn="WT_Overtime" DataSetColumn="WT_Overtime" />
+              <Mapping SourceColumn="NT_Overtime" DataSetColumn="NT_Overtime" />
+              <Mapping SourceColumn="OnWatch" DataSetColumn="OnWatch" />
+              <Mapping SourceColumn="WT_Overtime_Fee" DataSetColumn="WT_Overtime_Fee" />
+              <Mapping SourceColumn="NT_Overtime_Fee" DataSetColumn="NT_Overtime_Fee" />
+              <Mapping SourceColumn="OnWatch_Fee" DataSetColumn="OnWatch_Fee" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="dtPYR001_MTableAdapter" GeneratorDataComponentClassName="dtPYR001_MTableAdapter" Name="dtPYR001_M" UserDataComponentName="dtPYR001_MTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MyConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT         PWH.Company, ISNULL(D.DepCode, PM.DeptId) AS DeptId, 
+                          ISNULL(D.DepName, PM.DeptId) AS DepName, C.CompanyName, 
+                          PWH.EmployeeId, PM.EmployeeName, PWH.SalaryYM, PWH.PeriodCode, 
+                          PWH.BaseSalary, PWH.Paydays, PWH.LeaveHours_deduction, PWH.TaxRate, 
+                          PWH.NT_P, PWH.WT_P_Salary, PWH.NT_M, PWH.LI_Fee, PWH.HI_Fee, 
+                          PWH.HI_Person, PWH.WT_P_Bonus, PWH.WT_M_Salary, PWH.WT_M_Bonus, 
+                          PWH.P1_borrowing, PWH.WT_Overtime, PWH.NT_Overtime, PWH.OnWatch, 
+                          PWH.WT_Overtime_Fee, PWH.NT_Overtime_Fee, PWH.OnWatch_Fee, 
+                          PWD_1.WTP, PWD_1.WTM, PWD_1.WT, PWD_1.NTP, PWD_1.NTM, 
+                          PWD_1.NT, PWD_1.TAX, 
+                          PWH.BaseSalary + PWD_1.WT + PWD_1.NT - PWD_1.TAX AS PAY, 
+                          0 AS BaseSalaryAct
+FROM             PayrollWorking_Heading AS PWH LEFT OUTER JOIN
+                          Personnel_Master AS PM ON PWH.Company = PM.Company AND 
+                          PWH.EmployeeId = PM.EmployeeId LEFT OUTER JOIN
+                          Company AS C ON PWH.Company = C.Company LEFT OUTER JOIN
+                          Department AS D ON PM.Company = D.Company AND 
+                          PM.DeptId = D.DepCode LEFT OUTER JOIN
+                              (SELECT         PWD.Company, PWD.EmployeeId, PWD.SalaryYM, 
+                                                           PWD.PeriodCode, SUM(CASE CONVERT(int, SalaryId) 
+                                                           WHEN 5 THEN 0 ELSE (CASE WHEN NWTax = 'Y' THEN (CASE WHEN
+                                                            CONVERT(int, SalaryId) 
+                                                           &lt;= 1 THEN 0 ELSE (CASE PMType WHEN 'A' THEN (IsNull(PWD.SalaryAmount,
+                                                            0) + IsNull(PMO.SalaryAmount, 0)) 
+                                                           ELSE (0 - (IsNull(PWD.SalaryAmount, 0) 
+                                                           + IsNull(PMO.SalaryAmount, 0))) END) END) ELSE 0 END) END) 
+                                                           AS WT, SUM(CASE CONVERT(int, SalaryId) 
+                                                           WHEN 5 THEN 0 ELSE (CASE WHEN NWTax = 'Y' THEN (CASE WHEN
+                                                            CONVERT(int, SalaryId) 
+                                                           &lt;= 1 THEN 0 ELSE (CASE PMType WHEN 'A' THEN (IsNull(PWD.SalaryAmount,
+                                                            0) + IsNull(PMO.SalaryAmount, 0)) ELSE 0 END) END) 
+                                                           ELSE 0 END) END) AS WTP, SUM(CASE CONVERT(int, SalaryId) 
+                                                           WHEN 5 THEN 0 ELSE (CASE WHEN NWTax = 'Y' THEN (CASE WHEN
+                                                            CONVERT(int, SalaryId) 
+                                                           &lt;= 1 THEN 0 ELSE (CASE PMType WHEN 'B' THEN (IsNull(PWD.SalaryAmount,
+                                                            0) + IsNull(PMO.SalaryAmount, 0)) ELSE 0 END) END) 
+                                                           ELSE 0 END) END) AS WTM, SUM(CASE CONVERT(int, SalaryId) 
+                                                           WHEN 5 THEN 0 ELSE (CASE WHEN NWTax = 'N' THEN (CASE WHEN
+                                                            CONVERT(int, SalaryId) 
+                                                           &lt;= 1 THEN 0 ELSE (CASE PMType WHEN 'A' THEN (IsNull(PWD.SalaryAmount,
+                                                            0) + IsNull(PMO.SalaryAmount, 0)) 
+                                                           ELSE (0 - (IsNull(PWD.SalaryAmount, 0) 
+                                                           + IsNull(PMO.SalaryAmount, 0))) END) END) ELSE 0 END) END) 
+                                                           AS NT, SUM(CASE CONVERT(int, SalaryId) 
+                                                           WHEN 5 THEN 0 ELSE (CASE WHEN NWTax = 'N' THEN (CASE WHEN
+                                                            CONVERT(int, SalaryId) 
+                                                           &lt;= 1 THEN 0 ELSE (CASE PMType WHEN 'A' THEN (IsNull(PWD.SalaryAmount,
+                                                            0) + IsNull(PMO.SalaryAmount, 0)) ELSE 0 END) END) 
+                                                           ELSE 0 END) END) AS NTP, SUM(CASE CONVERT(int, SalaryId) 
+                                                           WHEN 5 THEN 0 ELSE (CASE WHEN NWTax = 'N' THEN (CASE WHEN
+                                                            CONVERT(int, SalaryId) 
+                                                           &lt;= 1 THEN 0 ELSE (CASE PMType WHEN 'B' THEN (IsNull(PWD.SalaryAmount,
+                                                            0) + IsNull(PMO.SalaryAmount, 0)) ELSE 0 END) END) 
+                                                           ELSE 0 END) END) AS NTM, SUM(CASE CONVERT(int, SalaryId) 
+                                                           WHEN 5 THEN IsNull(PWD.SalaryAmount, 0) ELSE 0 END) 
+                                                           AS TAX
+                                FROM              PayrollWorking_Detail AS PWD LEFT OUTER JOIN
+                                                           Payroll_Master_OtherDetail AS PMO ON 
+                                                           PWD.Company = PMO.Company AND 
+                                                           PWD.EmployeeId = PMO.EmployeeId AND 
+                                                           PWD.SalaryYM = PMO.SalaryYM AND 
+                                                           PWD.PeriodCode = PMO.PeriodCode AND 
+                                                           PWD.SalaryItem = PMO.SalaryItem LEFT OUTER JOIN
+                                                           SalaryStructure_Parameter AS SP ON 
+                                                           PWD.SalaryItem = SP.SalaryId
+                                GROUP BY   PWD.Company, PWD.EmployeeId, PWD.SalaryYM, 
+                                                           PWD.PeriodCode) AS PWD_1 ON 
+                          PWH.Company = PWD_1.Company AND 
+                          PWH.EmployeeId = PWD_1.EmployeeId AND 
+                          PWD_1.SalaryYM = PWH.SalaryYM AND 
+                          PWD_1.PeriodCode = PWH.PeriodCode</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Company" DataSetColumn="Company" />
+              <Mapping SourceColumn="DeptId" DataSetColumn="DeptId" />
+              <Mapping SourceColumn="DepName" DataSetColumn="DepName" />
+              <Mapping SourceColumn="CompanyName" DataSetColumn="CompanyName" />
+              <Mapping SourceColumn="EmployeeId" DataSetColumn="EmployeeId" />
+              <Mapping SourceColumn="EmployeeName" DataSetColumn="EmployeeName" />
+              <Mapping SourceColumn="SalaryYM" DataSetColumn="SalaryYM" />
+              <Mapping SourceColumn="PeriodCode" DataSetColumn="PeriodCode" />
+              <Mapping SourceColumn="BaseSalary" DataSetColumn="BaseSalary" />
+              <Mapping SourceColumn="Paydays" DataSetColumn="Paydays" />
+              <Mapping SourceColumn="LeaveHours_deduction" DataSetColumn="LeaveHours_deduction" />
+              <Mapping SourceColumn="TaxRate" DataSetColumn="TaxRate" />
+              <Mapping SourceColumn="NT_P" DataSetColumn="NT_P" />
+              <Mapping SourceColumn="WT_P_Salary" DataSetColumn="WT_P_Salary" />
+              <Mapping SourceColumn="NT_M" DataSetColumn="NT_M" />
+              <Mapping SourceColumn="LI_Fee" DataSetColumn="LI_Fee" />
+              <Mapping SourceColumn="HI_Fee" DataSetColumn="HI_Fee" />
+              <Mapping SourceColumn="HI_Person" DataSetColumn="HI_Person" />
+              <Mapping SourceColumn="WT_P_Bonus" DataSetColumn="WT_P_Bonus" />
+              <Mapping SourceColumn="WT_M_Salary" DataSetColumn="WT_M_Salary" />
+              <Mapping SourceColumn="WT_M_Bonus" DataSetColumn="WT_M_Bonus" />
+              <Mapping SourceColumn="P1_borrowing" DataSetColumn="P1_borrowing" />
+              <Mapping SourceColumn="WT_Overtime" DataSetColumn="WT_Overtime" />
+              <Mapping SourceColumn="NT_Overtime" DataSetColumn="NT_Overtime" />
+              <Mapping SourceColumn="OnWatch" DataSetColumn="OnWatch" />
+              <Mapping SourceColumn="WT_Overtime_Fee" DataSetColumn="WT_Overtime_Fee" />
+              <Mapping SourceColumn="NT_Overtime_Fee" DataSetColumn="NT_Overtime_Fee" />
+              <Mapping SourceColumn="OnWatch_Fee" DataSetColumn="OnWatch_Fee" />
+              <Mapping SourceColumn="WTP" DataSetColumn="WTP" />
+              <Mapping SourceColumn="WTM" DataSetColumn="WTM" />
+              <Mapping SourceColumn="WT" DataSetColumn="WT" />
+              <Mapping SourceColumn="NTP" DataSetColumn="NTP" />
+              <Mapping SourceColumn="NTM" DataSetColumn="NTM" />
+              <Mapping SourceColumn="NT" DataSetColumn="NT" />
+              <Mapping SourceColumn="TAX" DataSetColumn="TAX" />
+              <Mapping SourceColumn="PAY" DataSetColumn="PAY" />
+              <Mapping SourceColumn="BaseSalaryAct" DataSetColumn="BaseSalaryAct" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="dtPYR001_SubTableAdapter" GeneratorDataComponentClassName="dtPYR001_SubTableAdapter" Name="dtPYR001_Sub" UserDataComponentName="dtPYR001_SubTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MyConnectionString (Web.config)" DbObjectName="SELECT PWD.Company, PWD.EmployeeId, PWD.SalaryYM, PWD.PeriodCode, PWD.SalaryItem, PWD.SalaryAmount, ISNULL(PMO.SalaryAmount, 0) AS OtherAmount, ISNULL(PWD.SalaryAmount, 0) + ISNULL(PMO.SalaryAmount, 0) AS TotalAmount, SP.SalaryName, (CASE PMType WHEN 'A' THEN '加項' ELSE '減項' END) AS PMType, SP.NWTax, SP.RegularPay, (CASE WHEN CONVERT(int, SalaryId) &lt;= 1 THEN 0 ELSE (CASE PMType WHEN 'A' THEN (IsNull(PWD.SalaryAmount, 0) + IsNull(PMO.SalaryAmount, 0)) ELSE (0 - (IsNull(PWD.SalaryAmount, 0) + IsNull(PMO.SalaryAmount, 0))) END) END) AS OtherNWSalary, SP.SalaryMasterList AS SML FROM PayrollWorking_Detail AS PWD LEFT OUTER JOIN Payroll_Master_OtherDetail AS PMO ON PWD.Company = PMO.Company AND PWD.EmployeeId = PMO.EmployeeId AND PWD.SalaryYM = PMO.SalaryYM AND PWD.PeriodCode = PMO.PeriodCode AND PWD.SalaryItem = PMO.SalaryItem LEFT OUTER JOIN SalaryStructure_Parameter AS SP ON PWD.SalaryItem = SP.SalaryId WHERE (PWD.SalaryYM = 201009) AND (PWD.EmployeeId IN ('A1619'))" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT         Company, EmployeeId, SalaryYM, PeriodCode, 
+                          SUM(CASE SML WHEN 1 THEN OtherNWSalary ELSE 0 END) AS F01, 
+                          SUM(CASE SML WHEN 2 THEN OtherNWSalary ELSE 0 END) AS F02, 
+                          SUM(CASE SML WHEN 3 THEN OtherNWSalary ELSE 0 END) AS F03, 
+                          SUM(CASE SML WHEN 4 THEN OtherNWSalary ELSE 0 END) AS F04, 
+                          SUM(CASE SML WHEN 5 THEN OtherNWSalary ELSE 0 END) AS F05, 
+                          SUM(CASE SML WHEN 6 THEN OtherNWSalary ELSE 0 END) AS F06, 
+                          SUM(CASE SML WHEN 7 THEN OtherNWSalary ELSE 0 END) AS F07, 
+                          SUM(CASE SML WHEN 8 THEN OtherNWSalary ELSE 0 END) AS F08, 
+                          SUM(CASE SML WHEN 9 THEN OtherNWSalary ELSE 0 END) AS F09, 
+                          SUM(CASE SML WHEN 10 THEN OtherNWSalary ELSE 0 END) AS F10, 
+                          SUM(CASE SML WHEN 11 THEN OtherNWSalary ELSE 0 END) AS F11, 
+                          SUM(CASE SML WHEN 12 THEN OtherNWSalary ELSE 0 END) AS F12, 
+                          SUM(CASE SML WHEN 13 THEN OtherNWSalary ELSE 0 END) AS F13, 
+                          SUM(CASE SML WHEN 14 THEN OtherNWSalary ELSE 0 END) AS F14, 
+                          SUM(CASE SML WHEN 15 THEN OtherNWSalary ELSE 0 END) AS F15, 
+                          SUM(CASE SML WHEN 16 THEN OtherNWSalary ELSE 0 END) AS F16, 
+                          SUM(CASE SML WHEN 17 THEN OtherNWSalary ELSE 0 END) AS F17, 
+                          SUM(CASE SML WHEN 18 THEN OtherNWSalary ELSE 0 END) AS F18, 
+                          SUM(CASE SML WHEN 19 THEN OtherNWSalary ELSE 0 END) AS F19, 
+                          SUM(CASE SML WHEN 20 THEN OtherNWSalary ELSE 0 END) AS F20
+FROM             (SELECT         PWD.Company, PWD.EmployeeId, PWD.SalaryYM, 
+                                                      PWD.PeriodCode, PWD.SalaryItem, PWD.SalaryAmount, 
+                                                      ISNULL(PMO.SalaryAmount, 0) AS OtherAmount, 
+                                                      ISNULL(PWD.SalaryAmount, 0) + ISNULL(PMO.SalaryAmount, 0) 
+                                                      AS TotalAmount, SP.SalaryName, 
+                                                      (CASE PMType WHEN 'A' THEN '加項' ELSE '減項' END) 
+                                                      AS PMType, SP.NWTax, SP.RegularPay, 
+                                                      (CASE WHEN CONVERT(int, SalaryId) 
+                                                      &lt;= 1 THEN 0 ELSE (CASE PMType WHEN 'A' THEN (IsNull(PWD.SalaryAmount,
+                                                       0) + IsNull(PMO.SalaryAmount, 0)) 
+                                                      ELSE (0 - (IsNull(PWD.SalaryAmount, 0) 
+                                                      + IsNull(PMO.SalaryAmount, 0))) END) END) AS OtherNWSalary, 
+                                                      SP.SalaryMasterList AS SML
+                           FROM              PayrollWorking_Detail AS PWD LEFT OUTER JOIN
+                                                      Payroll_Master_OtherDetail AS PMO ON 
+                                                      PWD.Company = PMO.Company AND 
+                                                      PWD.EmployeeId = PMO.EmployeeId AND 
+                                                      PWD.SalaryYM = PMO.SalaryYM AND 
+                                                      PWD.PeriodCode = PMO.PeriodCode AND 
+                                                      PWD.SalaryItem = PMO.SalaryItem LEFT OUTER JOIN
+                                                      SalaryStructure_Parameter AS SP ON 
+                                                      PWD.SalaryItem = SP.SalaryId
+                           WHERE          (PWD.SalaryYM = 201009) AND (PWD.EmployeeId IN ('A1619'))) 
+                          AS Sub
+GROUP BY  Company, EmployeeId, SalaryYM, PeriodCode</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Company" DataSetColumn="Company" />
+              <Mapping SourceColumn="EmployeeId" DataSetColumn="EmployeeId" />
+              <Mapping SourceColumn="SalaryYM" DataSetColumn="SalaryYM" />
+              <Mapping SourceColumn="PeriodCode" DataSetColumn="PeriodCode" />
+              <Mapping SourceColumn="F01" DataSetColumn="F01" />
+              <Mapping SourceColumn="F02" DataSetColumn="F02" />
+              <Mapping SourceColumn="F03" DataSetColumn="F03" />
+              <Mapping SourceColumn="F04" DataSetColumn="F04" />
+              <Mapping SourceColumn="F05" DataSetColumn="F05" />
+              <Mapping SourceColumn="F06" DataSetColumn="F06" />
+              <Mapping SourceColumn="F07" DataSetColumn="F07" />
+              <Mapping SourceColumn="F08" DataSetColumn="F08" />
+              <Mapping SourceColumn="F09" DataSetColumn="F09" />
+              <Mapping SourceColumn="F10" DataSetColumn="F10" />
+              <Mapping SourceColumn="F11" DataSetColumn="F11" />
+              <Mapping SourceColumn="F12" DataSetColumn="F12" />
+              <Mapping SourceColumn="F13" DataSetColumn="F13" />
+              <Mapping SourceColumn="F14" DataSetColumn="F14" />
+              <Mapping SourceColumn="F15" DataSetColumn="F15" />
+              <Mapping SourceColumn="F16" DataSetColumn="F16" />
+              <Mapping SourceColumn="F17" DataSetColumn="F17" />
+              <Mapping SourceColumn="F18" DataSetColumn="F18" />
+              <Mapping SourceColumn="F19" DataSetColumn="F19" />
+              <Mapping SourceColumn="F20" DataSetColumn="F20" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="dtPYR002TableAdapter" GeneratorDataComponentClassName="dtPYR002TableAdapter" Name="dtPYR002" UserDataComponentName="dtPYR002TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MyConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>Select M.*,S.* From
+(Select M.[Company],M.DeptId,M.[DepName],M.[CompanyName],M.[SalaryYM],M.[PeriodCode]
+,Sum([LI_Fee]) As [LI_Fee],Sum([HI_Fee]) As [HI_Fee]
+,Sum(WTP) As WTP ,Sum(WTM) As WTM,Sum(WT) As WT ,Sum(NTP) As NTP,Sum(NTM) As NTM,Sum(NT)  As NT,Sum(TAX) As TAX,Sum(PAY+BaseSalaryAct) As PAYAct
+From
+(
+SELECT PWH.[Company],ISNULL(D.DepCode, PM.DeptId) AS DeptId,IsNull([DepName],[DeptId]) As [DepName],C.[CompanyName]  
+,PWH.[EmployeeId],PM.[EmployeeName],PWH.[SalaryYM],PWH.[PeriodCode],[BaseSalary],[Paydays]
+,[LeaveHours_deduction]
+,[TaxRate]  ,[NT_P],[WT_P_Salary],[NT_M],[LI_Fee],[HI_Fee],[HI_Person],[WT_P_Bonus],[WT_M_Salary]
+,[WT_M_Bonus],[P1_borrowing],[WT_Overtime]  ,[NT_Overtime],[OnWatch],[WT_Overtime_Fee],[NT_Overtime_Fee]
+,[OnWatch_Fee]  ,PWD.WTP,PWD.WTM,PWD.WT ,PWD.NTP,PWD.NTM,PWD.NT ,PWD.TAX,(PWD.WT+PWD.NT-PWD.TAX) As PAY
+,(Select IsNull(PWD.SalaryAmount,0) from PayrollWorking_Detail PWD Where PWD.Company = PWH.Company And PWD.EmployeeId = PWH.EmployeeId And PWD.SalaryYM = PWH.SalaryYM And PWD.PeriodCode = PWH.PeriodCode And PWD.SalaryItem='01') As BaseSalaryAct  
+FROM [PayrollWorking_Heading] PWH Left Join [Personnel_Master] PM On PWH.[Company] = PM.[Company] And PWH.[EmployeeId] = PM.[EmployeeId] Left Join [Company] C On PWH.[Company] = C.[Company]  Left Join [Department] D On PM.[Company] = D.[Company] And  PM.[DeptId] = D.[DepCode]  Left Join (  SELECT PWD.[Company],PWD.[EmployeeId],PWD.[SalaryYM],PWD.[PeriodCode]  ,Sum(Case SalaryId When '03' then 0 else (Case When NWTax='Y' then (Case When Convert(int,SalaryId) &lt;= 1 then 0 else (Case PMType When 'A' then (IsNull(PWD.SalaryAmount,0)+IsNull(PMO.SalaryAmount,0)) else (0-(IsNull(PWD.SalaryAmount,0)+IsNull(PMO.SalaryAmount,0))) end) end) else 0 end) end) WT  ,Sum(Case SalaryId When '03' then 0 else (Case When NWTax='Y' then (Case When Convert(int,SalaryId) &lt;= 1 then 0 else (Case PMType When 'A' then (IsNull(PWD.SalaryAmount,0)+IsNull(PMO.SalaryAmount,0)) else 0 end) end) else 0 end) end) WTP  ,Sum(Case SalaryId When '03' then 0 else (Case When NWTax='Y' then (Case When Convert(int,SalaryId) &lt;= 1 then 0 else (Case PMType When 'B' then (IsNull(PWD.SalaryAmount,0)+IsNull(PMO.SalaryAmount,0)) else 0 end) end) else 0 end) end) WTM  ,Sum(Case SalaryId When '03' then 0 else (Case When NWTax='N' then (Case When Convert(int,SalaryId) &lt;= 1 then 0 else (Case PMType When 'A' then (IsNull(PWD.SalaryAmount,0)+IsNull(PMO.SalaryAmount,0)) else (0-(IsNull(PWD.SalaryAmount,0)+IsNull(PMO.SalaryAmount,0))) end) end) else 0 end) end) NT  ,Sum(Case SalaryId When '03' then 0 else (Case When NWTax='N' then (Case When Convert(int,SalaryId) &lt;= 1 then 0 else (Case PMType When 'A' then (IsNull(PWD.SalaryAmount,0)+IsNull(PMO.SalaryAmount,0)) else 0 end) end) else 0 end) end) NTP  ,Sum(Case SalaryId When '03' then 0 else (Case When NWTax='N' then (Case When Convert(int,SalaryId) &lt;= 1 then 0 else (Case PMType When 'B' then (IsNull(PWD.SalaryAmount,0)+IsNull(PMO.SalaryAmount,0)) else 0 end) end) else 0 end) end) NTM  ,Sum(Case SalaryId When '03' then IsNull(PWD.SalaryAmount,0) else 0 end) TAX   FROM PayrollWorking_Detail PWD   Left join Payroll_Master_OtherDetail PMO On PWD.Company = PMO.Company And PWD.EmployeeId = PMO.EmployeeId And PWD.SalaryYM = PMO.SalaryYM And PWD.PeriodCode = PMO.PeriodCode And PWD.SalaryItem = PMO.SalaryItem    Left join SalaryStructure_Parameter SP On PWD.SalaryItem = SP.SalaryId   Group By PWD.[Company],PWD.[EmployeeId],PWD.[SalaryYM],PWD.[PeriodCode]  ) PWD On PWH.[Company] = PWD.[Company] And PWH.[EmployeeId] = PWD.[EmployeeId] And PWD.[SalaryYM] = PWH.[SalaryYM] And PWD.[PeriodCode] = PWH.[PeriodCode] Where PWH.Company='01' And PWH.SalaryYM = 201009 And PWH.PeriodCode = '0'
+) M
+Group By M.[Company],M.DeptId,M.[DepName],M.[CompanyName],[SalaryYM],[PeriodCode]) M
+Left Join (
+Select Sub.[Company],[DeptId],[SalaryYM],[PeriodCode]  
+,Sum(Case SML When 1 then OtherNWSalary else 0 end) F01  
+,Sum(Case SML When 2 then OtherNWSalary else 0 end) F02  
+,Sum(Case SML When 3 then OtherNWSalary else 0 end) F03  
+,Sum(Case SML When 4 then OtherNWSalary else 0 end) F04  
+,Sum(Case SML When 5 then OtherNWSalary else 0 end) F05  
+,Sum(Case SML When 6 then OtherNWSalary else 0 end) F06  
+,Sum(Case SML When 7 then OtherNWSalary else 0 end) F07  
+,Sum(Case SML When 8 then OtherNWSalary else 0 end) F08  
+,Sum(Case SML When 9 then OtherNWSalary else 0 end) F09  
+,Sum(Case SML When 10 then OtherNWSalary else 0 end) F10  
+,Sum(Case SML When 11 then OtherNWSalary else 0 end) F11  
+,Sum(Case SML When 12 then OtherNWSalary else 0 end) F12  
+,Sum(Case SML When 13 then OtherNWSalary else 0 end) F13  
+,Sum(Case SML When 14 then OtherNWSalary else 0 end) F14  
+,Sum(Case SML When 15 then OtherNWSalary else 0 end) F15  
+,Sum(Case SML When 16 then OtherNWSalary else 0 end) F16  
+,Sum(Case SML When 17 then OtherNWSalary else 0 end) F17  
+,Sum(Case SML When 18 then OtherNWSalary else 0 end) F18  
+,Sum(Case SML When 19 then OtherNWSalary else 0 end) F19  
+,Sum(Case SML When 20 then OtherNWSalary else 0 end) F20  
+From (   SELECT PWD.*,IsNull(PMO.SalaryAmount,0) As OtherAmount,IsNull(PWD.SalaryAmount,0)+IsNull(PMO.SalaryAmount,0) As TotalAmount, SalaryName  ,(Case PMType When 'A' then '加項' else '減項' end) As PMType ,NWTax,RegularPay   ,(IsNull(PWD.SalaryAmount,0)+IsNull(PMO.SalaryAmount,0)) As OtherNWSalary   ,[SalaryMasterList] SML  
+FROM PayrollWorking_Detail PWD  
+Left join Payroll_Master_OtherDetail PMO On PWD.Company = PMO.Company And PWD.EmployeeId = PMO.EmployeeId And PWD.SalaryYM = PMO.SalaryYM And PWD.PeriodCode = PMO.PeriodCode And PWD.SalaryItem = PMO.SalaryItem  
+Left join SalaryStructure_Parameter SP On PWD.SalaryItem = SP.SalaryId   Where PWD.Company='01' And PWD.SalaryYM = 201009 And PWD.PeriodCode = '0'
+) Sub 
+Left Join Personnel_Master PM On Sub.Company = PM.Company And Sub.EmployeeId = PM.EmployeeId
+Group By Sub.[Company],[DeptId],[SalaryYM],[PeriodCode]
+) S On M.[Company]=S.[Company] And M.[DeptId]=S.[DeptId] And M.[SalaryYM]=S.[SalaryYM] And M.[PeriodCode]=S.[PeriodCode]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Company" DataSetColumn="Company" />
+              <Mapping SourceColumn="DeptId" DataSetColumn="DeptId" />
+              <Mapping SourceColumn="DepName" DataSetColumn="DepName" />
+              <Mapping SourceColumn="CompanyName" DataSetColumn="CompanyName" />
+              <Mapping SourceColumn="SalaryYM" DataSetColumn="SalaryYM" />
+              <Mapping SourceColumn="PeriodCode" DataSetColumn="PeriodCode" />
+              <Mapping SourceColumn="LI_Fee" DataSetColumn="LI_Fee" />
+              <Mapping SourceColumn="HI_Fee" DataSetColumn="HI_Fee" />
+              <Mapping SourceColumn="WTP" DataSetColumn="WTP" />
+              <Mapping SourceColumn="WTM" DataSetColumn="WTM" />
+              <Mapping SourceColumn="WT" DataSetColumn="WT" />
+              <Mapping SourceColumn="NTP" DataSetColumn="NTP" />
+              <Mapping SourceColumn="NTM" DataSetColumn="NTM" />
+              <Mapping SourceColumn="NT" DataSetColumn="NT" />
+              <Mapping SourceColumn="TAX" DataSetColumn="TAX" />
+              <Mapping SourceColumn="PAYAct" DataSetColumn="PAYAct" />
+              <Mapping SourceColumn="Company1" DataSetColumn="Company1" />
+              <Mapping SourceColumn="DeptId1" DataSetColumn="DeptId1" />
+              <Mapping SourceColumn="SalaryYM1" DataSetColumn="SalaryYM1" />
+              <Mapping SourceColumn="PeriodCode1" DataSetColumn="PeriodCode1" />
+              <Mapping SourceColumn="F01" DataSetColumn="F01" />
+              <Mapping SourceColumn="F02" DataSetColumn="F02" />
+              <Mapping SourceColumn="F03" DataSetColumn="F03" />
+              <Mapping SourceColumn="F04" DataSetColumn="F04" />
+              <Mapping SourceColumn="F05" DataSetColumn="F05" />
+              <Mapping SourceColumn="F06" DataSetColumn="F06" />
+              <Mapping SourceColumn="F07" DataSetColumn="F07" />
+              <Mapping SourceColumn="F08" DataSetColumn="F08" />
+              <Mapping SourceColumn="F09" DataSetColumn="F09" />
+              <Mapping SourceColumn="F10" DataSetColumn="F10" />
+              <Mapping SourceColumn="F11" DataSetColumn="F11" />
+              <Mapping SourceColumn="F12" DataSetColumn="F12" />
+              <Mapping SourceColumn="F13" DataSetColumn="F13" />
+              <Mapping SourceColumn="F14" DataSetColumn="F14" />
+              <Mapping SourceColumn="F15" DataSetColumn="F15" />
+              <Mapping SourceColumn="F16" DataSetColumn="F16" />
+              <Mapping SourceColumn="F17" DataSetColumn="F17" />
+              <Mapping SourceColumn="F18" DataSetColumn="F18" />
+              <Mapping SourceColumn="F19" DataSetColumn="F19" />
+              <Mapping SourceColumn="F20" DataSetColumn="F20" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PRY001PICTableAdapter" GeneratorDataComponentClassName="PRY001PICTableAdapter" Name="PRY001PIC" UserDataComponentName="PRY001PICTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MyConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT '' As [EmployeeId] 
+,''As [EmployeeName] 
+,0 As [Paydays],0 As [LeaveHours_deduction] 
+,0 As HI_Fee 
+,0 As [WT_Overtime_fee]
+,0 As [NT_Overtime_fee]
+,0 As [PAmount]
+,0 As Other01,0 As OtherWT,0 As OtherNT,0 As Parking_Fee,0 As WR_Fee,0 As OtherNTP ,0 As MAmount,0 As PayAmount,0 As WT_Amount
+,0 As TAX
+,0 As FB_Fee
+,0 As Pension
+,0 As Attendance</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="EmployeeId" DataSetColumn="EmployeeId" />
+              <Mapping SourceColumn="EmployeeName" DataSetColumn="EmployeeName" />
+              <Mapping SourceColumn="Paydays" DataSetColumn="Paydays" />
+              <Mapping SourceColumn="LeaveHours_deduction" DataSetColumn="LeaveHours_deduction" />
+              <Mapping SourceColumn="HI_Fee" DataSetColumn="HI_Fee" />
+              <Mapping SourceColumn="WT_Overtime_fee" DataSetColumn="WT_Overtime_fee" />
+              <Mapping SourceColumn="NT_Overtime_fee" DataSetColumn="NT_Overtime_fee" />
+              <Mapping SourceColumn="PAmount" DataSetColumn="PAmount" />
+              <Mapping SourceColumn="Other01" DataSetColumn="Other01" />
+              <Mapping SourceColumn="OtherWT" DataSetColumn="OtherWT" />
+              <Mapping SourceColumn="OtherNT" DataSetColumn="OtherNT" />
+              <Mapping SourceColumn="Parking_Fee" DataSetColumn="Parking_Fee" />
+              <Mapping SourceColumn="WR_Fee" DataSetColumn="WR_Fee" />
+              <Mapping SourceColumn="OtherNTP" DataSetColumn="OtherNTP" />
+              <Mapping SourceColumn="MAmount" DataSetColumn="MAmount" />
+              <Mapping SourceColumn="PayAmount" DataSetColumn="PayAmount" />
+              <Mapping SourceColumn="WT_Amount" DataSetColumn="WT_Amount" />
+              <Mapping SourceColumn="TAX" DataSetColumn="TAX" />
+              <Mapping SourceColumn="FB_Fee" DataSetColumn="FB_Fee" />
+              <Mapping SourceColumn="Pension" DataSetColumn="Pension" />
+              <Mapping SourceColumn="Attendance" DataSetColumn="Attendance" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PRY010TableAdapter" GeneratorDataComponentClassName="PRY010TableAdapter" Name="PRY010" UserDataComponentName="PRY010TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MyConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT         0 AS ROWID, '' AS EmployeeId, '' AS EmployeeName, 0 AS PayAmount, 
+                          0 AS Pay1000, 0 AS Pay0500, 0 AS Pay0100, 0 AS Pay0050, 0 AS Pay0010, 
+                          0 AS Pay0005, 0 AS Pay0001</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ROWID" DataSetColumn="ROWID" />
+              <Mapping SourceColumn="EmployeeId" DataSetColumn="EmployeeId" />
+              <Mapping SourceColumn="EmployeeName" DataSetColumn="EmployeeName" />
+              <Mapping SourceColumn="PayAmount" DataSetColumn="PayAmount" />
+              <Mapping SourceColumn="Pay1000" DataSetColumn="Pay1000" />
+              <Mapping SourceColumn="Pay0500" DataSetColumn="Pay0500" />
+              <Mapping SourceColumn="Pay0100" DataSetColumn="Pay0100" />
+              <Mapping SourceColumn="Pay0050" DataSetColumn="Pay0050" />
+              <Mapping SourceColumn="Pay0010" DataSetColumn="Pay0010" />
+              <Mapping SourceColumn="Pay0005" DataSetColumn="Pay0005" />
+              <Mapping SourceColumn="Pay0001" DataSetColumn="Pay0001" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PayRoll01" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="PayRoll01" msprop:Generator_UserDSName="PayRoll01">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtPWH" msprop:Generator_TableClassName="dtPWHDataTable" msprop:Generator_TableVarName="tabledtPWH" msprop:Generator_TablePropName="dtPWH" msprop:Generator_RowDeletingName="dtPWHRowDeleting" msprop:Generator_UserTableName="dtPWH" msprop:Generator_RowChangingName="dtPWHRowChanging" msprop:Generator_RowEvHandlerName="dtPWHRowChangeEventHandler" msprop:Generator_RowDeletedName="dtPWHRowDeleted" msprop:Generator_RowEvArgName="dtPWHRowChangeEvent" msprop:Generator_RowChangedName="dtPWHRowChanged" msprop:Generator_RowClassName="dtPWHRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Company" msprop:Generator_ColumnVarNameInTable="columnCompany" msprop:Generator_ColumnPropNameInRow="Company" msprop:Generator_ColumnPropNameInTable="CompanyColumn" msprop:Generator_UserColumnName="Company" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDepName" msprop:Generator_ColumnPropNameInRow="DepName" msprop:Generator_ColumnPropNameInTable="DepNameColumn" msprop:Generator_UserColumnName="DepName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompanyName" msprop:Generator_ColumnVarNameInTable="columnCompanyName" msprop:Generator_ColumnPropNameInRow="CompanyName" msprop:Generator_ColumnPropNameInTable="CompanyNameColumn" msprop:Generator_UserColumnName="CompanyName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeId" msprop:Generator_ColumnVarNameInTable="columnEmployeeId" msprop:Generator_ColumnPropNameInRow="EmployeeId" msprop:Generator_ColumnPropNameInTable="EmployeeIdColumn" msprop:Generator_UserColumnName="EmployeeId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeName" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_UserColumnName="EmployeeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SalaryYM" msprop:Generator_ColumnVarNameInTable="columnSalaryYM" msprop:Generator_ColumnPropNameInRow="SalaryYM" msprop:Generator_ColumnPropNameInTable="SalaryYMColumn" msprop:Generator_UserColumnName="SalaryYM" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PeriodCode" msprop:Generator_ColumnVarNameInTable="columnPeriodCode" msprop:Generator_ColumnPropNameInRow="PeriodCode" msprop:Generator_ColumnPropNameInTable="PeriodCodeColumn" msprop:Generator_UserColumnName="PeriodCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BaseSalary" msprop:Generator_ColumnVarNameInTable="columnBaseSalary" msprop:Generator_ColumnPropNameInRow="BaseSalary" msprop:Generator_ColumnPropNameInTable="BaseSalaryColumn" msprop:Generator_UserColumnName="BaseSalary" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Paydays" msprop:Generator_ColumnVarNameInTable="columnPaydays" msprop:Generator_ColumnPropNameInRow="Paydays" msprop:Generator_ColumnPropNameInTable="PaydaysColumn" msprop:Generator_UserColumnName="Paydays" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LeaveHours_deduction" msprop:Generator_ColumnVarNameInTable="columnLeaveHours_deduction" msprop:Generator_ColumnPropNameInRow="LeaveHours_deduction" msprop:Generator_ColumnPropNameInTable="LeaveHours_deductionColumn" msprop:Generator_UserColumnName="LeaveHours_deduction" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TaxRate" msprop:Generator_ColumnVarNameInTable="columnTaxRate" msprop:Generator_ColumnPropNameInRow="TaxRate" msprop:Generator_ColumnPropNameInTable="TaxRateColumn" msprop:Generator_UserColumnName="TaxRate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NT_P" msprop:Generator_ColumnVarNameInTable="columnNT_P" msprop:Generator_ColumnPropNameInRow="NT_P" msprop:Generator_ColumnPropNameInTable="NT_PColumn" msprop:Generator_UserColumnName="NT_P" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WT_P_Salary" msprop:Generator_ColumnVarNameInTable="columnWT_P_Salary" msprop:Generator_ColumnPropNameInRow="WT_P_Salary" msprop:Generator_ColumnPropNameInTable="WT_P_SalaryColumn" msprop:Generator_UserColumnName="WT_P_Salary" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NT_M" msprop:Generator_ColumnVarNameInTable="columnNT_M" msprop:Generator_ColumnPropNameInRow="NT_M" msprop:Generator_ColumnPropNameInTable="NT_MColumn" msprop:Generator_UserColumnName="NT_M" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LI_Fee" msprop:Generator_ColumnVarNameInTable="columnLI_Fee" msprop:Generator_ColumnPropNameInRow="LI_Fee" msprop:Generator_ColumnPropNameInTable="LI_FeeColumn" msprop:Generator_UserColumnName="LI_Fee" type="xs:decimal" minOccurs="0" />
+              <xs:element name="HI_Fee" msprop:Generator_ColumnVarNameInTable="columnHI_Fee" msprop:Generator_ColumnPropNameInRow="HI_Fee" msprop:Generator_ColumnPropNameInTable="HI_FeeColumn" msprop:Generator_UserColumnName="HI_Fee" type="xs:decimal" minOccurs="0" />
+              <xs:element name="HI_Person" msprop:Generator_ColumnVarNameInTable="columnHI_Person" msprop:Generator_ColumnPropNameInRow="HI_Person" msprop:Generator_ColumnPropNameInTable="HI_PersonColumn" msprop:Generator_UserColumnName="HI_Person" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WT_P_Bonus" msprop:Generator_ColumnVarNameInTable="columnWT_P_Bonus" msprop:Generator_ColumnPropNameInRow="WT_P_Bonus" msprop:Generator_ColumnPropNameInTable="WT_P_BonusColumn" msprop:Generator_UserColumnName="WT_P_Bonus" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WT_M_Salary" msprop:Generator_ColumnVarNameInTable="columnWT_M_Salary" msprop:Generator_ColumnPropNameInRow="WT_M_Salary" msprop:Generator_ColumnPropNameInTable="WT_M_SalaryColumn" msprop:Generator_UserColumnName="WT_M_Salary" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WT_M_Bonus" msprop:Generator_ColumnVarNameInTable="columnWT_M_Bonus" msprop:Generator_ColumnPropNameInRow="WT_M_Bonus" msprop:Generator_ColumnPropNameInTable="WT_M_BonusColumn" msprop:Generator_UserColumnName="WT_M_Bonus" type="xs:decimal" minOccurs="0" />
+              <xs:element name="P1_borrowing" msprop:Generator_ColumnVarNameInTable="columnP1_borrowing" msprop:Generator_ColumnPropNameInRow="P1_borrowing" msprop:Generator_ColumnPropNameInTable="P1_borrowingColumn" msprop:Generator_UserColumnName="P1_borrowing" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WT_Overtime" msprop:Generator_ColumnVarNameInTable="columnWT_Overtime" msprop:Generator_ColumnPropNameInRow="WT_Overtime" msprop:Generator_ColumnPropNameInTable="WT_OvertimeColumn" msprop:Generator_UserColumnName="WT_Overtime" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NT_Overtime" msprop:Generator_ColumnVarNameInTable="columnNT_Overtime" msprop:Generator_ColumnPropNameInRow="NT_Overtime" msprop:Generator_ColumnPropNameInTable="NT_OvertimeColumn" msprop:Generator_UserColumnName="NT_Overtime" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OnWatch" msprop:Generator_ColumnVarNameInTable="columnOnWatch" msprop:Generator_ColumnPropNameInRow="OnWatch" msprop:Generator_ColumnPropNameInTable="OnWatchColumn" msprop:Generator_UserColumnName="OnWatch" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WT_Overtime_Fee" msprop:Generator_ColumnVarNameInTable="columnWT_Overtime_Fee" msprop:Generator_ColumnPropNameInRow="WT_Overtime_Fee" msprop:Generator_ColumnPropNameInTable="WT_Overtime_FeeColumn" msprop:Generator_UserColumnName="WT_Overtime_Fee" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NT_Overtime_Fee" msprop:Generator_ColumnVarNameInTable="columnNT_Overtime_Fee" msprop:Generator_ColumnPropNameInRow="NT_Overtime_Fee" msprop:Generator_ColumnPropNameInTable="NT_Overtime_FeeColumn" msprop:Generator_UserColumnName="NT_Overtime_Fee" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OnWatch_Fee" msprop:Generator_ColumnVarNameInTable="columnOnWatch_Fee" msprop:Generator_ColumnPropNameInRow="OnWatch_Fee" msprop:Generator_ColumnPropNameInTable="OnWatch_FeeColumn" msprop:Generator_UserColumnName="OnWatch_Fee" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DeptId" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDeptId" msprop:Generator_ColumnPropNameInRow="DeptId" msprop:Generator_ColumnPropNameInTable="DeptIdColumn" msprop:Generator_UserColumnName="DeptId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtPYR001_M" msprop:Generator_TableClassName="dtPYR001_MDataTable" msprop:Generator_TableVarName="tabledtPYR001_M" msprop:Generator_TablePropName="dtPYR001_M" msprop:Generator_RowDeletingName="dtPYR001_MRowDeleting" msprop:Generator_UserTableName="dtPYR001_M" msprop:Generator_RowChangingName="dtPYR001_MRowChanging" msprop:Generator_RowEvHandlerName="dtPYR001_MRowChangeEventHandler" msprop:Generator_RowDeletedName="dtPYR001_MRowDeleted" msprop:Generator_RowEvArgName="dtPYR001_MRowChangeEvent" msprop:Generator_RowChangedName="dtPYR001_MRowChanged" msprop:Generator_RowClassName="dtPYR001_MRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Company" msprop:Generator_ColumnVarNameInTable="columnCompany" msprop:Generator_ColumnPropNameInRow="Company" msprop:Generator_ColumnPropNameInTable="CompanyColumn" msprop:Generator_UserColumnName="Company" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DeptId" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDeptId" msprop:Generator_ColumnPropNameInRow="DeptId" msprop:Generator_ColumnPropNameInTable="DeptIdColumn" msprop:Generator_UserColumnName="DeptId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDepName" msprop:Generator_ColumnPropNameInRow="DepName" msprop:Generator_ColumnPropNameInTable="DepNameColumn" msprop:Generator_UserColumnName="DepName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompanyName" msprop:Generator_ColumnVarNameInTable="columnCompanyName" msprop:Generator_ColumnPropNameInRow="CompanyName" msprop:Generator_ColumnPropNameInTable="CompanyNameColumn" msprop:Generator_UserColumnName="CompanyName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeId" msprop:Generator_ColumnVarNameInTable="columnEmployeeId" msprop:Generator_ColumnPropNameInRow="EmployeeId" msprop:Generator_ColumnPropNameInTable="EmployeeIdColumn" msprop:Generator_UserColumnName="EmployeeId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeName" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_UserColumnName="EmployeeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SalaryYM" msprop:Generator_ColumnVarNameInTable="columnSalaryYM" msprop:Generator_ColumnPropNameInRow="SalaryYM" msprop:Generator_ColumnPropNameInTable="SalaryYMColumn" msprop:Generator_UserColumnName="SalaryYM" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PeriodCode" msprop:Generator_ColumnVarNameInTable="columnPeriodCode" msprop:Generator_ColumnPropNameInRow="PeriodCode" msprop:Generator_ColumnPropNameInTable="PeriodCodeColumn" msprop:Generator_UserColumnName="PeriodCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BaseSalary" msprop:Generator_ColumnVarNameInTable="columnBaseSalary" msprop:Generator_ColumnPropNameInRow="BaseSalary" msprop:Generator_ColumnPropNameInTable="BaseSalaryColumn" msprop:Generator_UserColumnName="BaseSalary" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Paydays" msprop:Generator_ColumnVarNameInTable="columnPaydays" msprop:Generator_ColumnPropNameInRow="Paydays" msprop:Generator_ColumnPropNameInTable="PaydaysColumn" msprop:Generator_UserColumnName="Paydays" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LeaveHours_deduction" msprop:Generator_ColumnVarNameInTable="columnLeaveHours_deduction" msprop:Generator_ColumnPropNameInRow="LeaveHours_deduction" msprop:Generator_ColumnPropNameInTable="LeaveHours_deductionColumn" msprop:Generator_UserColumnName="LeaveHours_deduction" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TaxRate" msprop:Generator_ColumnVarNameInTable="columnTaxRate" msprop:Generator_ColumnPropNameInRow="TaxRate" msprop:Generator_ColumnPropNameInTable="TaxRateColumn" msprop:Generator_UserColumnName="TaxRate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NT_P" msprop:Generator_ColumnVarNameInTable="columnNT_P" msprop:Generator_ColumnPropNameInRow="NT_P" msprop:Generator_ColumnPropNameInTable="NT_PColumn" msprop:Generator_UserColumnName="NT_P" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WT_P_Salary" msprop:Generator_ColumnVarNameInTable="columnWT_P_Salary" msprop:Generator_ColumnPropNameInRow="WT_P_Salary" msprop:Generator_ColumnPropNameInTable="WT_P_SalaryColumn" msprop:Generator_UserColumnName="WT_P_Salary" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NT_M" msprop:Generator_ColumnVarNameInTable="columnNT_M" msprop:Generator_ColumnPropNameInRow="NT_M" msprop:Generator_ColumnPropNameInTable="NT_MColumn" msprop:Generator_UserColumnName="NT_M" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LI_Fee" msprop:Generator_ColumnVarNameInTable="columnLI_Fee" msprop:Generator_ColumnPropNameInRow="LI_Fee" msprop:Generator_ColumnPropNameInTable="LI_FeeColumn" msprop:Generator_UserColumnName="LI_Fee" type="xs:decimal" minOccurs="0" />
+              <xs:element name="HI_Fee" msprop:Generator_ColumnVarNameInTable="columnHI_Fee" msprop:Generator_ColumnPropNameInRow="HI_Fee" msprop:Generator_ColumnPropNameInTable="HI_FeeColumn" msprop:Generator_UserColumnName="HI_Fee" type="xs:decimal" minOccurs="0" />
+              <xs:element name="HI_Person" msprop:Generator_ColumnVarNameInTable="columnHI_Person" msprop:Generator_ColumnPropNameInRow="HI_Person" msprop:Generator_ColumnPropNameInTable="HI_PersonColumn" msprop:Generator_UserColumnName="HI_Person" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WT_P_Bonus" msprop:Generator_ColumnVarNameInTable="columnWT_P_Bonus" msprop:Generator_ColumnPropNameInRow="WT_P_Bonus" msprop:Generator_ColumnPropNameInTable="WT_P_BonusColumn" msprop:Generator_UserColumnName="WT_P_Bonus" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WT_M_Salary" msprop:Generator_ColumnVarNameInTable="columnWT_M_Salary" msprop:Generator_ColumnPropNameInRow="WT_M_Salary" msprop:Generator_ColumnPropNameInTable="WT_M_SalaryColumn" msprop:Generator_UserColumnName="WT_M_Salary" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WT_M_Bonus" msprop:Generator_ColumnVarNameInTable="columnWT_M_Bonus" msprop:Generator_ColumnPropNameInRow="WT_M_Bonus" msprop:Generator_ColumnPropNameInTable="WT_M_BonusColumn" msprop:Generator_UserColumnName="WT_M_Bonus" type="xs:decimal" minOccurs="0" />
+              <xs:element name="P1_borrowing" msprop:Generator_ColumnVarNameInTable="columnP1_borrowing" msprop:Generator_ColumnPropNameInRow="P1_borrowing" msprop:Generator_ColumnPropNameInTable="P1_borrowingColumn" msprop:Generator_UserColumnName="P1_borrowing" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WT_Overtime" msprop:Generator_ColumnVarNameInTable="columnWT_Overtime" msprop:Generator_ColumnPropNameInRow="WT_Overtime" msprop:Generator_ColumnPropNameInTable="WT_OvertimeColumn" msprop:Generator_UserColumnName="WT_Overtime" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NT_Overtime" msprop:Generator_ColumnVarNameInTable="columnNT_Overtime" msprop:Generator_ColumnPropNameInRow="NT_Overtime" msprop:Generator_ColumnPropNameInTable="NT_OvertimeColumn" msprop:Generator_UserColumnName="NT_Overtime" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OnWatch" msprop:Generator_ColumnVarNameInTable="columnOnWatch" msprop:Generator_ColumnPropNameInRow="OnWatch" msprop:Generator_ColumnPropNameInTable="OnWatchColumn" msprop:Generator_UserColumnName="OnWatch" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WT_Overtime_Fee" msprop:Generator_ColumnVarNameInTable="columnWT_Overtime_Fee" msprop:Generator_ColumnPropNameInRow="WT_Overtime_Fee" msprop:Generator_ColumnPropNameInTable="WT_Overtime_FeeColumn" msprop:Generator_UserColumnName="WT_Overtime_Fee" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NT_Overtime_Fee" msprop:Generator_ColumnVarNameInTable="columnNT_Overtime_Fee" msprop:Generator_ColumnPropNameInRow="NT_Overtime_Fee" msprop:Generator_ColumnPropNameInTable="NT_Overtime_FeeColumn" msprop:Generator_UserColumnName="NT_Overtime_Fee" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OnWatch_Fee" msprop:Generator_ColumnVarNameInTable="columnOnWatch_Fee" msprop:Generator_ColumnPropNameInRow="OnWatch_Fee" msprop:Generator_ColumnPropNameInTable="OnWatch_FeeColumn" msprop:Generator_UserColumnName="OnWatch_Fee" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WTP" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWTP" msprop:Generator_ColumnPropNameInRow="WTP" msprop:Generator_ColumnPropNameInTable="WTPColumn" msprop:Generator_UserColumnName="WTP" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WTM" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWTM" msprop:Generator_ColumnPropNameInRow="WTM" msprop:Generator_ColumnPropNameInTable="WTMColumn" msprop:Generator_UserColumnName="WTM" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWT" msprop:Generator_ColumnPropNameInRow="WT" msprop:Generator_ColumnPropNameInTable="WTColumn" msprop:Generator_UserColumnName="WT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NTP" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNTP" msprop:Generator_ColumnPropNameInRow="NTP" msprop:Generator_ColumnPropNameInTable="NTPColumn" msprop:Generator_UserColumnName="NTP" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NTM" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNTM" msprop:Generator_ColumnPropNameInRow="NTM" msprop:Generator_ColumnPropNameInTable="NTMColumn" msprop:Generator_UserColumnName="NTM" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNT" msprop:Generator_ColumnPropNameInRow="NT" msprop:Generator_ColumnPropNameInTable="NTColumn" msprop:Generator_UserColumnName="NT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TAX" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTAX" msprop:Generator_ColumnPropNameInRow="TAX" msprop:Generator_ColumnPropNameInTable="TAXColumn" msprop:Generator_UserColumnName="TAX" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PAY" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPAY" msprop:Generator_ColumnPropNameInRow="PAY" msprop:Generator_ColumnPropNameInTable="PAYColumn" msprop:Generator_UserColumnName="PAY" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BaseSalaryAct" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnBaseSalaryAct" msprop:Generator_ColumnPropNameInRow="BaseSalaryAct" msprop:Generator_ColumnPropNameInTable="BaseSalaryActColumn" msprop:Generator_UserColumnName="BaseSalaryAct" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtPYR001_Sub" msprop:Generator_TableClassName="dtPYR001_SubDataTable" msprop:Generator_TableVarName="tabledtPYR001_Sub" msprop:Generator_TablePropName="dtPYR001_Sub" msprop:Generator_RowDeletingName="dtPYR001_SubRowDeleting" msprop:Generator_UserTableName="dtPYR001_Sub" msprop:Generator_RowChangingName="dtPYR001_SubRowChanging" msprop:Generator_RowEvHandlerName="dtPYR001_SubRowChangeEventHandler" msprop:Generator_RowDeletedName="dtPYR001_SubRowDeleted" msprop:Generator_RowEvArgName="dtPYR001_SubRowChangeEvent" msprop:Generator_RowChangedName="dtPYR001_SubRowChanged" msprop:Generator_RowClassName="dtPYR001_SubRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Company" msprop:Generator_ColumnVarNameInTable="columnCompany" msprop:Generator_ColumnPropNameInRow="Company" msprop:Generator_ColumnPropNameInTable="CompanyColumn" msprop:Generator_UserColumnName="Company" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeId" msprop:Generator_ColumnVarNameInTable="columnEmployeeId" msprop:Generator_ColumnPropNameInRow="EmployeeId" msprop:Generator_ColumnPropNameInTable="EmployeeIdColumn" msprop:Generator_UserColumnName="EmployeeId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SalaryYM" msprop:Generator_ColumnVarNameInTable="columnSalaryYM" msprop:Generator_ColumnPropNameInRow="SalaryYM" msprop:Generator_ColumnPropNameInTable="SalaryYMColumn" msprop:Generator_UserColumnName="SalaryYM" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PeriodCode" msprop:Generator_ColumnVarNameInTable="columnPeriodCode" msprop:Generator_ColumnPropNameInRow="PeriodCode" msprop:Generator_ColumnPropNameInTable="PeriodCodeColumn" msprop:Generator_UserColumnName="PeriodCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="F01" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF01" msprop:Generator_ColumnPropNameInRow="F01" msprop:Generator_ColumnPropNameInTable="F01Column" msprop:Generator_UserColumnName="F01" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F02" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF02" msprop:Generator_ColumnPropNameInRow="F02" msprop:Generator_ColumnPropNameInTable="F02Column" msprop:Generator_UserColumnName="F02" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F03" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF03" msprop:Generator_ColumnPropNameInRow="F03" msprop:Generator_ColumnPropNameInTable="F03Column" msprop:Generator_UserColumnName="F03" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F04" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF04" msprop:Generator_ColumnPropNameInRow="F04" msprop:Generator_ColumnPropNameInTable="F04Column" msprop:Generator_UserColumnName="F04" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F05" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF05" msprop:Generator_ColumnPropNameInRow="F05" msprop:Generator_ColumnPropNameInTable="F05Column" msprop:Generator_UserColumnName="F05" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F06" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF06" msprop:Generator_ColumnPropNameInRow="F06" msprop:Generator_ColumnPropNameInTable="F06Column" msprop:Generator_UserColumnName="F06" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F07" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF07" msprop:Generator_ColumnPropNameInRow="F07" msprop:Generator_ColumnPropNameInTable="F07Column" msprop:Generator_UserColumnName="F07" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F08" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF08" msprop:Generator_ColumnPropNameInRow="F08" msprop:Generator_ColumnPropNameInTable="F08Column" msprop:Generator_UserColumnName="F08" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F09" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF09" msprop:Generator_ColumnPropNameInRow="F09" msprop:Generator_ColumnPropNameInTable="F09Column" msprop:Generator_UserColumnName="F09" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F10" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF10" msprop:Generator_ColumnPropNameInRow="F10" msprop:Generator_ColumnPropNameInTable="F10Column" msprop:Generator_UserColumnName="F10" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F11" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF11" msprop:Generator_ColumnPropNameInRow="F11" msprop:Generator_ColumnPropNameInTable="F11Column" msprop:Generator_UserColumnName="F11" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F12" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF12" msprop:Generator_ColumnPropNameInRow="F12" msprop:Generator_ColumnPropNameInTable="F12Column" msprop:Generator_UserColumnName="F12" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F13" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF13" msprop:Generator_ColumnPropNameInRow="F13" msprop:Generator_ColumnPropNameInTable="F13Column" msprop:Generator_UserColumnName="F13" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F14" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF14" msprop:Generator_ColumnPropNameInRow="F14" msprop:Generator_ColumnPropNameInTable="F14Column" msprop:Generator_UserColumnName="F14" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F15" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF15" msprop:Generator_ColumnPropNameInRow="F15" msprop:Generator_ColumnPropNameInTable="F15Column" msprop:Generator_UserColumnName="F15" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F16" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF16" msprop:Generator_ColumnPropNameInRow="F16" msprop:Generator_ColumnPropNameInTable="F16Column" msprop:Generator_UserColumnName="F16" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F17" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF17" msprop:Generator_ColumnPropNameInRow="F17" msprop:Generator_ColumnPropNameInTable="F17Column" msprop:Generator_UserColumnName="F17" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F18" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF18" msprop:Generator_ColumnPropNameInRow="F18" msprop:Generator_ColumnPropNameInTable="F18Column" msprop:Generator_UserColumnName="F18" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F19" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF19" msprop:Generator_ColumnPropNameInRow="F19" msprop:Generator_ColumnPropNameInTable="F19Column" msprop:Generator_UserColumnName="F19" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F20" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF20" msprop:Generator_ColumnPropNameInRow="F20" msprop:Generator_ColumnPropNameInTable="F20Column" msprop:Generator_UserColumnName="F20" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtPYR002" msprop:Generator_TableClassName="dtPYR002DataTable" msprop:Generator_TableVarName="tabledtPYR002" msprop:Generator_TablePropName="dtPYR002" msprop:Generator_RowDeletingName="dtPYR002RowDeleting" msprop:Generator_UserTableName="dtPYR002" msprop:Generator_RowChangingName="dtPYR002RowChanging" msprop:Generator_RowEvHandlerName="dtPYR002RowChangeEventHandler" msprop:Generator_RowDeletedName="dtPYR002RowDeleted" msprop:Generator_RowEvArgName="dtPYR002RowChangeEvent" msprop:Generator_RowChangedName="dtPYR002RowChanged" msprop:Generator_RowClassName="dtPYR002Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Company" msprop:Generator_ColumnVarNameInTable="columnCompany" msprop:Generator_ColumnPropNameInRow="Company" msprop:Generator_ColumnPropNameInTable="CompanyColumn" msprop:Generator_UserColumnName="Company" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DeptId" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDeptId" msprop:Generator_ColumnPropNameInRow="DeptId" msprop:Generator_ColumnPropNameInTable="DeptIdColumn" msprop:Generator_UserColumnName="DeptId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDepName" msprop:Generator_ColumnPropNameInRow="DepName" msprop:Generator_ColumnPropNameInTable="DepNameColumn" msprop:Generator_UserColumnName="DepName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CompanyName" msprop:Generator_ColumnVarNameInTable="columnCompanyName" msprop:Generator_ColumnPropNameInRow="CompanyName" msprop:Generator_ColumnPropNameInTable="CompanyNameColumn" msprop:Generator_UserColumnName="CompanyName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SalaryYM" msprop:Generator_ColumnVarNameInTable="columnSalaryYM" msprop:Generator_ColumnPropNameInRow="SalaryYM" msprop:Generator_ColumnPropNameInTable="SalaryYMColumn" msprop:Generator_UserColumnName="SalaryYM" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PeriodCode" msprop:Generator_ColumnVarNameInTable="columnPeriodCode" msprop:Generator_ColumnPropNameInRow="PeriodCode" msprop:Generator_ColumnPropNameInTable="PeriodCodeColumn" msprop:Generator_UserColumnName="PeriodCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LI_Fee" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLI_Fee" msprop:Generator_ColumnPropNameInRow="LI_Fee" msprop:Generator_ColumnPropNameInTable="LI_FeeColumn" msprop:Generator_UserColumnName="LI_Fee" type="xs:decimal" minOccurs="0" />
+              <xs:element name="HI_Fee" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHI_Fee" msprop:Generator_ColumnPropNameInRow="HI_Fee" msprop:Generator_ColumnPropNameInTable="HI_FeeColumn" msprop:Generator_UserColumnName="HI_Fee" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WTP" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWTP" msprop:Generator_ColumnPropNameInRow="WTP" msprop:Generator_ColumnPropNameInTable="WTPColumn" msprop:Generator_UserColumnName="WTP" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WTM" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWTM" msprop:Generator_ColumnPropNameInRow="WTM" msprop:Generator_ColumnPropNameInTable="WTMColumn" msprop:Generator_UserColumnName="WTM" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWT" msprop:Generator_ColumnPropNameInRow="WT" msprop:Generator_ColumnPropNameInTable="WTColumn" msprop:Generator_UserColumnName="WT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NTP" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNTP" msprop:Generator_ColumnPropNameInRow="NTP" msprop:Generator_ColumnPropNameInTable="NTPColumn" msprop:Generator_UserColumnName="NTP" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NTM" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNTM" msprop:Generator_ColumnPropNameInRow="NTM" msprop:Generator_ColumnPropNameInTable="NTMColumn" msprop:Generator_UserColumnName="NTM" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNT" msprop:Generator_ColumnPropNameInRow="NT" msprop:Generator_ColumnPropNameInTable="NTColumn" msprop:Generator_UserColumnName="NT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TAX" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTAX" msprop:Generator_ColumnPropNameInRow="TAX" msprop:Generator_ColumnPropNameInTable="TAXColumn" msprop:Generator_UserColumnName="TAX" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PAYAct" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPAYAct" msprop:Generator_ColumnPropNameInRow="PAYAct" msprop:Generator_ColumnPropNameInTable="PAYActColumn" msprop:Generator_UserColumnName="PAYAct" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Company1" msprop:Generator_ColumnVarNameInTable="columnCompany1" msprop:Generator_ColumnPropNameInRow="Company1" msprop:Generator_ColumnPropNameInTable="Company1Column" msprop:Generator_UserColumnName="Company1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DeptId1" msprop:Generator_ColumnVarNameInTable="columnDeptId1" msprop:Generator_ColumnPropNameInRow="DeptId1" msprop:Generator_ColumnPropNameInTable="DeptId1Column" msprop:Generator_UserColumnName="DeptId1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SalaryYM1" msprop:Generator_ColumnVarNameInTable="columnSalaryYM1" msprop:Generator_ColumnPropNameInRow="SalaryYM1" msprop:Generator_ColumnPropNameInTable="SalaryYM1Column" msprop:Generator_UserColumnName="SalaryYM1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PeriodCode1" msprop:Generator_ColumnVarNameInTable="columnPeriodCode1" msprop:Generator_ColumnPropNameInRow="PeriodCode1" msprop:Generator_ColumnPropNameInTable="PeriodCode1Column" msprop:Generator_UserColumnName="PeriodCode1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="F01" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF01" msprop:Generator_ColumnPropNameInRow="F01" msprop:Generator_ColumnPropNameInTable="F01Column" msprop:Generator_UserColumnName="F01" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F02" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF02" msprop:Generator_ColumnPropNameInRow="F02" msprop:Generator_ColumnPropNameInTable="F02Column" msprop:Generator_UserColumnName="F02" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F03" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF03" msprop:Generator_ColumnPropNameInRow="F03" msprop:Generator_ColumnPropNameInTable="F03Column" msprop:Generator_UserColumnName="F03" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F04" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF04" msprop:Generator_ColumnPropNameInRow="F04" msprop:Generator_ColumnPropNameInTable="F04Column" msprop:Generator_UserColumnName="F04" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F05" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF05" msprop:Generator_ColumnPropNameInRow="F05" msprop:Generator_ColumnPropNameInTable="F05Column" msprop:Generator_UserColumnName="F05" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F06" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF06" msprop:Generator_ColumnPropNameInRow="F06" msprop:Generator_ColumnPropNameInTable="F06Column" msprop:Generator_UserColumnName="F06" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F07" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF07" msprop:Generator_ColumnPropNameInRow="F07" msprop:Generator_ColumnPropNameInTable="F07Column" msprop:Generator_UserColumnName="F07" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F08" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF08" msprop:Generator_ColumnPropNameInRow="F08" msprop:Generator_ColumnPropNameInTable="F08Column" msprop:Generator_UserColumnName="F08" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F09" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF09" msprop:Generator_ColumnPropNameInRow="F09" msprop:Generator_ColumnPropNameInTable="F09Column" msprop:Generator_UserColumnName="F09" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F10" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF10" msprop:Generator_ColumnPropNameInRow="F10" msprop:Generator_ColumnPropNameInTable="F10Column" msprop:Generator_UserColumnName="F10" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F11" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF11" msprop:Generator_ColumnPropNameInRow="F11" msprop:Generator_ColumnPropNameInTable="F11Column" msprop:Generator_UserColumnName="F11" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F12" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF12" msprop:Generator_ColumnPropNameInRow="F12" msprop:Generator_ColumnPropNameInTable="F12Column" msprop:Generator_UserColumnName="F12" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F13" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF13" msprop:Generator_ColumnPropNameInRow="F13" msprop:Generator_ColumnPropNameInTable="F13Column" msprop:Generator_UserColumnName="F13" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F14" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF14" msprop:Generator_ColumnPropNameInRow="F14" msprop:Generator_ColumnPropNameInTable="F14Column" msprop:Generator_UserColumnName="F14" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F15" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF15" msprop:Generator_ColumnPropNameInRow="F15" msprop:Generator_ColumnPropNameInTable="F15Column" msprop:Generator_UserColumnName="F15" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F16" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF16" msprop:Generator_ColumnPropNameInRow="F16" msprop:Generator_ColumnPropNameInTable="F16Column" msprop:Generator_UserColumnName="F16" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F17" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF17" msprop:Generator_ColumnPropNameInRow="F17" msprop:Generator_ColumnPropNameInTable="F17Column" msprop:Generator_UserColumnName="F17" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F18" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF18" msprop:Generator_ColumnPropNameInRow="F18" msprop:Generator_ColumnPropNameInTable="F18Column" msprop:Generator_UserColumnName="F18" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F19" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF19" msprop:Generator_ColumnPropNameInRow="F19" msprop:Generator_ColumnPropNameInTable="F19Column" msprop:Generator_UserColumnName="F19" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F20" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnF20" msprop:Generator_ColumnPropNameInRow="F20" msprop:Generator_ColumnPropNameInTable="F20Column" msprop:Generator_UserColumnName="F20" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PRY001PIC" msprop:Generator_TableClassName="PRY001PICDataTable" msprop:Generator_TableVarName="tablePRY001PIC" msprop:Generator_TablePropName="PRY001PIC" msprop:Generator_RowDeletingName="PRY001PICRowDeleting" msprop:Generator_UserTableName="PRY001PIC" msprop:Generator_RowChangingName="PRY001PICRowChanging" msprop:Generator_RowEvHandlerName="PRY001PICRowChangeEventHandler" msprop:Generator_RowDeletedName="PRY001PICRowDeleted" msprop:Generator_RowEvArgName="PRY001PICRowChangeEvent" msprop:Generator_RowChangedName="PRY001PICRowChanged" msprop:Generator_RowClassName="PRY001PICRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EmployeeId" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmployeeId" msprop:Generator_ColumnPropNameInRow="EmployeeId" msprop:Generator_ColumnPropNameInTable="EmployeeIdColumn" msprop:Generator_UserColumnName="EmployeeId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_UserColumnName="EmployeeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Paydays" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPaydays" msprop:Generator_ColumnPropNameInRow="Paydays" msprop:Generator_ColumnPropNameInTable="PaydaysColumn" msprop:Generator_UserColumnName="Paydays" type="xs:int" minOccurs="0" />
+              <xs:element name="LeaveHours_deduction" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLeaveHours_deduction" msprop:Generator_ColumnPropNameInRow="LeaveHours_deduction" msprop:Generator_ColumnPropNameInTable="LeaveHours_deductionColumn" msprop:Generator_UserColumnName="LeaveHours_deduction" type="xs:int" minOccurs="0" />
+              <xs:element name="HI_Fee" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHI_Fee" msprop:Generator_ColumnPropNameInRow="HI_Fee" msprop:Generator_ColumnPropNameInTable="HI_FeeColumn" msprop:Generator_UserColumnName="HI_Fee" type="xs:int" minOccurs="0" />
+              <xs:element name="WT_Overtime_fee" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWT_Overtime_fee" msprop:Generator_ColumnPropNameInRow="WT_Overtime_fee" msprop:Generator_ColumnPropNameInTable="WT_Overtime_feeColumn" msprop:Generator_UserColumnName="WT_Overtime_fee" type="xs:int" minOccurs="0" />
+              <xs:element name="NT_Overtime_fee" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNT_Overtime_fee" msprop:Generator_ColumnPropNameInRow="NT_Overtime_fee" msprop:Generator_ColumnPropNameInTable="NT_Overtime_feeColumn" msprop:Generator_UserColumnName="NT_Overtime_fee" type="xs:int" minOccurs="0" />
+              <xs:element name="PAmount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPAmount" msprop:Generator_ColumnPropNameInRow="PAmount" msprop:Generator_ColumnPropNameInTable="PAmountColumn" msprop:Generator_UserColumnName="PAmount" type="xs:int" minOccurs="0" />
+              <xs:element name="Other01" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOther01" msprop:Generator_ColumnPropNameInRow="Other01" msprop:Generator_ColumnPropNameInTable="Other01Column" msprop:Generator_UserColumnName="Other01" type="xs:int" minOccurs="0" />
+              <xs:element name="OtherWT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOtherWT" msprop:Generator_ColumnPropNameInRow="OtherWT" msprop:Generator_ColumnPropNameInTable="OtherWTColumn" msprop:Generator_UserColumnName="OtherWT" type="xs:int" minOccurs="0" />
+              <xs:element name="OtherNT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOtherNT" msprop:Generator_ColumnPropNameInRow="OtherNT" msprop:Generator_ColumnPropNameInTable="OtherNTColumn" msprop:Generator_UserColumnName="OtherNT" type="xs:int" minOccurs="0" />
+              <xs:element name="Parking_Fee" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnParking_Fee" msprop:Generator_ColumnPropNameInRow="Parking_Fee" msprop:Generator_ColumnPropNameInTable="Parking_FeeColumn" msprop:Generator_UserColumnName="Parking_Fee" type="xs:int" minOccurs="0" />
+              <xs:element name="WR_Fee" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWR_Fee" msprop:Generator_ColumnPropNameInRow="WR_Fee" msprop:Generator_ColumnPropNameInTable="WR_FeeColumn" msprop:Generator_UserColumnName="WR_Fee" type="xs:int" minOccurs="0" />
+              <xs:element name="OtherNTP" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOtherNTP" msprop:Generator_ColumnPropNameInRow="OtherNTP" msprop:Generator_ColumnPropNameInTable="OtherNTPColumn" msprop:Generator_UserColumnName="OtherNTP" type="xs:int" minOccurs="0" />
+              <xs:element name="MAmount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMAmount" msprop:Generator_ColumnPropNameInRow="MAmount" msprop:Generator_ColumnPropNameInTable="MAmountColumn" msprop:Generator_UserColumnName="MAmount" type="xs:int" minOccurs="0" />
+              <xs:element name="PayAmount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPayAmount" msprop:Generator_ColumnPropNameInRow="PayAmount" msprop:Generator_ColumnPropNameInTable="PayAmountColumn" msprop:Generator_UserColumnName="PayAmount" type="xs:int" minOccurs="0" />
+              <xs:element name="WT_Amount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWT_Amount" msprop:Generator_ColumnPropNameInRow="WT_Amount" msprop:Generator_ColumnPropNameInTable="WT_AmountColumn" msprop:Generator_UserColumnName="WT_Amount" type="xs:int" minOccurs="0" />
+              <xs:element name="TAX" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTAX" msprop:Generator_ColumnPropNameInRow="TAX" msprop:Generator_ColumnPropNameInTable="TAXColumn" msprop:Generator_UserColumnName="TAX" type="xs:int" minOccurs="0" />
+              <xs:element name="FB_Fee" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFB_Fee" msprop:Generator_ColumnPropNameInRow="FB_Fee" msprop:Generator_ColumnPropNameInTable="FB_FeeColumn" msprop:Generator_UserColumnName="FB_Fee" type="xs:int" minOccurs="0" />
+              <xs:element name="Pension" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPension" msprop:Generator_ColumnPropNameInRow="Pension" msprop:Generator_ColumnPropNameInTable="PensionColumn" msprop:Generator_UserColumnName="Pension" type="xs:int" minOccurs="0" />
+              <xs:element name="Attendance" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAttendance" msprop:Generator_ColumnPropNameInRow="Attendance" msprop:Generator_ColumnPropNameInTable="AttendanceColumn" msprop:Generator_UserColumnName="Attendance" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PRY010" msprop:Generator_TableClassName="PRY010DataTable" msprop:Generator_TableVarName="tablePRY010" msprop:Generator_TablePropName="PRY010" msprop:Generator_RowDeletingName="PRY010RowDeleting" msprop:Generator_UserTableName="PRY010" msprop:Generator_RowChangingName="PRY010RowChanging" msprop:Generator_RowEvHandlerName="PRY010RowChangeEventHandler" msprop:Generator_RowDeletedName="PRY010RowDeleted" msprop:Generator_RowEvArgName="PRY010RowChangeEvent" msprop:Generator_RowChangedName="PRY010RowChanged" msprop:Generator_RowClassName="PRY010Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ROWID" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnROWID" msprop:Generator_ColumnPropNameInRow="ROWID" msprop:Generator_ColumnPropNameInTable="ROWIDColumn" msprop:Generator_UserColumnName="ROWID" type="xs:int" minOccurs="0" />
+              <xs:element name="EmployeeId" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmployeeId" msprop:Generator_ColumnPropNameInRow="EmployeeId" msprop:Generator_ColumnPropNameInTable="EmployeeIdColumn" msprop:Generator_UserColumnName="EmployeeId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_UserColumnName="EmployeeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PayAmount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPayAmount" msprop:Generator_ColumnPropNameInRow="PayAmount" msprop:Generator_ColumnPropNameInTable="PayAmountColumn" msprop:Generator_UserColumnName="PayAmount" type="xs:int" minOccurs="0" />
+              <xs:element name="Pay1000" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPay1000" msprop:Generator_ColumnPropNameInRow="Pay1000" msprop:Generator_ColumnPropNameInTable="Pay1000Column" msprop:Generator_UserColumnName="Pay1000" type="xs:int" minOccurs="0" />
+              <xs:element name="Pay0500" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPay0500" msprop:Generator_ColumnPropNameInRow="Pay0500" msprop:Generator_ColumnPropNameInTable="Pay0500Column" msprop:Generator_UserColumnName="Pay0500" type="xs:int" minOccurs="0" />
+              <xs:element name="Pay0100" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPay0100" msprop:Generator_ColumnPropNameInRow="Pay0100" msprop:Generator_ColumnPropNameInTable="Pay0100Column" msprop:Generator_UserColumnName="Pay0100" type="xs:int" minOccurs="0" />
+              <xs:element name="Pay0050" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPay0050" msprop:Generator_ColumnPropNameInRow="Pay0050" msprop:Generator_ColumnPropNameInTable="Pay0050Column" msprop:Generator_UserColumnName="Pay0050" type="xs:int" minOccurs="0" />
+              <xs:element name="Pay0010" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPay0010" msprop:Generator_ColumnPropNameInRow="Pay0010" msprop:Generator_ColumnPropNameInTable="Pay0010Column" msprop:Generator_UserColumnName="Pay0010" type="xs:int" minOccurs="0" />
+              <xs:element name="Pay0005" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPay0005" msprop:Generator_ColumnPropNameInRow="Pay0005" msprop:Generator_ColumnPropNameInTable="Pay0005Column" msprop:Generator_UserColumnName="Pay0005" type="xs:int" minOccurs="0" />
+              <xs:element name="Pay0001" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPay0001" msprop:Generator_ColumnPropNameInRow="Pay0001" msprop:Generator_ColumnPropNameInTable="Pay0001Column" msprop:Generator_UserColumnName="Pay0001" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
