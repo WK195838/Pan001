@@ -1,0 +1,703 @@
+﻿/*--- T表示凸，O表示凹 --------------------------------------------------*/
+
+/*--- 按鈕 55*25 --------------------------------------------------*/
+.imgbtnAdd, .imgbtnMotify, .imgbtnDelete, .imgbtnCancel, .imgbtnDeleteE, .imgbtnSave, .btnThrown, .btnSign, .imgbtnEditor, .imgbtnConfirm
+, .imgbtnInvalid, .imgbtnClose, .imgbtnSearch, .btnClear, .imgbtnQuery, .btnDetail
+{
+    width: 55px;
+    height: 25px;
+    border: 0px;
+}
+
+/*--- 新增 55*25 --------------------------------------------------*/
+.imgbtnAdd
+{
+    background: url(../images/btnimg/btnAdd_T.gif) no-repeat;
+}
+.imgbtnAdd:hover
+{
+    background: url(../images/btnimg/btnAdd_O.gif) no-repeat;
+    cursor: pointer;
+}
+.imgbtnAdd:active
+{
+    background: url(../images/btnimg/btnAdd_A.gif) no-repeat;
+}
+
+/*--- 修改 55*25 --------------------------------------------------*/
+.imgbtnMotify
+{
+    background: url(../images/btnimg/btnMotify_T.gif) no-repeat;
+}
+.imgbtnMotify:hover
+{
+    background: url(../images/btnimg/btnMotify_O.gif) no-repeat;
+    cursor: pointer;
+}
+.imgbtnMotify:active
+{
+    background: url(../images/btnimg/btnMotify_A.gif) no-repeat;
+}
+
+/*--- 儲存 55*25 --------------------------------------------------*/
+.imgbtnSave
+{
+    background: url(../images/btnimg/btnSave_T.gif) no-repeat;
+}
+.imgbtnSave:hover
+{
+    background: url(../images/btnimg/btnSave_O.gif) no-repeat;
+    cursor: pointer;
+}
+.imgbtnSave:active
+{
+    background: url(../images/btnimg/btnSave_A.gif) no-repeat;
+}
+
+/*--- 刪除 55*25 --------------------------------------------------*/
+.imgbtnDelete
+{
+    background: url(../images/btnimg/btnDelete_T.gif) no-repeat;
+}
+.imgbtnDelete:hover
+{
+    background: url(../images/btnimg/btnDelete_O.gif) no-repeat;
+    cursor: pointer;
+}
+.imgbtnDelete:active
+{
+    background: url(../images/btnimg/btnDelete_A.gif) no-repeat;
+}
+
+/*--- 取消 55*25 --------------------------------------------------*/
+.imgbtnCancel
+{
+    background: url(../images/btnimg/btnCancel_T.gif) no-repeat;
+}
+.imgbtnCancel:hover
+{
+    background: url(../images/btnimg/btnCancel_O.gif) no-repeat;
+    cursor: pointer;
+}
+.imgbtnCancel:active
+{
+    background: url(../images/btnimg/btnCancel_A.gif) no-repeat;
+}
+
+
+/*--- 編輯 55*25 --------------------------------------------------*/
+.imgbtnEditor
+{
+    background: url(../images/btnimg/btnEditor_T.gif) no-repeat;
+}
+.imgbtnEditor:hover
+{
+    background: url(../images/btnimg/btnEditor_O.gif) no-repeat;
+    cursor: pointer;
+}
+.imgbtnEditor:active
+{
+    background: url(../images/btnimg/btnEditor_A.gif) no-repeat;
+}
+
+/*--- 存檔 55*25 --------------------------------------------------*/
+.imgbtnArchive
+{
+    background: url(../images/btnimg/btnArchive_T.gif) no-repeat;
+}
+.imgbtnArchive:hover
+{
+    background: url(../images/btnimg/btnArchive_O.gif) no-repeat;
+    cursor: pointer;
+}
+.imgbtnArchive:active
+{
+    background: url(../images/btnimg/btnArchive_A.gif) no-repeat;
+}
+
+/*--- 擲回 55*25 --------------------------------------------------*/
+.btnThrown
+{
+    background: url(../images/btnimg/btnThrown_T.gif) no-repeat;
+}
+.btnThrown:hover
+{
+    background: url(../images/btnimg/btnThrown_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnThrown:active
+{
+    background: url(../images/btnimg/btnThrown_A.gif) no-repeat;
+}
+
+/*--- 簽核 55*25 --------------------------------------------------*/
+.btnSign
+{
+    background: url(../images/btnimg/btnSign_T.gif) no-repeat;
+}
+.btnSign:hover
+{
+    background: url(../images/btnimg/btnSign_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnSign:active
+{
+    background: url(../images/btnimg/btnSign_A.gif) no-repeat;
+}
+
+/*--- 確定 55*25 --------------------------------------------------*/
+.imgbtnConfirm
+{
+    background: url(../images/btnimg/btnConfirm_T.gif) no-repeat;
+}
+.imgbtnConfirm:hover
+{
+    background: url(../images/btnimg/btnConfirm_O.gif) no-repeat;
+    cursor: pointer;
+}
+.imgbtnConfirm:active
+{
+    background: url(../images/btnimg/btnConfirm_A.gif) no-repeat;
+}
+
+/*--- 作廢 55*25 --------------------------------------------------*/
+.imgbtnInvalid
+{
+    background: url(../images/btnimg/btnInvalid_T.gif) no-repeat;
+}
+.imgbtnInvalid:hover
+{
+    background: url(../images/btnimg/btnInvalid_O.gif) no-repeat;
+    cursor: pointer;
+}
+.imgbtnInvalid:active
+{
+    background: url(../images/btnimg/btnInvalid_A.gif) no-repeat;
+}
+
+/*--- 關閉 55*25 --------------------------------------------------*/
+.imgbtnClose
+{
+    background: url(../images/btnimg/btnClose_T.gif) no-repeat;
+}
+.imgbtnClose:hover
+{
+    background: url(../images/btnimg/btnClose_O.gif) no-repeat;
+    cursor: pointer;
+}
+.imgbtnClose:active
+{
+    background: url(../images/btnimg/btnClose_A.gif) no-repeat;
+}
+
+/*--- 搜尋 55*25 --------------------------------------------------*/
+.imgbtnSearch
+{
+    background: url(../images/btnimg/btnSearch_T.gif) no-repeat;
+}
+.imgbtnSearch:hover
+{
+    background: url(../images/btnimg/btnSearch_O.gif) no-repeat;
+    cursor: pointer;
+}
+.imgbtnSearch:active
+{
+    background: url(../images/btnimg/btnSearch_A.gif) no-repeat;
+}
+
+/*--- 明細 55*25 --------------------------------------------------*/
+.btnDetail
+{
+    background: url(../images/btnimg/btnDetail_T.gif) no-repeat;
+}
+.btnDetail:hover
+{
+    background: url(../images/btnimg/btnDetail_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnDetail:active
+{
+    background: url(../images/btnimg/btnDetail_A.gif) no-repeat;
+}
+
+/*--- 清除 55*25 --------------------------------------------------*/
+.btnClear
+{
+    background: url(../images/btnimg/btnClear_T.gif) no-repeat;
+}
+.btnClear:hover
+{
+    background: url(../images/btnimg/btnClear_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnClear:active
+{
+    background: url(../images/btnimg/btnClear_A.gif) no-repeat;
+}
+
+/*--- 查詢 55*25 --------------------------------------------------*/
+.imgbtnQuery
+{
+    background: url(../images/btnimg/btnQuery_T.gif) no-repeat;
+}
+.imgbtnSearch:hover
+{
+    background: url(../images/btnimg/btnQuery_O.gif) no-repeat;
+    cursor: pointer;
+}
+.imgbtnSearch:active
+{
+    background: url(../images/btnimg/btnQuery_A.gif) no-repeat;
+}
+
+
+
+/*--- 按鈕 35*18 --------------------------------------------------*/
+.btnDelete35, .imgbtnView35, .imgbtnPlus, .imgbtnMinus, .imgbtnReset
+{
+    width: 35px;
+    height: 18px;
+    border: 0px;
+}
+/*--- 刪除 35*18 --------------------------------------------------*/
+.btnDelete35
+{
+    background: url(../images/btnimg/btnDelete35_T.gif) no-repeat;
+}
+.btnDelete35:hover
+{
+    background: url(../images/btnimg/btnDelete35_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnDelete35:active
+{
+    background: url(../images/btnimg/btnDelete35_A.gif) no-repeat;
+}
+
+/*--- 檢視 35*18 --------------------------------------------------*/
+.imgbtnView35
+{
+    background: url(../images/btnimg/btnView35_T.gif) no-repeat;
+}
+.imgbtnView35:hover
+{
+    background: url(../images/btnimg/btnView35_O.gif) no-repeat;
+    cursor: pointer;
+}
+.imgbtnView35:active
+{
+    background: url(../images/btnimg/btnView35_A.gif) no-repeat;
+}
+
+/*--- 展開 35*18 --------------------------------------------------*/
+.imgbtnPlus
+{
+    background: url(../images/btnimg/btnPlus35_T.gif) no-repeat;
+}
+.imgbtnPlus:hover
+{
+    background: url(../images/btnimg/btnPlus35_O.gif) no-repeat;
+    cursor: pointer;
+}
+.imgbtnPlus:active
+{
+    background: url(../images/btnimg/btnPlus35_A.gif) no-repeat;
+}
+
+/*--- 縮合 35*18 --------------------------------------------------*/
+.imgbtnMinus
+{
+    background: url(../images/btnimg/btnMinus35_T.gif) no-repeat;
+}
+.imgbtnMinus:hover
+{
+    background: url(../images/btnimg/btnMinus35_O.gif) no-repeat;
+    cursor: pointer;
+}
+.imgbtnMinus:active
+{
+    background: url(../images/btnimg/btnMinus35_A.gif) no-repeat;
+}
+
+/*--- 重設 35*18 --------------------------------------------------*/
+.imgbtnReset
+{
+    background: url(../images/btnimg/btnReset_T.gif) no-repeat;
+}
+.imgbtnReset:hover
+{
+    background: url(../images/btnimg/btnReset_O.gif) no-repeat;
+    cursor: pointer;
+}
+.imgbtnReset:active
+{
+    background: url(../images/btnimg/btnReset_A.gif) no-repeat;
+}
+
+
+
+/*--- 按鈕 95*25 --------------------------------------------------*/
+.btnLogin, .btnAllApproved, .btnCurrentClose, .btnOutExcel, .btnQuery, .btnQueryBalance,
+.btnAddItem, .btnAddPaper, .btnPrint, .btnDeleteItem, .btnEditeItem, .btnClearInpute, .btnYearClose,
+.btnPaperPosting
+{
+    width: 95px;
+    height: 25px;
+    border: 0px;
+}
+
+/*--- 登錄 95*25 --------------------------------------------------*/
+.btnLogin
+{
+    background: url(../images/btnimg/btnLogin95_T.gif) no-repeat;
+}
+.btnLogin:hover
+{
+    background: url(../images/btnimg/btnLogin95_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnLogin:active
+{
+    background: url(../images/btnimg/btnLogin95_A.gif) no-repeat;
+}
+
+/*--- 全部核准 95*25 --------------------------------------------------*/
+.btnAllApproved
+{
+    background: url(../images/btnimg/btnAllApproved95_T.gif) no-repeat;
+}
+.btnAllApproved:hover
+{
+    background: url(../images/btnimg/btnAllApproved95_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnAllApproved:active
+{
+    background: url(../images/btnimg/btnAllApproved95_A.gif) no-repeat;
+}
+
+/*--- 本期結轉 95*25 --------------------------------------------------*/
+.btnCurrentClose
+{
+    background: url(../images/btnimg/btnCurrentClose95_T.gif) no-repeat;
+}
+.btnCurrentClose:hover
+{
+    background: url(../images/btnimg/btnCurrentClose95_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnCurrentClose:active
+{
+    background: url(../images/btnimg/btnCurrentClose95_A.gif) no-repeat;
+}
+
+/*--- 輸出Excel 95*25 --------------------------------------------------*/
+.btnOutExcel
+{
+    background: url(../images/btnimg/btnOutExcel95_T.gif) no-repeat;
+}
+.btnOutExcel:hover
+{
+    background: url(../images/btnimg/btnOutExcel95_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnOutExcel:active
+{
+    background: url(../images/btnimg/btnOutExcel95_A.gif) no-repeat;
+}
+
+/*--- 傳票查詢 95*25 --------------------------------------------------*/
+.btnQuery
+{
+    background: url(../images/btnimg/btnQuery95_T.gif) no-repeat;
+}
+.btnQuery:hover
+{
+    background: url(../images/btnimg/btnQuery95_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnQuery:active
+{
+    background: url(../images/btnimg/btnQuery95_A.gif) no-repeat;
+}
+
+/*--- 查詢餘額 95*25 --------------------------------------------------*/
+.btnQueryBalance
+{
+    background: url(../images/btnimg/btnQueryBalance95_T.gif) no-repeat;
+}
+.btnQueryBalance:hover
+{
+    background: url(../images/btnimg/btnQueryBalance95_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnQueryBalance:active
+{
+    background: url(../images/btnimg/btnQueryBalance95_A.gif) no-repeat;
+}
+
+/*--- 傳票過帳 95*25 --------------------------------------------------*/
+.btnPaperPosting
+{
+    background: url(../images/btnimg/btnPaperPosting95_T.gif) no-repeat;
+}
+.btnPaperPosting:hover
+{
+    background: url(../images/btnimg/btnPaperPosting95_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnPaperPosting:active
+{
+    background: url(../images/btnimg/btnPaperPosting95_A.gif) no-repeat;
+}
+
+/*--- 新增分錄 95*25 --------------------------------------------------*/
+.btnAddItem
+{
+    background: url(../images/btnimg/btnAddItem95_T.gif) no-repeat;
+}
+.btnAddItem:hover
+{
+    background: url(../images/btnimg/btnAddItem95_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnAddItem:active
+{
+    background: url(../images/btnimg/btnAddItem95_A.gif) no-repeat;
+}
+
+/*--- 新增傳票 95*25 --------------------------------------------------*/
+.btnAddPaper
+{
+    background: url(../images/btnimg/btnAddPaper95_T.gif) no-repeat;
+}
+.btnAddPaper:hover
+{
+    background: url(../images/btnimg/btnAddPaper95_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnAddPaper:active
+{
+    background: url(../images/btnimg/btnAddPaper95_A.gif) no-repeat;
+}
+
+/*--- 製作列印 95*25 --------------------------------------------------*/
+.btnPrint
+{
+    background: url(../images/btnimg/btnPrint95_T.gif) no-repeat;
+}
+.btnPrint:hover
+{
+    background: url(../images/btnimg/btnPrint95_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnPrint:active
+{
+    background: url(../images/btnimg/btnPrint95_A.gif) no-repeat;
+}
+
+/*--- 刪除分錄 95*25 --------------------------------------------------*/
+.btnDeleteItem
+{
+    background: url(../images/btnimg/btnDeleteItem95_T.gif) no-repeat;
+}
+.btnDeleteItem:hover
+{
+    background: url(../images/btnimg/btnDeleteItem95_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnDeleteItem:active
+{
+    background: url(../images/btnimg/btnDeleteItem95_A.gif) no-repeat;
+}
+
+/*--- 編輯分錄 95*25 --------------------------------------------------*/
+.btnEditeItem
+{
+    background: url(../images/btnimg/btnEditeItem95_T.gif) no-repeat;
+}
+.btnEditeItem:hover
+{
+    background: url(../images/btnimg/btnEditeItem95_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnEditeItem:active
+{
+    background: url(../images/btnimg/btnEditeItem95_A.gif) no-repeat;
+}
+
+/*--- 清除重填 95*25 --------------------------------------------------*/
+.btnClearInpute
+{
+    background: url(../images/btnimg/btnClear95_T.gif) no-repeat;
+}
+.btnClearInpute:hover
+{
+    background: url(../images/btnimg/btnClear95_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnClearInpute:active
+{
+    background: url(../images/btnimg/btnClear95_A.gif) no-repeat;
+}
+
+/*--- 本年度結轉 95*25 --------------------------------------------------*/
+.btnYearClose
+{
+    background: url(../images/btnimg/btnYearClose95_T.gif) no-repeat;
+}
+.btnYearClose:hover
+{
+    background: url(../images/btnimg/btnYearClose95_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnYearClose:active
+{
+    background: url(../images/btnimg/btnYearClose95_A.gif) no-repeat;
+}
+
+
+/*--- 按鈕 120*25 --------------------------------------------------*/
+.btnLeaveTotal, .btnOvertimeTotal
+{
+    width:120px;
+    height:25px;
+    border:0px;
+}
+
+/*--- 匯出差勤統計表 120*21 --------------------------------------------------*/
+.btnLeaveTotal
+{
+    background: url(../images/btnimg/btnLeaveTotal120_T.gif) no-repeat;
+}
+.btnLeaveTotal:hover
+{
+    background: url(../images/btnimg/btnLeaveTotal120_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnLeaveTotal:active
+{
+    background: url(../images/btnimg/btnLeaveTotal120_A.gif) no-repeat;
+}
+
+/*--- 匯出差勤統計表 120*21 --------------------------------------------------*/
+.btnOvertimeTotal
+{
+    background: url(../images/btnimg/btnOvertimeTotal_T.gif) no-repeat;
+}
+.btnOvertimeTotal:hover
+{
+    background: url(../images/btnimg/btnOvertimeTotal_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnOvertimeTotal:active
+{
+    background: url(../images/btnimg/btnOvertimeTotal_A.gif) no-repeat;
+}
+
+/*--- 按鈕 100*25 --------------------------------------------------*/
+.btnMeetingroom, .btnMeetingroomSelect, .btnCopyAddPaper, .btnSavePaper, .btnQueryView,
+.btnApprovedItem
+{
+    width:100px;
+    height:25px;
+    border:0px;
+}
+
+/*--- 選擇會議室 100*25--------------------------------------------------*/
+.btnMeetingroom
+{
+    background: url(../images/btnimg/btnMeetingroom_T.gif) no-repeat;
+}
+.btnMeetingroom:hover
+{
+    background: url(../images/btnimg/btnMeetingroom_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnMeetingroom:active
+{
+    background: url(../images/btnimg/btnMeetingroom_A.gif) no-repeat;
+}
+.btnMeetingroomSelect
+{
+    background: url(../images/btnimg/btnMeetingroom_A.gif) no-repeat;
+    cursor: pointer;
+}
+
+/*--- 複製新增傳票 100*25--------------------------------------------------*/
+.btnCopyAddPaper
+{
+    background: url(../images/btnimg/btnCopyAddPaper100_T.gif) no-repeat;
+}
+.btnCopyAddPaper:hover
+{
+    background: url(../images/btnimg/btnCopyAddPaper100_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnCopyAddPaper:active
+{
+    background: url(../images/btnimg/btnCopyAddPaper100_A.gif) no-repeat;
+}
+
+/*--- 分錄製作完畢 100*25--------------------------------------------------*/
+.btnSavePaper
+{
+    background: url(../images/btnimg/btnSavePaper100_T.gif) no-repeat;
+}
+.btnSavePaper:hover
+{
+    background: url(../images/btnimg/btnSavePaper100_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnSavePaper:active
+{
+    background: url(../images/btnimg/btnSavePaper100_A.gif) no-repeat;
+}
+
+/*--- 查看選取項目 100*25--------------------------------------------------*/
+.btnQueryView
+{
+    background: url(../images/btnimg/btnQueryView100_T.gif) no-repeat;
+}
+.btnQueryView:hover
+{
+    background: url(../images/btnimg/btnQueryView100_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnQueryView:active
+{
+    background: url(../images/btnimg/btnQueryView100_A.gif) no-repeat;
+}
+
+/*--- 核准選取項目 100*25--------------------------------------------------*/
+.btnApprovedItem
+{
+    background: url(../images/btnimg/btnApprovedItem100_T.gif) no-repeat;
+}
+.btnApprovedItem:hover
+{
+    background: url(../images/btnimg/btnApprovedItem100_O.gif) no-repeat;
+    cursor: pointer;
+}
+.btnApprovedItem:active
+{
+    background: url(../images/btnimg/btnApprovedItem100_A.gif) no-repeat;
+}
+
+/*--- Reload 隱藏 --------------------------------------------------*/
+
+.btnreload
+{
+    display: none;
+}
+
+/*--- 附件 --------------------------------------------------*/
+
+.btnattachment
+{
+    border:0px;
+    width:25px;
+    height:25px;
+    background: url(../images/btnimg/btnattachment.gif) no-repeat;
+}
+

@@ -1,0 +1,416 @@
+/*!
+* jquery.fixedHeaderTable. The jQuery fixedHeaderTable plugin
+*
+* Copyright (c) 2011 Mark Malek
+* http://fixedheadertable.com
+*
+* Licensed under MIT
+* http://www.opensource.org/licenses/mit-license.php
+* 
+* http://docs.jquery.com/Plugins/Authoring
+* jQuery authoring guidelines
+*
+* Launch  : October 2009
+* Version : 1.3
+* Released: May 9th, 2011
+*
+* 
+* all CSS sizing (width,height) is done in pixels (px)
+*/
+
+/* @group Reset */
+
+.fht-table, .fht-table thead, .fht-table tfoot, .fht-table tbody, .fht-table tr, .fht-table th
+{
+    /* position*/
+    margin: 0; /* size */
+    padding: 0; /* text */
+    font-size: 100%;
+    font: inherit;
+    vertical-align: top;
+}
+
+.fht-table td
+{
+    /* text */
+    font-size: 100%;
+    font: inherit;
+    vertical-align: top;
+}
+
+.fht-table
+{
+    /* appearance */
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* @end */
+
+/* @group Content */
+
+.fht-table-wrapper, .fht-table-wrapper .fht-thead, .fht-table-wrapper .fht-tfoot, .fht-table-wrapper .fht-fixed-column .fht-tbody, .fht-table-wrapper .fht-fixed-body .fht-tbody, .fht-table-wrapper .fht-tbody
+{
+    /* appearance */
+    overflow: hidden; /* position*/
+    position: relative;
+}
+
+.fht-table-wrapper .fht-fixed-body .fht-tbody, .fht-table-wrapper .fht-tbody
+{
+    /* appearance */
+    overflow: auto;
+}
+
+.fht-table-wrapper .fht-table .fht-cell
+{
+    /* appearance */
+    overflow: hidden; /* size */
+    height: 1px;
+}
+
+.fht-table-wrapper .fht-fixed-column, .fht-table-wrapper .fht-fixed-body
+{
+    /* position */
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.fht-table-wrapper .fht-fixed-column
+{
+    /* position */
+    z-index: 1;
+}
+
+/* @end */
+
+
+.divider
+{
+    margin-top: 40px;
+}
+
+.myTableWrapper
+{
+    width: 800px;
+    height: 500px;
+}
+
+.height250
+{
+    height: 240px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.height400
+{
+    height: 400px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.height500
+{
+    height: 500px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.fancyTable td, .fancyTable th
+{
+    /* size 	padding: 5px; */
+}
+
+.fancyTable
+{
+    /* text */
+    font-family: 'Helvetica Neue' , Helvetica, Arial, sans-serif;
+    width: 100%;
+    color: #666;
+}
+
+.fancyTable tbody tr td
+{
+    /* text */
+    color: #262c31;
+    font-size: 11px;
+}
+
+.fancyTable tbody tr.odd td
+{
+}
+
+.button
+{
+    /* appearance */
+    background-color: #3f3f3f;
+    background-image: -moz-linear-gradient( 		top, 		rgba(255,255,255,0.0) 0%, 		rgba(255,255,255,0.1) 50%);
+    background-image: -webkit-gradient( 		linear, left top, left bottom, 		color-stop(100%,rgba(255,255,255,0.0)), 		color-stop(50%,rgba(255,255,255,0.1)));
+    border: 1px solid #000000;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 0 rgba(139,139,139,1) inset, 0 1px 0 rgba(88,88,88,1);
+    -moz-box-shadow: 0 1px 0 rgba(139,139,139,1) inset, 0 1px 0 rgba(88,88,88,1);
+    box-shadow: 0 1px 0 rgba(139,139,139,1) inset, 0 1px 0 rgba(88,88,88,1);
+    cursor: pointer; /* position */
+    display: inline-block;
+    margin: 10px; /* size */
+    padding: 0 10px; /* text */
+    color: #eaeaea;
+    font-size: 12px;
+    line-height: 30px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.button:hover
+{
+    /* appearance */
+    background-color: #6495ed;
+    -webkit-box-shadow: 0 0 3px #6495ed;
+    -moz-box-shadow: 0 0 3px #6495ed;
+    box-shadow: 0 0 3px #6495ed;
+}
+
+/* Fancy Dark Table */
+.fancyDarkTable .numeric
+{
+    /* text */
+    text-align: right;
+}
+
+.fancyDarkTable td, .fancyDarkTable th
+{
+    /*border: 1px solid #000000;*/
+    padding: 5px;
+}
+
+.fancyDarkTable thead tr th
+{
+    padding: 10px 5px 10px 5px;
+}
+
+.fancyDarkTable
+{
+    /*border-collapse: separate;*/ /* text */
+    font-family: 'Helvetica Neue' , Helvetica, Arial, sans-serif;
+}
+
+.fancyDarkTable tbody tr td
+{
+    /* size */
+    padding: 10px 5px 30px 5px; /* text */
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: bold;
+    text-shadow: 0 -1px 1px #000000;
+}
+
+.fancyDarkTable tbody tr.odd td
+{
+}
+
+.fancyDarkTable thead tr th, .fancyDarkTable tfoot tr td
+{
+    /* text */
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 0 -1px 1px #000;
+}
+
+.fancyDarkTable .fht-head
+{
+    -webkit-box-shadow: 0 5px 10px #000;
+    z-index: 1;
+    position: relative;
+}
+
+
+
+
+
+
+
+
+/* jQuery treeTable stylesheet
+ *
+ * This file contains styles that are used to display the tree table. Each tree
+ * table is assigned the +treeTable+ class.
+ * ========================================================================= */
+
+/* jquery.treeTable.collapsible
+ * ------------------------------------------------------------------------- */
+.treeTable tr td .expander
+{
+    cursor: pointer;
+    padding: 0;
+    zoom: 1; /* IE7 Hack */
+}
+
+.treeTable tr td a.expander
+{
+    background-position: left center;
+    background-repeat: no-repeat;
+    color: #000;
+    text-decoration: none;
+}
+
+.treeTable
+{
+    background-color: #FFFFFF;
+}
+
+.treeTable tr.collapsed td a.expander
+{
+    background-image: url(../images/toggle-expand-dark.png);
+}
+
+.treeTable tr.expanded td a.expander
+{
+    background-image: url(../images/toggle-collapse-dark.png);
+}
+
+/* jquery.treeTable.sortable
+ * ------------------------------------------------------------------------- */
+.treeTable tr.selected, .treeTable tr.accept
+{
+    background-color: #3875d7;
+}
+
+.treeTable tr.selected a.expander, .treeTable tr.accept a.expander
+{
+    color: #fff;
+}
+
+.treeTable tr.collapsed.selected td a.expander, .treeTable tr.collapsed.accept td a.expander
+{
+    background-image: url(../images/toggle-expand-light.png);
+}
+
+.treeTable tr.expanded.selected td a.expander, .treeTable tr.expanded.accept td a.expander
+{
+    background-image: url(../images/toggle-collapse-light.png);
+}
+
+.treeTable .ui-draggable-dragging
+{
+    color: #000;
+    z-index: 1;
+}
+
+/* Layout helper taken from jQuery UI. This way I don't have to require the
+ * full jQuery UI CSS to be loaded. */
+.ui-helper-hidden
+{
+    display: none;
+}
+
+
+/*body
+{
+    
+    background: #fff;
+    color: #000;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: .8em;
+    line-height: 1.5;
+}*/
+
+pre.listing
+{
+}
+
+pre.listing b
+{
+}
+
+/* TABLE
+ * ========================================================================= */
+table
+{
+    border-spacing:0px;
+    /*border: 1px solid #888;     border-collapse: collapse;     line-height: 1;*/
+}
+
+/* Caption
+ * ------------------------------------------------------------------------- */
+table caption
+{
+    /*font-size: .9em;   font-weight: bold;*/
+}
+
+/* Header
+ * ------------------------------------------------------------------------- */
+table thead
+{
+    /*background: #aaa url(../images/bg-table-thead.png) repeat-x top left;*/
+    font-size: .9em;
+}
+
+table thead tr th
+{
+    /*border: 1px solid #888;
+    font-weight: normal;
+    padding: .3em 1.67em .1em 1.67em;
+    text-align: left;
+    background-color: #FFFFFF;*/
+}
+
+/* Body
+ * ------------------------------------------------------------------------- */
+.datatable tbody tr td
+{
+    /*cursor: default;
+    padding: .3em 1.5em;*/
+    padding-left: .55em;
+}
+.datatable tbody tr td.tdexpand
+{
+    /*padding: .3em 1.5em;*/
+    padding-left: 1.05em;
+}
+
+.datatable tbody tr.even
+{
+    background: #f3f3f3;
+}
+
+.datatable tbody tr.odd
+{
+    background: #fff;
+}
+
+.datatable span
+{
+    background-position: center left;
+    background-repeat: no-repeat;
+    padding: .2em 0 .2em 1.5em;
+}
+
+.datatable span.file
+{
+    background-image: url(../images/page_white_text.png);
+}
+
+.datatable span.folder
+{
+    background-image: url(../images/folder.png);
+}
+
+.datatable span.report1
+{
+    background-image: url(../images/btnimg/Repeat1.gif);
+}
+
+.Navigation
+{
+    border-top:solid 2px #bbd9ee;
+}
+
+.Navigation_bottom
+{
+    border-bottom:solid 2px #bbd9ee;
+}

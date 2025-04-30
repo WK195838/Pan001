@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:CaseSensitive="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_GLR02M0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Company" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:length value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VoucherNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:length value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VoucherEntryDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:length value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AcctNo" type="xs:string" minOccurs="0" />
+              <xs:element name="AcctDesc" type="xs:string" minOccurs="0" />
+              <xs:element name="index01" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:length value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="index02" type="xs:string" minOccurs="0" />
+              <xs:element name="index03" type="xs:string" minOccurs="0" />
+              <xs:element name="index04" type="xs:string" minOccurs="0" />
+              <xs:element name="index05" type="xs:string" minOccurs="0" />
+              <xs:element name="indexName01" type="xs:string" minOccurs="0" />
+              <xs:element name="indexName02" type="xs:string" minOccurs="0" />
+              <xs:element name="indexName03" type="xs:string" minOccurs="0" />
+              <xs:element name="indexName04" type="xs:string" minOccurs="0" />
+              <xs:element name="indexName05" type="xs:string" minOccurs="0" />
+              <xs:element name="journalDate" type="xs:string" minOccurs="0" />
+              <xs:element name="DBAmt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CRAmt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="JournalDesc" type="xs:string" minOccurs="0" />
+              <xs:element name="ReturnDate" type="xs:string" minOccurs="0" />
+              <xs:element name="CashAmt" type="xs:string" minOccurs="0" />
+              <xs:element name="CreatUser" type="xs:string" minOccurs="0" />
+              <xs:element name="SubTotctl1" type="xs:boolean" minOccurs="0" />
+              <xs:element name="SubTotctl2" type="xs:boolean" minOccurs="0" />
+              <xs:element name="SubTotctl3" type="xs:boolean" minOccurs="0" />
+              <xs:element name="SubTotctl4" type="xs:boolean" minOccurs="0" />
+              <xs:element name="SubTotctl5" type="xs:boolean" minOccurs="0" />
+              <xs:element name="BalAmt" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

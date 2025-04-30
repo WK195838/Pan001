@@ -1,0 +1,135 @@
+﻿/* 共同設定區 */
+
+/*文字格式*/
+.Inv li,.GridView,.InvDetailsView
+{
+	font-size:12px;
+	font-family:細明體,sans-serif;
+	color:#333;
+	letter-spacing:2px;
+}
+.Inv_TitleCss
+{
+	background:#EEE;
+	margin-top:15px;
+}
+
+
+/* ---------- */
+
+/* List 格式設定區 */
+.InvUl li
+{
+	/*外觀*/
+	width:100%;
+	list-style-type:none;
+	
+	/*間距*/
+	margin-bottom: 5px;
+}
+.Inv_Table li{margin-bottom: -1px;}
+
+.TableLi li{margin-bottom: -1px;}
+.TableLi{margin-bottom: -1px;}
+
+.Inv li
+{
+	/*外觀*/
+	width:100%;
+	list-style-type:none;
+	
+	/*間距*/
+	margin-bottom: 5px;
+}
+
+.Inv li,.RowType,.RowType1,.RowType2,.RowType3,.RowType4,
+.RowBorderType,.RowBorderType1,.RowBorderType2,
+.RowBorderType3,.RowBorderType4,.RowBorderType7
+{
+	display:block;
+	float:left;
+	background:#FFF;
+}
+.RowType1{width:100%;}
+.RowType2{width:50%;}
+.RowType3{width:33.333%;}
+.RowType4{width:25%;}
+
+
+
+.RowBorderType,.RowBorderType1,.RowBorderType2,
+.RowBorderType3,.RowBorderType4,.RowBorderType7
+{
+	height:30px;
+	line-height:30px;
+	letter-spacing:1px;
+	border: 1px solid #666;
+	border-right: 0px;
+}
+
+/* 1024x768 格式*/
+.RowBorderType{ padding-top:5px; padding-bottom:5px; height:auto; line-height:normal;width:800px;}
+.RowBorderType1{width:800px}
+.RowBorderType2{width:399.5px;}
+.RowBorderType3{width:266px;}
+.RowBorderType4{width:199.2px;}
+.RowBorderType7{width:113.4px; text-align:center;}
+.RowBorderType,.RowBorderType1,.RowEnd{border: 1px solid #666;}
+
+/*Title*/
+.Inv_Title div
+{
+	background:#d7e6f5;
+}
+/*TextBox*/
+.Inv_TextBox
+{
+	height:auto;
+	line-height:normal;
+}
+
+
+
+
+/*GridView  格式設定區 */
+.GridView
+{
+	width:100%;
+	border:1px solid #666;
+}
+.GridView th
+{
+	text-align:center;
+	height:30px;
+	background:url(images/GVHeader.png);
+	color:#FFF;
+	border:0;
+}
+
+.GridView a,.GridView th a,GridView th a:active,GridView th a:link,GridView th a:visited
+{
+	color:#FFF;
+	border-bottom:1px dotted #555;
+}
+
+.GridView a:hover
+{
+	color:#999;
+	border-bottom:1px dotted #999;
+}
+
+/*DetailsView*/
+.InvDetailsView
+{
+	
+}
+/*resizable*/
+.resizable
+{
+	vertical-align:text-top;
+}
+/*計算欄位*/
+.Sum,.TmpTax{	display:none;}
+
+
+

@@ -1,0 +1,703 @@
+﻿/* Page Layout
+---------------------------------------------------------------------------------------------*/
+body
+{
+    background-image: url(../images/headerbg.png);
+    background-repeat: repeat-x;
+    font-size: 0.90em;
+    font-family: Helvetica, "微軟正黑體" , "Segoe UI" , "Times New Roman" , "Helvetica Neue" , "Lucida Grande" , Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /*color: #696969;*/
+    color: #000000;
+}
+.page
+{
+    width: 1024px;
+    height: 768px;
+    margin: 0 auto;
+}
+
+/* FORM ELEMENTS   
+----------------------------------------------------------*/
+fieldset
+{
+    margin: 1em 0px;
+    padding: 1em;
+    border: 1px solid #ccc;
+}
+
+fieldset p
+{
+    margin: 2px 12px 10px 10px;
+}
+
+fieldset.login label, fieldset.register label, fieldset.changePassword label
+{
+    display: block;
+}
+
+fieldset label.inline
+{
+    display: inline;
+}
+
+legend
+{
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+}
+
+/* Header
+---------------------------------------------------------------------------------------------*/
+.header
+{
+    width: 1024px;
+    height: 76px;
+}
+.title
+{
+    /*background: url(../images/LVMH.png);*/
+    float: left;
+    width: 404px;
+    height: 76px;
+}
+.headerright
+{
+    float: right;
+    margin-right: 20px;
+    height: 76px;
+    color: #3694E1;
+}
+.multilan
+{
+    height: 19px;
+    margin-top: 10px;
+    text-align: right;
+}
+.loginmessage
+{
+    margin-top: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+.loginmessage a
+{
+    text-decoration: none;
+    color: #3694E1;
+}
+
+/* Content Frame
+---------------------------------------------------------------------------------------------*/
+.topframe
+{
+    width: 1024px;
+    height: 15px;
+    clear: both;
+}
+.menulefttop, .contentlefttop
+{
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-image: url(../images/frameimg/lefttop.png);
+    background-repeat: no-repeat;
+}
+.menutop, .contenttop
+{
+    height: 15px;
+    float: left;
+    background-image: url(../images/frameimg/top.png);
+    background-repeat: repeat-x;
+}
+.menutop, .menu, .menubottom
+{
+    width: 135px;
+}
+.contenttop, .content, .contentbottom
+{
+    width: 829px;
+}
+.menurighttop, .contentrighttop
+{
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-image: url(../images/frameimg/righttop.png);
+    background-repeat: no-repeat;
+}
+.middleframe
+{
+    width: 1024px;
+    height: 639px;
+    clear: both;
+}
+.menuleft, .contentleft
+{
+    width: 15px;
+    height: 639px;
+    float: left;
+    background-image: url(../images/frameimg/left.png);
+    background-repeat: repeat-y;
+}
+.menu, .content
+{
+    min-height: 639px;
+    float: left;
+}
+.menuright, .contentright
+{
+    width: 15px;
+    height: 639px;
+    float: left;
+    background-image: url(../images/frameimg/right.png);
+    background-repeat: repeat-y;
+}
+.bottomframe
+{
+    width: 1024px;
+    height: 15px;
+    clear: both;
+}
+.menuleftbottom, .contentleftbottom
+{
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-image: url(../images/frameimg/leftbottom.png);
+    background-repeat: no-repeat;
+}
+.menubottom, .contentbottom
+{
+    height: 15px;
+    float: left;
+    background-image: url(../images/frameimg/bottom.png);
+    background-repeat: repeat-x;
+}
+.menurightbottom, .contentrightbottom
+{
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-image: url(../images/frameimg/rightbottom.png);
+    background-repeat: no-repeat;
+}
+.navgation
+{
+    width: 848px;
+    height: 10px;
+    position: relative;
+    left: -9px;
+    margin-bottom: 28px;
+}
+
+/* Detail Content Frame
+---------------------------------------------------------------------------------------------*/
+.detaillefttop
+{
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-image: url(../images/frameimg/lefttop.png);
+    background-repeat: no-repeat;
+}
+.detailtop
+{
+    height: 15px;
+    float: left;
+    background-image: url(../images/frameimg/top.png);
+    background-repeat: repeat-x;
+}
+.detailtop, .detailcontent, .detailbottom
+{
+    width: 994px;
+}
+.detailrighttop
+{
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-image: url(../images/frameimg/righttop.png);
+    background-repeat: no-repeat;
+}
+.middleframe
+{
+    width: 1024px;
+    height: 639px;
+    clear: both;
+}
+.detailleft
+{
+    width: 15px;
+    height: 639px;
+    float: left;
+    background-image: url(../images/frameimg/left.png);
+    background-repeat: repeat-y;
+}
+.detailcontent
+{
+    min-height: 639px;
+    float: left;
+}
+.detailright
+{
+    width: 15px;
+    height: 639px;
+    float: left;
+    background-image: url(../images/frameimg/right.png);
+    background-repeat: repeat-y;
+}
+.bottomframe
+{
+    width: 1024px;
+    height: 15px;
+    clear: both;
+}
+.detailleftbottom
+{
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-image: url(../images/frameimg/leftbottom.png);
+    background-repeat: no-repeat;
+}
+.detailbottom
+{
+    height: 15px;
+    float: left;
+    background-image: url(../images/frameimg/bottom.png);
+    background-repeat: repeat-x;
+}
+.detailrightbottom
+{
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-image: url(../images/frameimg/rightbottom.png);
+    background-repeat: no-repeat;
+}
+.detailtab
+{
+    width: 994px;
+    position: relative;
+    top: -22px;
+}
+
+/* Side Menu
+---------------------------------------------------------------------------------------------*/
+.messagenum
+{
+    margin-left: 12px;
+    color: Red;
+}
+.sidemenu, .sidemenufix
+{
+    position: relative;
+    left: -9px;
+}
+.sidemenu ul, .sidemenufix ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.sidemenu .menunokids a, .sidemenufix div span
+{
+    /*header bar links*/
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 微軟正黑體, BPreplay, Helvetica, Verdana, Arial, sans-serif;
+    display: block;
+    color: #074384;
+    background: transparent url(../images/blue.png) 0 -34px;
+    height: 26px; /*Set to height of bg image-padding within link (ie: 32px - 4px - 4px)*/
+    padding: 4px 0 4px 10px;
+    line-height: 26px; /*Set line-height of bg image-padding within link (ie: 32px - 4px - 4px)*/
+    text-decoration: none;
+    margin: 0 0 5px 0;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -khtml-border-radius-bottomright: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -khtml-border-radius-top-right: 5px;
+    -webkit-border-top-right-radius: 5px;
+}
+.sidemenufix div span
+{
+    color: #ffffff;
+}
+.sidemenu .menunokids a:link, .sidemenu .menunokids a:visited
+{
+    /*background-position: 100% -32px;*/
+    color: #0F2A71;
+}
+.sidemenu .menunokids a:hover
+{
+    background-position: 0 0;
+    color: #fff;
+    cursor: pointer;
+}
+.sidemenufix ul li
+{
+    background-color: #E6E6E6;
+    border: 1px solid #C7C7C7;
+    color: #CCCCCC;
+    margin: 3px 0 3px 3px;
+    width: 130px;
+}
+.sidemenufix ul li a
+{
+    /*sub menu links*/
+    display: block;
+    font: 14px 微軟正黑體, Verdana, Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: #0196E3;
+    padding: 1px 0 1px 12px;
+}
+.sidemenufix ul li a:hover
+{
+    text-decoration: none;
+}
+
+/* Top Navgation
+---------------------------------------------------------------------------------------------*/
+ul#topnav
+{
+    font: 14px normal Verdana, "微軟正黑體" , Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    float: left;
+    width: 848px;
+    list-style: none;
+    position: relative;
+    background: url(../images/topnav_s.gif) repeat-x;
+}
+ul#topnav li
+{
+    float: left;
+    margin: 0;
+    padding: 0;
+    border-right: 1px solid #555;
+}
+ul#topnav li a
+{
+    margin: 6px 15px;
+    display: block;
+    color: #f0f0f0;
+    text-decoration: none;
+    cursor: pointer;
+}
+ul#topnav li label
+{
+    padding: 6px 15px;
+    display: block;
+    color: #f0f0f0;
+    cursor: pointer;
+}
+ul#topnav li label a
+{
+    margin: 0px;
+}
+ul#topnav li span.subnav
+{
+    float: left;
+    padding: 4px 0;
+    position: absolute;
+    left: 0;
+    top: 33px;
+    display: none;
+    width: 848px;
+    background: #1376c9;
+    color: #fff;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -khtml-border-radius-bottomright: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -khtml-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+}
+ul#topnav li span.subnav a
+{
+    display: inline;
+}
+ul#topnav li span.subnav a:hover
+{
+    border-bottom: 1px solid #fff;
+}
+.topnavselected
+{
+    background: #1376c9;
+}
+.subnavselected
+{
+    border-bottom: 1px solid #fff;
+}
+
+/* Outside Tab
+---------------------------------------------------------------------------------------------*/
+ul#outsidetabcontainer
+{
+    font: 0.825em bold Verdana, "微軟正黑體" , Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 994px;
+    height: 37px;
+    list-style: none;
+}
+ul#outsidetabcontainer li
+{
+    display: inline-block;
+}
+ul#outsidetabcontainer li a
+{
+    float: left;
+    font-size: 18px;
+    display: block; /* display:block allows for additinal CSS rules to take effect, such as paddings: */
+    padding: 7px 16px 1px;
+    margin: 4px 5px;
+    height: 29px;
+    position: relative; /* Giving positioning */
+    text-shadow: 1px 1px 1px #CCCCCC; /* CSS3 text-shadow */
+    background: url(../images/blue_mid.png) repeat-x top center;
+    text-decoration: none;
+    color: #022A46;
+}
+ul#outsidetabcontainer li span.detailTitle
+{
+    float: left;
+    font-size: 18px;
+    display: block; /* display:block allows for additinal CSS rules to take effect, such as paddings: */
+    padding: 7px 16px 1px;
+    margin: 4px 5px;
+    height: 29px;
+    position: relative; /* Giving positioning */
+    text-shadow: 1px 1px 1px #CCCCCC; /* CSS3 text-shadow */
+    background: url(../images/blue_mid.png) repeat-x top center;
+    text-decoration: none;
+    color: #fff;
+    width: 952px;
+}
+ul#outsidetabcontainer li.astitle a
+{
+    cursor: default;
+    width: 952px;
+}
+ul#outsidetabcontainer li a:hover
+{
+    color: #fff;
+}
+ul#outsidetabcontainer li span.outsidetableft
+{
+    height: 37px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 10px;
+    background: url(../images/blue_left.png) no-repeat left top;
+}
+ul#outsidetabcontainer li span.outsidetabright
+{
+    height: 37px;
+    right: 0;
+    position: absolute;
+    top: 0;
+    width: 10px;
+    background: url(../images/blue_right.png) no-repeat right top;
+}
+
+
+/* Button Tab
+---------------------------------------------------------------------------------------------*/
+ul#buttontabcontainer
+{
+    margin: 0;
+    padding: 0;
+    height: 25px;
+    margin-bottom: 10px;
+}
+ul#buttontabcontainer li
+{
+    display: inline;
+    cursor: pointer;
+    margin-right: 5px;
+    padding: 3px 12px;
+    background-color: #6AB823;
+    font-size: 1.05em;
+}
+.buttontab_content
+{
+    padding-top: 5px;
+}
+/* Footer
+---------------------------------------------------------------------------------------------*/
+.footer
+{
+    width: 1024px;
+    height: 23px;
+    text-align: center;
+}
+
+/*Login
+---------------------------------------------------------------------------------------------*/
+.logindialog
+{
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 245px;
+}
+.logincenter
+{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.row1
+{
+    text-align: center;
+    padding-top: 15px;
+    width: 100%;
+}
+
+/* 3 by 3 Grid
+---------------------------------------------------------------------------------------------*/
+
+.TL, .TM, .TR, .CL, .CM, .CR, .BL, .BM, .BR
+{
+    width: 150px;
+    height: 150px;
+    border: 0px;
+}
+.TL
+{
+    background: url('../images/nine/Bigorderadd_T.gif') no-repeat;
+}
+.TL:hover
+{
+    background: url('../images/nine/Bigorderadd_O.gif') no-repeat;
+}
+
+.TM
+{
+    background: url('../images/nine/Bigordermotify_T.gif') no-repeat;
+}
+.TM:hover
+{
+    background: url('../images/nine/Bigordermotify_O.gif') no-repeat;
+}
+.TR
+{
+    background: url('../images/nine/Big_T.gif') no-repeat;
+}
+.TR:hover
+{
+    background: url('../images/nine/Big_O.gif') no-repeat;
+}
+.CL
+{
+    background: url('../images/nine/Bigsignnotice_T.gif') no-repeat;
+}
+.CL:hover
+{
+    background: url('../images/nine/Bigsignnotice_O.gif') no-repeat;
+}
+
+.CM
+{
+    background: url('../images/nine/Bigcalandar_T.png') no-repeat;
+}
+.CM:hover
+{
+    background: url('../images/nine/Bigcalandar_O.gif') no-repeat;
+}
+.CR
+{
+    background: url('../images/nine/Bigblog_T.gif') no-repeat;
+}
+.CR:hover
+{
+    background: url('../images/nine/Bigblog_O.gif') no-repeat;
+}
+
+.BL
+{
+    background: url('../images/nine/BigCompetence_T.gif') no-repeat;
+}
+.BL:hover
+{
+    background: url('../images/nine/BigCompetence_O.gif') no-repeat;
+}
+
+.BM
+{
+    background: url('../images/nine/Bigpassword_T.gif') no-repeat;
+}
+.BM:hover
+{
+    background: url('../images/nine/Bigpassword_O.gif') no-repeat;
+}
+.BR
+{
+    background: url('../images/nine/Bigfile_T.gif') no-repeat;
+}
+.BR:hover
+{
+    background: url('../images/nine/Bigfile_O.gif') no-repeat;
+}
+
+/* Shared
+---------------------------------------------------------------------------------------------*/
+.hidden
+{
+    display: none;
+}
+.required
+{
+    color: Red;
+}
+.txtBaseLine
+{
+    border-right: Transparent 0px solid;
+    border-top: Transparent 0px solid;
+    border-left: Transparent 0px solid;
+    border-bottom: Transparent 1px solid;
+    border-color: #696969;
+    background-color: Transparent;
+    color: #000000;
+    font-family: Arial;
+}
+.lblpopup
+{
+    color: #1D89D4;
+    cursor: pointer;
+}
+.lbl_w10
+{
+    width: 10%;
+}
+.div_w140px
+{
+    width: 140px;
+    vertical-align: middle;
+}
+.div_w130px
+{
+    width: 130px;
+    vertical-align: middle;
+}
+.div_w400px
+{
+    width: 400px;
+    vertical-align: middle;
+}
+/* jQuery UI
+---------------------------------------------------------------------------------------------*/
+.ui-widget, .ui-widget input
+{
+    font-family: 微軟正黑體, Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+    font-size: 1em;
+}

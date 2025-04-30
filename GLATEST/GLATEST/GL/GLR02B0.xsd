@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="GLR02B0" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="GLR02B0" msdata:IsDataSet="true" msdata:CaseSensitive="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PrGLA02B0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AcctNo" type="xs:string" minOccurs="0" />
+              <xs:element name="AcctName" type="xs:string" />
+              <xs:element name="tmdbAmt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="tmdbCnt" type="xs:short" minOccurs="0" />
+              <xs:element name="tmcrAmt" msdata:Caption="ItemDesc" type="xs:decimal" />
+              <xs:element name="tmcrCnt" type="xs:short" minOccurs="0" />
+              <xs:element name="tydbAmt" msdata:Caption="Rate1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="tycrAmt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="acctctg" type="xs:string" minOccurs="0" />
+              <xs:element name="acctclass" type="xs:string" minOccurs="0" />
+              <xs:element name="amt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TDBamt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TCramt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TaddDBamt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TaddCramt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FDBamt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FCramt" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

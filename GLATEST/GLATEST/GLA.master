@@ -1,0 +1,244 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="GLA.master.cs" Inherits="GLA" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <asp:ContentPlaceHolder id="Head" runat="server">
+    </asp:ContentPlaceHolder>  
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <link href="App_Themes/ui-lightness/ui.datepicker.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/iBOSSiteStyle.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/iBosGridStyle.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/StyleBtn.css" rel="stylesheet" type="text/css" />
+    <link href="App_Themes/ui-lightness/jquery-ui-1.8.7.custom.css" rel="stylesheet" type="text/css" />
+     <link href="Styles/loadingbox.css" rel="stylesheet" type="text/css" />       
+</head>
+<body>
+    <div class="page">
+        <form id="form1" runat="server">
+        
+        <div class="header">
+            <div class="title">
+            </div>
+            <div class="headerright">
+                <div class="multilan">
+                    <asp:Label ID="lbllanguage" runat="server" meta:resourcekey="lbllanguageResource1"
+                        Text="變更語言"></asp:Label>
+                    <asp:DropDownList ID="ddllanguage" runat="server" AutoPostBack="True" meta:resourcekey="ddllanguageResource1">
+                        <asp:ListItem meta:resourcekey="ListItemResource1" Value="zh-TW">中文</asp:ListItem>
+                        <asp:ListItem meta:resourcekey="ListItemResource2" Value="en-US">英文</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+                <div class="loginmessage">
+                    <asp:Label ID="lblUser" runat="server" Text="用戶:"></asp:Label>
+                    <asp:Label ID="txtUser" runat="server"></asp:Label>｜
+                    <%--<asp:LinkButton ID="lbhome" runat="server" Text="回首頁" CssClass="logout" 
+                        onclick="lbhome_Click"></asp:LinkButton>｜--%>
+                    <asp:LinkButton ID="lbLogout" runat="server" Text="登出" CssClass="logout" OnClick="lbLogout_Click"></asp:LinkButton>
+                </div>
+            </div>
+        </div>
+        <div class="topframe">
+            <div class="menulefttop">
+            </div>
+            <div class="menutop">
+            </div>
+            <div class="menurighttop">
+            </div>
+            <div class="contentlefttop">
+            </div>
+            <div class="contenttop">
+            </div>
+            <div class="contentrighttop">
+            </div>
+        </div>
+        <div class="middleframe">
+            <div class="menuleft">
+            </div>
+            <div class="menu">
+                <div class="sidemenu">
+                    <asp:Literal ID="ltlLeftMenu" runat="server"></asp:Literal>
+                </div>
+                <div>
+                    <br />
+                    <br />
+                    <br />
+                </div>
+                <%--<div>
+                    <a href="#" title="回首頁">
+                        <img alt="回首頁" src="~/images/Home.gif" width="25px" style="border: 0px" />回首頁</a>
+                </div>--%>
+                <%--<div>
+                    <a href="#" title="切換使用者">
+                        <img alt="切換使用者" src="~/images/Change.gif" width="25px" style="border: 0px" />切換使用者</a>
+                </div>--%>
+                <asp:HiddenField ID="hfUserId" runat="server" />
+                <asp:HiddenField ID="hfUserName" runat="server" />
+                <asp:HiddenField ID="hfLoginAccount" runat="server" />
+            </div>
+            <div class="menuright">
+            </div>
+            <div class="contentleft">
+            </div>
+            <div class="content">
+                <div class="navgation">
+                    <asp:Literal ID="ltlTop1Menu" runat="server"></asp:Literal>
+                </div>
+                <asp:ContentPlaceHolder ID="cphEEOC" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="contentright">
+            </div>
+        </div>
+        <div class="bottomframe">
+            <div class="menuleftbottom">
+            </div>
+            <div class="menubottom">
+            </div>
+            <div class="menurightbottom">
+            </div>
+            <div class="contentleftbottom">
+            </div>
+            <div class="contentbottom">
+            </div>
+            <div class="contentrightbottom">
+            </div>
+            <div class="footer">
+                PanPacific Copyright © 2012
+            </div>
+        </div>
+        <%--tab number:<span id="spanTopNavIndex"></span> tab number:<span id="spanSubNavIndex"></span>--%>
+        menu number:<span id="spanSideMenuIndex"></span>
+        <asp:HiddenField ID="hfSideMenuIndex" runat="server" />
+        <asp:HiddenField ID="hfTopNavIndex" runat="server" />
+        <asp:HiddenField ID="hfSubNavIndex" runat="server" />
+        </form>
+    </div>
+  <%--  <script type="text/javascript">
+        $(function () {
+            //datepicker
+            $(".datepicker").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy/mm/dd",
+                dayNamesMin: ["日", "一", "二", "三", "四", "五", "六"],
+                monthNamesShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+                showButtonPanel: true,
+                closeText: "關閉",
+                currentText: "今天"
+            });
+
+            //初始sidemenu定位
+            doSideMenuInit();
+            //初始topnav定位
+            doTopNavInit();
+            doSubNavInit();
+            //Navigation button
+            $(".btn").live("click", function () {
+                $.showprogress();
+            });
+            $(".ddl").live("change", function () {
+                $.showprogress();
+            });
+            //sidemenu切換
+            $("div.sidemenu > div").live("click", function () {
+                $.showprogress();
+
+                var index = $("div.sidemenu > div").index(this);
+                //記錄sidemenu index
+                $("#<%=hfSideMenuIndex.ClientID %>").val(index + 1);
+                $("#spanSideMenuIndex").text($("#<%=hfSideMenuIndex.ClientID %>").val());
+                $("div.sidemenu > div > a").removeAttr("style");
+                $("div.sidemenu > div > a").hover(function () {
+                    $(this).css("color", "#fff");
+                }, function () {
+                    $(this).css("color", "#0F2A71");
+                });
+                $("div.sidemenu > div > a").eq(index).css({ "background-position": "0 0", "color": "#fff" });
+                $("div.sidemenu > div > a").eq(index).hover(function () {
+                    $(this).css("color", "#fff");
+                });
+                //doSideMenuInit();
+            });
+            //topnav切換
+            $("ul#topnav > li").live("click", function () {
+                $.showprogress();
+
+                var index = $("ul#topnav > li").index(this);
+                //記錄topnav index
+                //alert(index+1);
+                $("#<%=hfTopNavIndex.ClientID %>").val(index + 1);
+                $("#spanTopNavIndex").text($("#<%=hfTopNavIndex.ClientID %>").val());
+                $("ul#topnav > li").removeClass("topnavselected");
+                $("ul#topnav > li").eq(index).addClass("topnavselected");
+                $("ul#topnav > li > span").hide();           //全部隐藏
+                $("ul#topnav > li > span").eq(index).show(); //顯示目前
+            });
+            $("ul#topnav > li > span > a").live("click", function () {
+                $.showprogress();
+
+                var index = $("ul#topnav > li > span > a").index(this);
+                //記錄subnav index
+                //alert(index+1);
+                $("#<%=hfSubNavIndex.ClientID %>").val(index + 1);
+                $("#spanSubNavIndex").text($("#<%=hfSubNavIndex.ClientID %>").val());
+                $("ul#topnav > li > span.subnav > a").removeClass("subnavselected");
+                $("ul#topnav > li > span.subnav > a").eq(index).addClass("subnavselected");
+            });
+            //框架高度皆相等
+            $('.menuleft').height($('.content').height());
+            $('.menuright').height($('.content').height());
+            $('.contentleft').height($('.content').height());
+            $('.contentright').height($('.content').height());
+        });
+        //初始sidemenu
+        function doSideMenuInit() {
+            var sidemenuindex = $("#<%=hfSideMenuIndex.ClientID %>").val();
+            var isidemenuindex = 1;
+            //alert($("#<%=hfSideMenuIndex.ClientID %>").val());
+            if (sidemenuindex != "") {
+                var isidemenuindex = parseInt(sidemenuindex);
+            }
+            $("#spanSideMenuIndex").text(isidemenuindex);
+            //$("div.sidemenu > div > a").removeClass("sidemenuselected");
+            //$("div.sidemenu > div > a").eq(isidemenuindex - 1).addClass("sidemenuselected");
+            $("div.sidemenu > div > a").removeAttr("style");
+            $("div.sidemenu > div > a").hover(function () {
+                $(this).css("color", "#fff");
+            }, function () {
+                $(this).css("color", "#0F2A71");
+            });
+            $("div.sidemenu > div > a").eq(isidemenuindex - 1).css({ "background-position": "0 0", "color": "#fff" });
+            $("div.sidemenu > div > a").eq(isidemenuindex - 1).hover(function () {
+                $(this).css("color", "#fff");
+            });
+        }
+        //初始topnav
+        function doTopNavInit() {
+            var topnavindex = $("#<%=hfTopNavIndex.ClientID %>").val();
+            var itopnavindex = 1;
+            if (topnavindex != "") {
+                var itopnavindex = parseInt(topnavindex);
+            }
+            $("#spanTopNavIndex").text(itopnavindex);
+            $("ul#topnav > li").removeClass("topnavselected");
+            $("ul#topnav > li").eq(itopnavindex - 1).addClass("topnavselected");
+            $("ul#topnav > li > span").hide();                   //全部隐藏
+            $("ul#topnav > li > span").eq(itopnavindex - 1).show();   //顯示目前
+        }
+        //初始subnav
+        function doSubNavInit() {
+            var subnavindex = $("#<%=hfSubNavIndex.ClientID %>").val();
+            var isubnavindex = 1;
+            if (subnavindex != "") {
+                var isubnavindex = parseInt(subnavindex);
+            }
+            $("#spanSubNavIndex").text(isubnavindex);
+            $("ul#topnav > li > span.subnav > a").removeClass("subnavselected");
+            $("ul#topnav > li > span.subnav > a").eq(isubnavindex - 1).addClass("subnavselected");
+        }
+    </script>--%>
+</body>
+</html>

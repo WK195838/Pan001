@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsGLR0320" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsGLR0320" msdata:IsDataSet="true" msdata:CaseSensitive="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ResultSet">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ItemDesc" type="xs:string" />
+              <xs:element name="Amt1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Amt2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Amt3" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Amt4" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Amt5" msdata:Caption="Amt4" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Amt6" msdata:Caption="Amt4" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Amt7" msdata:Caption="Amt4" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AmtTotal" msdata:Caption="Amt4" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

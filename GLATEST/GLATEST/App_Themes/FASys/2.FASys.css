@@ -1,0 +1,103 @@
+﻿/*====================================================================*/
+/* 資產 內容頁*/
+.FA_Content
+{
+    background: #FFF ;
+	background-repeat:repeat-y;
+	background-position:right;
+	font-size:15px;
+	color:#323232;
+}
+.FA_GV
+{
+	position:relative;
+	display:block;
+	width:100%;
+	left:1%;
+	border:1px solid #000;
+}
+.FA_GV th,.FA_GV th a,.FA_GV,.FA_GV a
+{
+	font-size:13px;
+	font-family:新細明體;
+	text-align:center;
+}
+.FA_GV a
+{
+	text-decoration: none; 
+	cursor:pointer;
+	color:#222;
+	/*border-bottom:1px dotted #555;*/
+}
+.FA_GV th a,FA_GV th a:active,FA_GV th a:link,FA_GV th a:visited
+{
+	color:#FFF;
+	border-bottom:1px dotted #555;
+}
+.FA_GV th
+{
+	vertical-align: middle;
+	text-align: center;
+	background-color:#003A75;
+	color:#FFF;
+	/*color:#FFF;padding-left: 3px#996633#663300;
+	padding-top: 7px;*/	
+}
+
+.FA_GV a:hover
+{
+	color:#990000;
+	border-bottom:1px dotted #999;
+}
+/*====================================================================*/
+/* 開新視窗 內容頁*/
+.FA_FV
+{
+	position:relative;
+	display:block;
+	width:100%;
+	letter-spacing:2px;
+	/*left:1%;*/
+}
+#FA_FVContent
+{
+	width:970px;
+	text-align:center;
+	margin:0 auto;
+}
+#FA_FVContent li
+{
+	width:322px;
+	list-style-type:none;
+	height:30px;
+	line-height:30px;
+	text-align:left;
+	float:left;
+	margin-left:1px;
+	margin-bottom:1px;
+	background:#FEFEFE;
+	font-size:13px;
+	}
+#FA_FVContent li span.FA_text
+{
+	vertical-align:top;
+}
+#FA_FVContent li.FA_col1
+{
+	width:322px;
+}
+#FA_FVContent li.FA_col2
+{
+	width:645px;
+	}
+#FA_FVContent li.FA_col3
+{
+	width:968px;
+}
+#FA_FVContent li.FA_col4
+{
+	width:483.5px;
+
+}
+
+

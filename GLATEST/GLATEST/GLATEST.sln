@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GLATEST", "..\GLATEST", "{AC269405-D101-4B7A-810A-472865FA6459}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = ""$/PanPacific/GLA/GLAWeb", NFPBAAAA"
+		SccAuxPath = ""
+		SccLocalPath = "."
+		SccProvider = "MSSCCI:Microsoft Visual SourceSafe"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/GLATEST"
+		Debug.AspNetCompiler.PhysicalPath = "..\GLATEST\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\GLATEST\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/GLATEST"
+		Release.AspNetCompiler.PhysicalPath = "..\GLATEST\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\GLATEST\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "53452"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 1
+		SccWebProject0 = true
+		SccProjectUniqueName0 = .
+		SccProjectName0 = \u0022$/PanPacific/GLA/GLAWeb\u0022,\u0020NFPBAAAA
+		SccLocalPath0 = D:\\ALL\\GLATEST
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		SccProjectEnlistmentChoice0 = 2
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC269405-D101-4B7A-810A-472865FA6459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC269405-D101-4B7A-810A-472865FA6459}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

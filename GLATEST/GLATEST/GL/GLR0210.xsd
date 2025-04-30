@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:CaseSensitive="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_GLWF03">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="WF0301" type="xs:string" />
+              <xs:element name="WF0302" type="xs:string" minOccurs="0" />
+              <xs:element name="WF0303" type="xs:string" minOccurs="0" />
+              <xs:element name="WF0304" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WF0305" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WF0306" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WF0307" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WF0308" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WF0309" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//View_GLWF03" />
+      <xs:field xpath="WF0301" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

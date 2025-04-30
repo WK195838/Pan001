@@ -1,0 +1,404 @@
+﻿/*---------- detailgrid ---------------------------------*/
+.detail
+{
+    font-family: lucida grande, Helvetica, "微軟正黑體", arial, sans-serif;
+    font-size: 11px;
+    background-color: #fff;
+    padding: 4px;
+}
+.detail .footer
+{
+    text-align: right;
+    padding: 8px;
+}
+
+
+/* table style */
+.detailgrid
+{
+    border: solid 1px #ad9e87;
+}
+
+/* cell styles */
+.detailgrid td
+{
+    cursor: default;
+    height: 20px;
+    color: #000;
+    padding: 2px 8px;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-right-color: #f2e8da;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #f2e8da;
+}
+
+/*---------- core ---------------------------------*/
+.money
+{
+    color: Green;
+}
+
+
+/* This file skins dialog */
+
+.flora .ui-dialog, .flora.ui-dialog
+{
+    background-color: #e6f7d4;
+}
+
+.flora .ui-dialog .ui-dialog-titlebar, .flora.ui-dialog .ui-dialog-titlebar
+{
+    border-bottom: 1px solid #d8d2aa;
+    background: #ff9900 url(../images/gridimg/dialog-title.gif) repeat-x;
+    padding: 0px;
+    height: 28px;
+}
+
+.flora .ui-dialog.ui-draggable .ui-dialog-titlebar, .flora.ui-dialog.ui-draggable .ui-dialog-titlebar
+{
+    cursor: move;
+}
+
+.flora .ui-dialog .ui-dialog-titlebar-close, .flora.ui-dialog .ui-dialog-titlebar-close
+{
+    width: 16px;
+    height: 16px;
+    background: url(../images/gridimg/dialog-titlebar-close.png) no-repeat;
+    position: absolute;
+    top: 6px;
+    right: 7px;
+    cursor: default;
+}
+
+.flora .ui-dialog .ui-dialog-titlebar-close span, .flora.ui-dialog .ui-dialog-titlebar-close span
+{
+    display: none;
+}
+
+.flora .ui-dialog .ui-dialog-titlebar-close-hover, .flora.ui-dialog .ui-dialog-titlebar-close-hover
+{
+    background: url(../images/gridimg/dialog-titlebar-close-hover.png) no-repeat;
+}
+
+.flora .ui-dialog .ui-dialog-title, .flora.ui-dialog .ui-dialog-title
+{
+    margin-left: 5px;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    top: 7px;
+    left: 4px;
+}
+
+.flora .ui-dialog .ui-dialog-content, .flora.ui-dialog .ui-dialog-content
+{
+    margin: 1.2em;
+}
+
+.flora .ui-dialog .ui-dialog-buttonpane, .flora.ui-dialog .ui-dialog-buttonpane
+{
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+    width: 100%;
+    text-align: right;
+}
+
+.flora .ui-dialog .ui-dialog-buttonpane button, .flora.ui-dialog .ui-dialog-buttonpane button
+{
+    margin: 6px;
+}
+
+/*---------- Dialog handle styles ---------------------------------*/
+.flora .ui-dialog .ui-resizable-n, .flora.ui-dialog .ui-resizable-n
+{
+    cursor: n-resize;
+    height: 6px;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background: transparent url(../images/gridimg/dialog-n.gif) repeat scroll center top;
+}
+
+.flora .ui-dialog .ui-resizable-s, .flora.ui-dialog .ui-resizable-s
+{
+    cursor: s-resize;
+    height: 8px;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    background: transparent url(../images/gridimg/dialog-s.gif) repeat scroll center top;
+}
+
+.flora .ui-dialog .ui-resizable-e, .flora.ui-dialog .ui-resizable-e
+{
+    cursor: e-resize;
+    width: 7px;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    background: transparent url(../images/gridimg/dialog-e.gif) repeat scroll right center;
+}
+
+.flora .ui-dialog .ui-resizable-w, .flora.ui-dialog .ui-resizable-w
+{
+    cursor: w-resize;
+    width: 7px;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    background: transparent url(../images/gridimg/dialog-w.gif) repeat scroll right center;
+}
+
+.flora .ui-dialog .ui-resizable-se, .flora.ui-dialog .ui-resizable-se
+{
+    cursor: se-resize;
+    width: 9px;
+    height: 9px;
+    right: 0px;
+    bottom: 0px;
+    background: transparent url(../images/gridimg/dialog-se.gif);
+}
+
+.flora .ui-dialog .ui-resizable-sw, .flora.ui-dialog .ui-resizable-sw
+{
+    cursor: sw-resize;
+    width: 9px;
+    height: 9px;
+    left: 0px;
+    bottom: 0px;
+    background: transparent url(../images/gridimg/dialog-sw.gif);
+}
+
+.flora .ui-dialog .ui-resizable-nw, .flora.ui-dialog .ui-resizable-nw
+{
+    cursor: nw-resize;
+    width: 9px;
+    height: 29px;
+    left: 0px;
+    top: 0px;
+    background: transparent url(../images/gridimg/dialog-nw.gif);
+}
+
+.flora .ui-dialog .ui-resizable-ne, .flora.ui-dialog .ui-resizable-ne
+{
+    cursor: ne-resize;
+    width: 9px;
+    height: 29px;
+    right: 0px;
+    top: 0px;
+    background: transparent url(../images/gridimg/dialog-ne.gif);
+}
+
+
+/*---------- grid ---------------------------------*/
+.grid
+{
+    width: 100%;
+    font-family: Tahoma, "微軟正黑體";
+}
+.grid .img
+{
+    float: right;
+    padding-right: 10px;
+    padding-top: 3px;
+}
+.grid H2, .h2
+{
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+}
+.grid .mid
+{
+    padding: 3px 0px 0px 0px;
+    overflow: auto;
+}
+.grid .datatable
+{
+    width: 100%;
+    color: #666;
+}
+.grid .datatable TH
+{
+    padding-right: 18px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    text-align: left;
+    padding: 2px 4px;
+    color: #0066cc;
+    border-bottom: solid 2px #bbd9ee;
+}
+.grid .datatable TH A
+{
+    text-decoration: none;
+    padding-right: 18px;
+    color: #0066cc;
+}
+.grid .datatable TH.sortasc A
+{
+    background: url(../images/gridimg/asc.gif) right center no-repeat;
+}
+.grid .datatable TH.sortdesc A
+{
+    background: url(../images/gridimg/desc.gif) right center no-repeat;
+}
+.grid .datatable .row TD
+{
+    font-size: 1em;
+    text-align: left;
+    padding-top:6px;
+    padding-right:4px;
+    /*padding: 6px 4px;*/
+    border-bottom: solid 1px #bbd9ee;
+}
+.grid .datatable .row:hover
+{
+    background-color: #fffacd;
+    color: #000;
+}
+.grid .datatable .row TD.first
+{
+    padding-left: 10px;
+}
+.grid .datatable TH.first
+{
+    padding-left: 10px;
+}
+.grid .datatable .row:hover .first
+{
+    background-repeat: no-repeat;
+    background-image: url(../images/gridimg/bullet.gif);
+}
+/* Data Pager Styles */
+.grid TR.pager-row TD
+{
+    border-top: solid 2px #bbd9ee;
+}
+.grid .pager
+{
+    font-family: arial,sans-serif;
+    text-align: center;
+    padding: 6px;
+    font-size: 18px;
+}
+.grid .pager SPAN.command, .grid .pager SPAN.current, .grid .pager A.command, .grid TR.pager-row TD A
+{
+    color: #5a90ce;
+    padding: 0px 5px;
+    text-decoration: none;
+    border: none;
+}
+.grid .pager A.command:hover, .grid TR.pager-row TD A:hover
+{
+    border: solid 2px #408BB6;
+    background-color: #59A5D1;
+    color: #fff;
+    padding: 0px 3px;
+    text-decoration: none;
+}
+.grid .pager SPAN.current, .grid TR.pager-row TD SPAN
+{
+    border: none;
+    font-weight: bold;
+    color: #3e3e3e;
+    padding: 0px 6px;
+}
+.grid TR.pager-row TD
+{
+    border-top: none;
+    text-align: center;
+}
+.grid TR.pager-row TABLE
+{
+    height: 35px;
+    margin: 0 auto 0 auto;
+}
+
+.grid .button
+{
+    background-color: #fff;
+    border: solid 1px #bbd9ee;
+    color: #0066cc;
+    font-size: 10px;
+}
+
+
+/*---------- 框線架構，使用圖片拼湊 ---------------------------------*/
+div.rounded
+{
+    clear: both;
+    max-width: 2400px;
+}
+
+div.rounded div.top-outer
+{
+    background: url(../images/gridimg/newtl.gif) no-repeat left bottom;
+    padding: 0px;
+    width: 100%;
+}
+
+div.rounded div.top-outer div.top-inner
+{
+    background: url(../images/gridimg/newtr.gif) no-repeat right bottom;
+    margin-left: 9px;
+}
+
+div.rounded div.top-outer div.top-inner div.top
+{
+    background: url(../images/gridimg/newtm.gif) repeat;
+    height: 30px;
+    margin-right: 9px;
+    font-size: .01em;
+}
+
+div.top h2
+{
+    font-size: 16px;
+}
+
+div.rounded div.mid-outer
+{
+    background: url(../images/gridimg/l.gif) left repeat-y;
+    clear: both;
+    width: 100%;
+}
+
+div.rounded div.mid-outer div.mid-inner
+{
+    background: url(../images/gridimg/r.gif) right repeat-y;
+    margin-left: 9px;
+}
+
+div.rounded div.mid-outer div.mid-inner div.mid
+{
+    background-color: #ffffff;
+    margin-right: 9px;
+}
+
+div.rounded div.bottom-outer
+{
+    background: url(../images/gridimg/bl.gif) no-repeat left top;
+    clear: both;
+    padding: 0px;
+    width: 100%;
+}
+
+div.rounded div.bottom-outer div.bottom-inner
+{
+    background: url(../images/gridimg/br.gif) no-repeat right top;
+    margin-left: 8px;
+}
+
+div.rounded div.bottom-outer div.bottom-inner div.bottom
+{
+    background: url(../images/gridimg/bm.gif) repeat;
+    height: 9px;
+    margin-right: 8px;
+    font-size: .01em;
+}
