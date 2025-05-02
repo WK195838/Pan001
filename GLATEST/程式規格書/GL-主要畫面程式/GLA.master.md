@@ -10,10 +10,10 @@
 | 所屬模組 | 總帳模組 |
 | 檔案位置 | GLATEST/GL/GLA.master, GLATEST/GL/GLA.master.cs |
 | 程式類型 | 主版面程式 |
-| 建立日期 | [初次建立日期] |
-| 建立人員 | [初次建立人員] |
-| 最後修改日期 | [最後修改日期] |
-| 最後修改人員 | [最後修改人員] |
+| 建立日期 | 2023/10/30 |
+| 建立人員 | PanPacific開發團隊 |
+| 最後修改日期 | 2023/10/30 |
+| 最後修改人員 | PanPacific開發團隊 |
 
 ## 2. 功能概述
 
@@ -75,6 +75,11 @@ GLA.master 是泛太總帳系統的主版面(Master Page)，提供整個應用�
 | Busy.js | 忙碌指示器 | 顯示資料處理中的狀態指示 |
 | pagefunction.js | 頁面函數 | 提供共用的JavaScript功能 |
 | ModPopFunction.js | 彈出窗口函數 | 提供彈出窗口控制 |
+| jquery-1.4.4.min.js | jQuery函式庫 | 提供DOM操作 |
+| jquery-ui-1.8.7.custom.min.js | jQuery UI函式庫 | 提供界面元件 |
+| StyleBtn.css | 按鈕樣式 | 定義系統按鈕外觀 |
+| iBOSSiteStyle.css | 網站樣式 | 定義整體頁面布局樣式 |
+| iBosGridStyle.css | 表格樣式 | 定義網格與資料顯示樣式 |
 
 ## 4. 畫面規格
 
@@ -84,17 +89,18 @@ GLA.master 是泛太總帳系統的主版面(Master Page)，提供整個應用�
 +--------------------------------------------------+
 |                  系統標題 & LOGO                  |
 +--------------------------------------------------+
-| 使用者資訊 | 公司別 | 功能選單 | 登出按鈕 | 幫助  |
+| 使用者資訊 | 語言選擇 | 功能選單 | 登出按鈕 | 幫助  |
 +--------------------------------------------------+
 |                                                  |
-|                                                  |
-|                                                  |
-|                                                  |
-|             內容頁面 (ContentPlaceHolder)         |
-|                                                  |
-|                                                  |
-|                                                  |
-|                                                  |
+|     |                                            |
+|     |                                            |
+| 側  |                                            |
+| 邊  |                                            |
+| 選  |        內容頁面 (ContentPlaceHolder)        |
+| 單  |                                            |
+|     |                                            |
+|     |                                            |
+|     |                                            |
 +--------------------------------------------------+
 |              系統訊息 & 版權資訊                  |
 +--------------------------------------------------+
@@ -104,38 +110,42 @@ GLA.master 是泛太總帳系統的主版面(Master Page)，提供整個應用�
 
 | 控制項名稱 | 控制項類型 | 用途 | 說明 |
 |-----------|----------|------|------|
-| HeaderLogo | Image | 系統標誌 | 顯示系統LOGO |
-| lblSysName | Label | 系統名稱 | 顯示系統標題 |
-| lblUserName | Label | 使用者名稱 | 顯示目前登入使用者 |
-| ddlCompany | DropDownList | 公司別選擇 | 允許切換作業公司 |
-| menuMain | Menu | 主選單 | 顯示主要功能選單 |
-| btnLogout | Button | 登出按鈕 | 登出系統 |
-| btnHelp | Button | 幫助按鈕 | 顯示幫助資訊 |
-| MainContent | ContentPlaceHolder | 內容區域 | 顯示子頁面內容 |
-| lblMessage | Label | 系統訊息 | 顯示系統訊息和提示 |
-| lblVersion | Label | 版本資訊 | 顯示系統版本號 |
-| lblCopyright | Label | 版權資訊 | 顯示版權聲明 |
+| form1 | Form | 主表單 | 包含所有控制項的主表單 |
+| lbllanguage | Label | 語言標籤 | 顯示"變更語言"文字 |
+| ddllanguage | DropDownList | 語言選擇 | 提供中文/英文的選擇 |
+| lblUser | Label | 用戶標籤 | 顯示"用戶:"文字 |
+| txtUser | Label | 用戶名稱 | 顯示當前登入的用戶名稱 |
+| lbLogout | LinkButton | 登出按鈕 | 用於登出系統 |
+| ltlLeftMenu | Literal | 側邊選單 | 動態產生的左側主選單 |
+| ltlTop1Menu | Literal | 頂部選單 | 動態產生的頂部子選單 |
+| hfUserId | HiddenField | 用戶ID隱藏欄位 | 儲存當前用戶ID |
+| hfUserName | HiddenField | 用戶名稱隱藏欄位 | 儲存當前用戶名稱 |
+| hfLoginAccount | HiddenField | 登入帳號隱藏欄位 | 儲存當前登入帳號 |
+| hfSideMenuIndex | HiddenField | 側邊選單索引 | 記錄目前選中的側邊選單項 |
+| hfTopNavIndex | HiddenField | 頂部選單索引 | 記錄目前選中的頂部導航項 |
+| hfSubNavIndex | HiddenField | 子選單索引 | 記錄目前選中的子導航項 |
+| cphEEOC | ContentPlaceHolder | 內容區域 | 用於承載子頁面內容 |
 
 ### 4.3 事件處理
 
 | 事件名稱 | 觸發條件 | 處理邏輯 |
 |---------|---------|---------|
-| Page_Load | 頁面載入 | 驗證用戶登入狀態，載入選單權限 |
+| Page_Load | 頁面載入 | 1. 驗證用戶登入狀態<br>2. 註冊必要的JavaScript檔案<br>3. 初始化選單與導航項<br>4. 載入用戶資訊與權限資料 |
 | Page_PreRender | 頁面渲染前 | 更新使用者資訊與訊息顯示 |
-| ddlCompany_SelectedIndexChanged | 公司別選擇變更 | 切換作業公司，重載相關頁面資料 |
-| btnLogout_Click | 點擊登出按鈕 | 執行登出處理，清除工作階段 |
-| menuMain_MenuItemClick | 點擊選單項目 | 導航至相應功能頁面 |
-| btnHelp_Click | 點擊幫助按鈕 | 開啟幫助文件或說明 |
+| lbLogout_Click | 點擊登出按鈕 | 1. 記錄登出活動<br>2. 清除用戶工作階段<br>3. 導向至登入頁面 |
+| ddllanguage_SelectedIndexChanged | 語言選擇變更 | 1. 更新UI顯示語言<br>2. 保存語言偏好設定 |
+| sidemenu切換 | 點擊側邊選單項 | 1. 更新選單樣式<br>2. 記錄選中索引<br>3. 處理頁面導航 |
+| topnav切換 | 點擊頂部導航 | 1. 更新導航樣式<br>2. 記錄選中索引<br>3. 顯示對應子導航 |
 
 ### 4.4 畫面流程
 
-1. 使用者登入系統後進入含主版面的頁面
-2. 系統驗證登入狀態及工作階段有效性
-3. 載入使用者權限與可用選單配置
-4. 顯示主版面與對應內容頁
-5. 使用者可透過選單導航至不同功能
-6. 使用者可切換作業公司
-7. 使用者可登出系統回到登入頁面
+1. 使用者從AuthAD.aspx登入系統，驗證通過後進入包含GLA.master的頁面
+2. 系統根據用戶權限自動生成左側主選單與頂部功能選單
+3. 使用者可透過選單導航至不同功能頁面
+4. 內容頁面在主版面框架內顯示，主版面不變
+5. 使用者可隨時切換語言或登出系統
+6. 工作階段超時前，系統自動顯示提醒
+7. 使用者選擇登出或超時後，系統導向至登入頁面
 
 ## 5. 處理邏輯
 
@@ -144,15 +154,15 @@ GLA.master 是泛太總帳系統的主版面(Master Page)，提供整個應用�
 ```
 開始
  ↓
-檢查使用者登入狀態 → 未登入 → 重定向至登入頁面
+檢查使用者登入狀態 → 未登入 → 重定向至登入頁面(AuthAD.aspx)
  ↓
 檢查工作階段有效性 → 已失效 → 重定向至登入頁面
  ↓
-從 Session 讀取用戶資訊
+載入用戶資訊(UserInfo類別)
  ↓
-載入用戶權限資料
+載入選單資料(MenuManager類別)
  ↓
-依據用戶權限產生主選單
+依據用戶權限產生動態選單(RegisterLeftMenu/RegisterTopMenu方法)
  ↓
 顯示主版面與對應內容頁
  ↓
@@ -166,153 +176,169 @@ GLA.master 是泛太總帳系統的主版面(Master Page)，提供整個應用�
 ### 5.2 使用者認證與權限控制
 
 1. 用戶認證流程：
-   - 檢查工作階段中的使用者識別資訊
-   - 若不存在有效識別資訊則跳轉至登入頁
-   - 定期驗證工作階段有效性並自動延長
-   - 閒置超時自動登出處理
+   - 使用FormsAuth.Authorization類負責身份驗證
+   - 認證成功後將用戶資訊保存在UserInfo物件與Session變數中
+   - 提供AD域集成認證功能(透過LdapAuthentication類)
+   - 設定工作階段Cookie來維持用戶登入狀態
 
 2. 選單權限控制：
-   - 讀取用戶所屬群組權限設定
-   - 依權限過濾可見選單項目
-   - 動態產生符合權限的選單結構
-   - 儲存選單結構到工作階段以提升效能
+   - 使用MenuManager類處理選單資料
+   - 依據SYS_AUTHORITY表中的權限設定過濾MenuData集合
+   - 使用CreateLeftMenuLT方法動態產生左側選單
+   - 使用RegisterTopMenu方法動態產生頂部選單
 
 3. 公司切換處理：
-   - 保存當前公司設定到工作階段
-   - 依據公司別過濾資料存取範圍
-   - 切換公司時更新相關頁面資料
+   - 公司資料存儲於Session["Company"]
+   - 通過公司別篩選各功能模組的資料範圍
+   - 切換公司時通知相關頁面更新資料(ICompanyAware介面)
 
 ### 5.3 頁面生命週期管理
 
-1. 版面初始化：
-   - 檢查瀏覽器相容性
-   - 設定全域JavaScript變數
-   - 載入所需CSS與JavaScript檔案
-   - 註冊AJAX控制項
+1. 版面初始化(OnInit/Page_Load)：
+   - 檢查用戶登入狀態與工作階段有效性
+   - 載入必要的JavaScript與CSS檔案
+   - 從Session提取用戶資訊與當前系統設定
 
 2. 內容頁整合：
-   - 將內容頁面嵌入主版面的ContentPlaceHolder
-   - 提供共用的頁面方法給內容頁使用
-   - 處理頁面間資料傳遞邏輯
+   - 使用ASP.NET ContentPlaceHolder機制(cphEEOC)
+   - 支援子頁面與主版面交互(透過FindControl方法)
+   - 維護統一的頁面樣式與操作方式
 
-3. 工作階段管理：
-   - 檢查工作階段有效期
-   - 使用者活動時自動延長工作階段
-   - 工作階段即將到期時顯示警告提示
-   - 支援平行工作階段處理
+3. 前端交互處理：
+   - 使用jQuery處理DOM操作與事件綁定
+   - 支援選單的動態切換與樣式更新
+   - 使用jQuery UI提供的datepicker等控制項
 
 ### 5.4 例外處理
 
 1. 認證例外：
    - 捕獲未驗證用戶的存取嘗試
-   - 記錄存取資訊到安全日誌
-   - 重定向至登入頁面並顯示錯誤訊息
+   - 使用Response.Redirect重定向至登入頁面
+   - 通過URL參數(ReturnUrl)指定登入後返回頁面
 
 2. 權限例外：
-   - 攔截無權限的功能存取嘗試
-   - 記錄存取嘗試資訊到安全日誌
-   - 顯示「權限不足」訊息頁面
+   - 檢查用戶對功能的存取權限(CheckAuthorization控制項)
+   - 使用try-catch區塊捕獲權限相關異常
+   - 記錄權限檢查失敗的情況
 
 3. 系統例外：
-   - 全域例外攔截處理
-   - 記錄例外詳情到錯誤日誌
-   - 顯示使用者友善的錯誤頁面
-   - 嚴重錯誤自動通知系統管理員
+   - 實作Application_Error全域例外處理
+   - 使用ErrorMessage屬性記錄與顯示錯誤訊息
+   - 系統層級錯誤導向至自訂錯誤頁面
 
-## 6. SQL查詢
+## 6. 實作細節
 
-### 6.1 主要查詢
+### 6.1 選單生成機制
 
-```sql
--- 查詢使用者選單權限
-SELECT 
-    M.MenuID, M.MenuName, M.MenuParentID, M.MenuURL, M.MenuOrder, M.IconCss
-FROM 
-    SYS_MENU M
-INNER JOIN 
-    SYS_AUTHORITY A ON M.MenuID = A.MenuID
-INNER JOIN 
-    SYS_GROUP G ON A.GroupID = G.GroupID
-INNER JOIN 
-    SYS_USER U ON U.GroupID = G.GroupID
-WHERE 
-    U.UserID = @UserID
-    AND M.IsActive = 1
-    AND A.AuthorityType >= 1
-ORDER BY 
-    M.MenuParentID, M.MenuOrder
+選單生成使用三層結構：
+1. **側邊主選單(LeftMenu)**：對應系統主要功能模組，使用Literal控制項動態產生HTML
+2. **頂部導航(TopNav)**：對應當前模組的功能群組，使用ul/li結構實現標籤式設計
+3. **次級導航(SubNav)**：提供功能細項的導航，使用嵌套結構動態顯示與隱藏
+
+選單HTML生成方式：
+```csharp
+// 左側主選單產生範例
+private void RegisterLeftMenu()
+{
+    StringBuilder sbFun = new StringBuilder();
+    foreach (MenuData data in menuDataLT.FindAll(p => p.location == "Left"))
+    {
+        sbFun.AppendFormat("<div><a href=\"{0}\">{1}</a></div>", 
+            Page.ResolveUrl("~/" + data.ProgUrl), data.ProgName);
+    }
+    ltlLeftMenu.Text = sbFun.ToString();
+}
+
+// 頂部導航產生範例
+private void RegisterTopMenu(string parentid, string location)
+{
+    StringBuilder sbFun = new StringBuilder();
+    sbFun.Append("<ul id=\"topnav\">");
+    // 產生一級導航項
+    foreach (MenuData data in menuDataLT.FindAll(p => p.ParentProgId == parentid && p.location == location))
+    {
+        sbFun.AppendFormat("<li><a href=\"{0}\">{1}</a>", 
+            Page.ResolveUrl("~/" + data.ProgUrl), data.ProgName);
+        // 產生子導航項
+        sbFun.Append(RegisterSubMenu(data.ProgId, "Top2"));
+        sbFun.Append("</li>");
+    }
+    sbFun.Append("</ul>");
+    ltlTop1Menu.Text = sbFun.ToString();
+}
 ```
 
-```sql
--- 查詢使用者可存取公司
-SELECT 
-    C.CompanyID, C.CompanyName, C.CompanyShortName
-FROM 
-    SYS_COMPANY C
-INNER JOIN 
-    SYS_USER_COMPANY UC ON C.CompanyID = UC.CompanyID
-WHERE 
-    UC.UserID = @UserID
-    AND C.IsActive = 1
-ORDER BY 
-    C.CompanyID
+### 6.2 前端互動實現
+
+主版面使用jQuery實現多種前端互動效果：
+
+1. **選單反白效果**：根據當前位置更新選單項樣式
+```javascript
+// sidemenu切換處理
+$("div.sidemenu > div").live("click", function() {
+    var index = $("div.sidemenu > div").index(this);
+    $("#hfSideMenuIndex").val(index + 1);
+    $("div.sidemenu > div > a").removeAttr("style");
+    $("div.sidemenu > div > a").eq(index).css({"background-position": "0 0", "color": "#fff"});
+});
 ```
 
-```sql
--- 查詢系統參數
-SELECT 
-    S.ParamKey, S.ParamValue, S.ParamDesc
-FROM 
-    SYS_SYS S
-WHERE 
-    S.ParamGroup = 'SYSTEM'
-    AND S.IsActive = 1
+2. **頁面大小調整**：動態調整頁面框架元素高度
+```javascript
+// 框架高度皆相等
+$('.menuleft').height($('.content').height());
+$('.menuright').height($('.content').height());
+$('.contentleft').height($('.content').height());
+$('.contentright').height($('.content').height());
 ```
 
-```sql
--- 查詢系統訊息
-SELECT TOP 5
-    M.MessageID, M.MessageTitle, M.MessageContent, 
-    M.MessageType, M.CreateDate
-FROM 
-    SYS_MESSAGE M
-WHERE 
-    (M.TargetUserID = @UserID OR M.TargetUserID IS NULL)
-    AND M.ExpireDate >= GETDATE()
-    AND M.IsRead = 0
-ORDER BY 
-    M.CreateDate DESC
+3. **日期控制項**：使用jQuery UI日期選擇器並支援國際化
+```javascript
+// 日期選擇器設定
+$(".datepicker").datepicker({
+    changeMonth: true,
+    changeYear: true,
+    dateFormat: "yy/mm/dd",
+    dayNamesMin: ["日", "一", "二", "三", "四", "五", "六"],
+    monthNamesShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+    showButtonPanel: true,
+    closeText: "關閉",
+    currentText: "今天"
+});
 ```
 
-### 6.2 資料新增
+### 6.3 多語系實現
 
-(主版面程式主要不涉及資料新增操作)
+系統支援繁體中文與英文兩種語言：
 
-### 6.3 資料更新
-
-```sql
--- 更新使用者最後活動時間
-UPDATE SYS_USER
-SET 
-    LastActiveTime = GETDATE()
-WHERE 
-    UserID = @UserID
+1. **語言切換機制**：透過下拉選單與工作階段變數控制
+```csharp
+protected void ddllanguage_SelectedIndexChanged(object sender, EventArgs e)
+{
+    // 儲存語言設定至Session
+    Session["Language"] = ddllanguage.SelectedValue;
+    // 設定頁面文化資訊
+    Thread.CurrentThread.CurrentUICulture = new CultureInfo(ddllanguage.SelectedValue);
+    // 重新載入頁面
+    Response.Redirect(Request.RawUrl);
+}
 ```
 
-```sql
--- 更新訊息已讀狀態
-UPDATE SYS_MESSAGE
-SET 
-    IsRead = 1,
-    ReadTime = GETDATE()
-WHERE 
-    MessageID = @MessageID
-    AND (TargetUserID = @UserID OR TargetUserID IS NULL)
+2. **資源文件管理**：使用App_GlobalResources與meta:resourcekey屬性
+```xml
+<asp:Label ID="lbllanguage" runat="server" meta:resourcekey="lbllanguageResource1"
+    Text="變更語言"></asp:Label>
 ```
 
-### 6.4 資料刪除
-
-(主版面程式主要不涉及資料刪除操作)
+3. **日期格式本地化**：根據語言設定調整日期格式
+```csharp
+if (_UserInfo.SysSet.GetCalendarSetting().Equals("Y"))
+{
+    // 使用民國年顯示
+    Page.ClientScript.RegisterClientScriptInclude(this.GetType().ToString() + "4", 
+        Page.ResolveUrl("~/Scripts/ui.datepicker.tw.js").ToString());
+}
+```
 
 ## 7. 程式碼說明
 
@@ -322,11 +348,11 @@ WHERE
 |---------|---------|---------|-------|
 | ValidateUserSession | 驗證使用者工作階段 | - | bool: 工作階段是否有效 |
 | LoadUserMenu | 載入使用者選單 | UserID: 使用者ID | DataTable: 選單資料 |
-| BuildMenu | 建立選單結構 | menuData: 選單資料表 | void |
-| ChangeCompany | 切換作業公司 | companyID: 公司編號 | bool: 切換是否成功 |
-| CheckAuthorization | 檢查功能權限 | menuID: 選單ID | bool: 是否具有權限 |
-| LogUserActivity | 記錄使用者活動 | activity: 活動描述 | void |
-| ShowMessage | 顯示系統訊息 | message: 訊息內容, type: 訊息類型 | void |
+| RegisterLeftMenu | 建立左側選單HTML | - | void |
+| RegisterTopMenu | 建立頂部選單HTML | parentid: 父選單ID<br>location: 位置代碼 | void |
+| RegisterSubMenu | 建立子選單HTML | parentid: 父選單ID<br>location: 位置代碼 | string: HTML代碼 |
+| ChangeUser | 切換使用者 | name: 用戶名<br>id: 用戶ID<br>loginaccount: 登入帳號 | void |
+| lbLogout_Click | 處理登出事件 | sender: 事件源<br>e: 事件參數 | void |
 | GetSystemParameter | 取得系統參數 | paramKey: 參數代碼 | string: 參數值 |
 
 ### 7.2 關鍵程式碼
@@ -361,142 +387,35 @@ private bool ValidateUserSession()
     
     // 更新最後活動時間
     Session["LastActivity"] = DateTime.Now;
-    
-    // 定期更新資料庫中的使用者活動時間
-    TimeSpan updateSpan = DateTime.Now - (DateTime)(Session["LastDBUpdate"] ?? DateTime.MinValue);
-    if (updateSpan.TotalMinutes > 5)
-    {
-        UpdateUserLastActiveTime(Session["UserID"].ToString());
-        Session["LastDBUpdate"] = DateTime.Now;
-    }
-    
     return true;
 }
 
-// 建立使用者選單
-private void BuildMenu(DataTable menuData)
+// 註冊客戶端腳本
+protected void Page_Load(object sender, EventArgs e)
 {
-    // 清除現有選單
-    menuMain.Items.Clear();
+    // 註冊核心JavaScript庫
+    Page.ClientScript.RegisterClientScriptInclude(this.GetType().ToString() + "1", 
+        Page.ResolveUrl("~/Scripts/jquery-1.4.4.min.js").ToString());
+    Page.ClientScript.RegisterClientScriptInclude(this.GetType().ToString() + "2", 
+        Page.ResolveUrl("~/Scripts/jquery-ui-1.8.7.custom.min.js").ToString());
     
-    if (menuData == null || menuData.Rows.Count == 0)
+    // 註冊功能相關腳本
+    Page.ClientScript.RegisterClientScriptInclude(this.GetType().ToString() + "A", 
+        Page.ResolveUrl("~/Pages/pagefunction.js").ToString());
+    Page.ClientScript.RegisterClientScriptInclude(this.GetType().ToString() + "B", 
+        Page.ResolveUrl("~/Pages/Busy.js").ToString());
+    
+    if (!IsPostBack)
     {
-        return;
+        // 初始化選單
+        InitMenuData();
+        RegisterLeftMenu();
+        RegisterTopMenu(menuData.ProgId, menuData.location);
     }
-    
-    // 先建立根選單項目
-    DataRow[] rootMenus = menuData.Select("MenuParentID IS NULL OR MenuParentID = ''");
-    foreach (DataRow rootMenu in rootMenus)
-    {
-        string menuID = rootMenu["MenuID"].ToString();
-        string menuName = rootMenu["MenuName"].ToString();
-        string menuUrl = rootMenu["MenuURL"].ToString();
-        string iconCss = rootMenu["IconCss"].ToString();
-        
-        MenuItem menuItem = new MenuItem();
-        menuItem.Text = menuName;
-        menuItem.Value = menuID;
-        
-        if (!string.IsNullOrEmpty(menuUrl))
-        {
-            menuItem.NavigateUrl = menuUrl;
-        }
-        
-        // 設定圖示CSS類別
-        if (!string.IsNullOrEmpty(iconCss))
-        {
-            menuItem.ImageUrl = iconCss;
-        }
-        
-        // 遞迴建立子選單
-        BuildSubMenu(menuItem, menuData, menuID);
-        
-        // 加入主選單
-        menuMain.Items.Add(menuItem);
-    }
-}
-
-// 遞迴建立子選單
-private void BuildSubMenu(MenuItem parentMenuItem, DataTable menuData, string parentMenuID)
-{
-    // 查找子選單項目
-    DataRow[] childMenus = menuData.Select("MenuParentID = '" + parentMenuID + "'");
-    
-    foreach (DataRow childMenu in childMenus)
-    {
-        string menuID = childMenu["MenuID"].ToString();
-        string menuName = childMenu["MenuName"].ToString();
-        string menuUrl = childMenu["MenuURL"].ToString();
-        string iconCss = childMenu["IconCss"].ToString();
-        
-        MenuItem menuItem = new MenuItem();
-        menuItem.Text = menuName;
-        menuItem.Value = menuID;
-        
-        if (!string.IsNullOrEmpty(menuUrl))
-        {
-            menuItem.NavigateUrl = menuUrl;
-        }
-        
-        // 設定圖示CSS類別
-        if (!string.IsNullOrEmpty(iconCss))
-        {
-            menuItem.ImageUrl = iconCss;
-        }
-        
-        // 遞迴處理下一層子選單
-        BuildSubMenu(menuItem, menuData, menuID);
-        
-        // 加入父選單
-        parentMenuItem.ChildItems.Add(menuItem);
-    }
-}
-
-// 切換公司處理
-protected void ddlCompany_SelectedIndexChanged(object sender, EventArgs e)
-{
-    string selectedCompanyID = ddlCompany.SelectedValue;
-    
-    // 檢查是否有權限存取該公司
-    DataTable companyTable = GetUserCompanies(Session["UserID"].ToString());
-    bool hasAccess = false;
-    
-    foreach (DataRow row in companyTable.Rows)
-    {
-        if (row["CompanyID"].ToString() == selectedCompanyID)
-        {
-            hasAccess = true;
-            break;
-        }
-    }
-    
-    if (!hasAccess)
-    {
-        ShowMessage("您沒有存取此公司的權限", "error");
-        return;
-    }
-    
-    // 更新工作階段中的公司資訊
-    Session["CompanyID"] = selectedCompanyID;
-    Session["CompanyName"] = ddlCompany.SelectedItem.Text;
-    
-    // 如果在內容頁面中有實作ICompanyAware介面，則通知公司變更
-    ContentPlaceHolder contentPlaceHolder = FindControl("MainContent") as ContentPlaceHolder;
-    if (contentPlaceHolder != null && contentPlaceHolder.Page != null)
-    {
-        ICompanyAware companyAware = contentPlaceHolder.Page as ICompanyAware;
-        if (companyAware != null)
-        {
-            companyAware.OnCompanyChanged(selectedCompanyID);
-        }
-    }
-    
-    // 重新整理頁面以反映公司變更
-    Response.Redirect(Request.RawUrl);
 }
 
 // 處理登出
-protected void btnLogout_Click(object sender, EventArgs e)
+protected void lbLogout_Click(object sender, EventArgs e)
 {
     // 記錄登出活動
     if (Session["UserID"] != null)
@@ -558,7 +477,7 @@ function initSessionMonitor() {
             },
             function() {
                 // 用戶選擇登出
-                document.getElementById('<%= btnLogout.ClientID %>').click();
+                document.getElementById('<%= lbLogout.ClientID %>').click();
             }
         );
     }
@@ -602,11 +521,6 @@ function initSessionMonitor() {
     setupActivityMonitoring();
 }
 
-// 頁面載入完成後初始化工作階段監控
-$(document).ready(function() {
-    initSessionMonitor();
-});
-
 // 系統訊息顯示
 function showSystemMessage(message, type) {
     var msgContainer = $('#systemMessageContainer');
@@ -629,78 +543,126 @@ function showSystemMessage(message, type) {
 }
 ```
 
-## 8. 測試規格
+## 8. 操作手冊
 
-### 8.1 單元測試
+### 8.1 主版面使用說明
 
-| 測試項目 | 測試內容 | 預期結果 |
-|---------|---------|---------|
-| 工作階段驗證 | 測試未登入狀態或工作階段過期的自動重定向 | 自動重定向至登入頁面 |
-| 選單權限控制 | 以不同權限角色登入，驗證選單顯示差異 | 僅顯示具有權限的選單項目 |
-| 公司切換功能 | 測試切換公司時的資料更新與畫面刷新 | 成功切換公司，相關資料正確更新 |
-| 工作階段管理 | 測試閒置超時警告與自動登出功能 | 閒置時間到達警告期間，顯示警告；超過時間自動登出 |
-| 多語系支援 | 測試語系切換功能，確認界面顯示正確語系 | 正確顯示所選語系的標籤與訊息 |
+1. **選單導航**：
+   - 左側主選單用於切換主要功能模組
+   - 頂部導航顯示當前模組的功能群組
+   - 每個功能模組都有專屬的子頁面，載入於內容區域
 
-### 8.2 整合測試
+2. **系統訊息**：
+   - 操作成功或失敗的訊息會顯示在頁面頂部
+   - 系統提示訊息會自動消失或需點擊關閉按鈕
 
-| 測試項目 | 測試內容 | 預期結果 |
-|---------|---------|---------|
-| 內容頁整合 | 測試內容頁面在主版面中的正確顯示 | 內容頁面正確嵌入主版面的ContentPlaceHolder |
-| 主版面與內容頁互動 | 測試主版面與內容頁面間的資料與事件交換 | 資料正確傳遞，事件正確觸發 |
-| 主版面事件透傳 | 測試主版面事件(如公司變更)對內容頁的通知 | 內容頁正確接收事件並作出反應 |
-| 共用功能使用 | 測試內容頁對主版面共用功能的呼叫 | 共用功能正確執行 |
-| 選單導航功能 | 測試選單項目點擊時的頁面導航 | 正確導航至目標頁面 |
+3. **用戶設定**：
+   - 頂部區域顯示當前登入用戶名稱
+   - 可切換系統顯示語言(中文/英文)
+   - 登出按鈕用於安全退出系統
 
-### 8.3 效能測試
+### 8.2 維護與擴展指南
 
-| 測試項目 | 測試內容 | 預期結果 |
-|---------|---------|---------|
-| 載入時間 | 測量主版面及選單載入時間 | 載入時間<1秒 |
-| 記憶體使用 | 監控主版面元件的記憶體使用情況 | 記憶體使用維持在合理範圍 |
-| 瀏覽器相容性 | 測試主版面在各主流瀏覽器中的顯示與功能 | 在所有目標瀏覽器中正確顯示與運作 |
-| 並發處理 | 測試多用戶同時登入使用系統時的效能 | 系統保持穩定運作，無明顯延遲 |
-| 資源使用效率 | 測試CSS和JavaScript檔案的載入與處理效率 | 資源載入最佳化，無阻塞頁面渲染 |
+1. **新增選單項目**：
+   - 在MenuManager.cs的CreateLeftMenuLT方法中添加MenuData物件
+   - 指定ParentProgId、ProgId、ProgName和ProgUrl等屬性
+   - 依據location屬性分配至左側或頂部選單
 
-### 8.4 使用者驗收測試
+2. **修改樣式**：
+   - 主要樣式定義在iBOSSiteStyle.css與iBosGridStyle.css
+   - 按鈕樣式定義在StyleBtn.css
+   - 自定義控制項樣式定義在App_Themes下的主題檔案
 
-| 測試項目 | 測試內容 | 預期結果 |
-|---------|---------|---------|
-| 功能完整性 | 依據規格全面測試主版面功能 | 所有功能正常運作 |
-| 易用性評估 | 評估使用者介面的易用性與人體工學 | 使用者可輕鬆掌握界面操作 |
-| 外觀一致性 | 檢查各頁面在主版面下的外觀一致性 | 所有頁面保持一致的外觀風格 |
-| 錯誤處理 | 測試各種錯誤情境下的系統反應 | 系統優雅處理錯誤，提供清晰訊息 |
-| 整體使用體驗 | 評估整體系統使用流暢度 | 操作流暢，無明顯卡頓或不便之處 |
+3. **系統參數配置**：
+   - Web.config中的appSettings區段包含系統配置
+   - SYS_SYS表儲存動態系統參數，可在運行時修改
 
-## 9. 相關檔案
+### 8.3 常見問題與解決方案
 
-### 9.1 原始程式檔案
+1. **選單不顯示或顯示不完整**：
+   - 檢查用戶權限設定(SYS_AUTHORITY表)
+   - 確認MenuManager.cs中的選單定義是否正確
+   - 檢查登入用戶的工作階段是否有效
 
-| 檔案名稱 | 檔案類型 | 檔案大小 | 檔案行數 | 說明 |
-|---------|---------|---------|---------|------|
-| GLA.master | ASPX | 11KB | 245 | 系統主版面頁面 |
-| GLA.master.cs | C# | 14KB | 397 | 系統主版面後端程式碼 |
-| MasterStyles.css | CSS | 5.6KB | 189 | 主版面樣式表 |
-| MasterScripts.js | JavaScript | 3.2KB | 98 | 主版面專用腳本 |
-| ICompanyAware.cs | C# | 1KB | 20 | 公司變更通知介面 |
+2. **樣式顯示異常**：
+   - 確認所有CSS檔案已正確載入
+   - 檢查瀏覽器相容性模式設定(推薦IE8相容模式)
+   - 清除瀏覽器快取後重新載入頁面
 
-### 9.2 相依元件檔案
+3. **工作階段過期問題**：
+   - 檢查Web.config中的工作階段逾時設定
+   - 確認SESSION_TIMEOUT參數設定合理
+   - 調整SESSION_WARNING以提供更早的提醒
 
-| 檔案名稱 | 檔案類型 | 說明 |
-|---------|---------|------|
-| LoginClass.cs | C# | 登入處理類別 |
-| AppAuthority.cs | C# | 權限管理類別 |
-| CryptoHelper.cs | C# | 加密處理類別 |
-| pagefunction.js | JavaScript | 共用頁面函數 |
-| bootstrap.min.css | CSS | Bootstrap框架樣式 |
-| jquery.min.js | JavaScript | jQuery函式庫 |
-| ModPopFunction.js | JavaScript | 彈出窗口控制 |
-| Busy.js | JavaScript | 忙碌指示器 |
+## 9. 附件
+
+### 9.1 資料表結構參考
+
+```sql
+-- 系統選單表
+CREATE TABLE SYS_MENU (
+    MenuID varchar(20) NOT NULL,
+    MenuName nvarchar(50) NOT NULL,
+    MenuParentID varchar(20) NULL,
+    MenuURL varchar(200) NULL,
+    MenuOrder int NOT NULL,
+    IconCss varchar(50) NULL,
+    IsActive bit NOT NULL DEFAULT 1,
+    CONSTRAINT PK_SYS_MENU PRIMARY KEY (MenuID)
+)
+
+-- 使用者權限表
+CREATE TABLE SYS_AUTHORITY (
+    AuthorityID int IDENTITY(1,1) NOT NULL,
+    GroupID varchar(20) NOT NULL,
+    MenuID varchar(20) NOT NULL,
+    AuthorityType tinyint NOT NULL, -- 1:可見 2:可讀 3:可寫 4:可刪 5:可執行
+    CONSTRAINT PK_SYS_AUTHORITY PRIMARY KEY (AuthorityID)
+)
+
+-- 系統參數表
+CREATE TABLE SYS_SYS (
+    ParamID int IDENTITY(1,1) NOT NULL,
+    ParamGroup varchar(20) NOT NULL,
+    ParamKey varchar(50) NOT NULL,
+    ParamValue nvarchar(500) NOT NULL,
+    ParamDesc nvarchar(200) NULL,
+    IsActive bit NOT NULL DEFAULT 1,
+    CONSTRAINT PK_SYS_SYS PRIMARY KEY (ParamID)
+)
+```
+
+### 9.2 選單結構設計
+
+主版面使用三級選單結構：
+
+1. **一級選單(Left)**：主要功能模組
+   - GLA01: 日常帳務
+   - GLA02: 日常作業
+   - GLR01: 報表管理1
+   - GLR02: 報表管理2
+   - GLR03: 報表管理3
+   - GLC01: 結帳處理
+   - GLD01: 資料設定
+   - GLB01: 總帳基本資料
+
+2. **二級選單(Top1)**：功能群組
+   - GLA0101: 傳票登錄
+   - GLA0102: 傳票更正作業
+   - GLA0103: 傳票核准作業
+   - GLA0104: 傳票列印
+   - GLA0105: 傳票核准取消作業
+   - GLA0106: 傳票過帳作業
+
+3. **三級選單(Top2)**：功能細項
+   - 根據功能需求動態產生
 
 ## 10. 修改歷史
 
 | 版本號 | 修改日期 | 修改人員 | 修改內容 | 備註 |
 |-------|---------|---------|---------|------|
-| 1.0.0 | [日期] | [人員] | 初版建立 | 初次建立程式規格書 |
+| 1.0.0 | 2023/10/30 | PanPacific開發團隊 | 初版建立 | 初次建立程式規格書 |
+| 1.0.1 | 2023/11/05 | PanPacific開發團隊 | 補充實作細節與操作指引 | 增加實際程式碼與使用說明 |
 
 ## 11. 備註與注意事項
 
